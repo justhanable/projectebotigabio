@@ -4,7 +4,6 @@ projectebotigabio\service\ProducteService.class
 projectebotigabio\service\UserServiceImpl.class
 projectebotigabio\service\UserService.class
 projectebotigabio\domain\Producte.class
-projectebotigabio\controller\ProducteController.class
 projectebotigabio\repository\ProducteRepository.class
 projectebotigabio\domain\User.class
 projectebotigabio\service\ProducteServiceImpl.class

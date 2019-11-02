@@ -30,7 +30,11 @@
 				<th>id del producte</th>
                                 <th>Nom del producte</th>
 				<th>Preu del producte</th>
+                                <th>Stock del producte</th>
 				<th>Descripcio del producte</th>
+                                <th>Area del producte</th>
+                                <th>Categoria del producte</th>
+                                <th>Imatge del producte</th>
 			</tr>
 		</thead>
                             
@@ -41,7 +45,11 @@
 					<td>${product.id}</td>
                                         <td>${product.producteNom}</td>
 					<td>${product.productePreu}</td>
+                                        <td>${product.producteStock}</td>
 					<td>${product.producteDesc}</td>
+                                        <td>${product.producteArea}</td>
+					<td>${product.producteCategoria}</td>
+					<td>${product.producteImg}</td>
 
 
 					<td><a

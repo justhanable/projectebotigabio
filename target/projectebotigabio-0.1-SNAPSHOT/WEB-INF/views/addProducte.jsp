@@ -34,8 +34,24 @@
                     <td><form:input path="productePreu"/></td>
                 </tr>
                 <tr>
+                    <td><form:label path="producteStock">Stock del producte</form:label></td>
+                    <td><form:input path="producteStock"/></td>
+                </tr>  
+                <tr>
                     <td><form:label path="producteDesc">Descripcio del producte</form:label></td>
                     <td><form:input path="producteDesc"/></td>
+                </tr>
+                <tr>
+                    <td><form:label path="producteArea">Area del producte</form:label></td>
+                    <td><form:input path="producteArea"/></td>
+                </tr>
+                 <tr>
+                    <td><form:label path="producteCategoria">Categoria del producte</form:label></td>
+                    <td><form:input path="producteCategoria"/></td>
+                </tr>
+                <tr>
+                    <td><form:label path="producteImg">Img del producte</form:label></td>
+                    <td><form:input path="producteImg"/></td>
                 </tr>
                 <tr>
 

@@ -7,6 +7,8 @@ package projectebotigabio.controller;
 
 import java.io.IOException;
 import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -50,7 +52,7 @@ public class ProducteController {
 		List producteList = producteService.getAllProductes();
 		mv.addObject("ProducteList", producteList);
 		mv.setViewName("allProductes");
-                		System.out.println(producteList + " !! aqui esta la productlist");
+                		//System.out.println(producteList + " !! aqui esta la productlist");
 
 		return mv;
 	}
@@ -112,7 +114,23 @@ public class ProducteController {
 		System.out.println("Producte deletion respone: " + isDeleted);
 		ModelAndView mv = new ModelAndView("redirect:/home");
 		return mv;
-
 	}
+     
+    @RequestMapping(value = "/{producteCategoria}", method = RequestMethod.GET)
+    public ModelAndView getProductesByCategoria(@PathVariable("producteCategoria") String producteCategoria) {
+        
+        ModelAndView modelview = new ModelAndView("/producteCategoria");     		
+        List productesPerCategoria = producteService.getProductesByCategoria(producteCategoria);
+        modelview.addObject("productesPerCategoria", productesPerCategoria);
+        modelview.addObject("categoriaEscollida", producteCategoria);            
+        return modelview;
+    }
 
+    
+
+    
 }
+        
+
+
+

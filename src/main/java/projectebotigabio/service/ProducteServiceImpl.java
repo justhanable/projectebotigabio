@@ -72,9 +72,14 @@ public class ProducteServiceImpl implements ProducteService {
 		
 	}
 
+
     @Override
-    public List<Producte> getProductesByTipus(String tipus) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Producte> getProductesByCategoria(String producteCategoria) {
+
+          return repository.findByproducteCategoria(producteCategoria);
+	
+                  
+    
     }
 
 }

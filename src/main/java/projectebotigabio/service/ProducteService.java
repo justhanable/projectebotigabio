@@ -14,13 +14,24 @@ import projectebotigabio.domain.Producte;
  */
 public interface ProducteService {
     
-
-	public List getAllProductes();
-	public Producte getProducteById(Long id);
+//
+//	public List getAllProductes();
+//	public Producte getProducteById(Long id);
 	public boolean saveProducte(Producte producte);
 	public boolean deleteProducteById(Long id);
-        List<Producte> getProductesByTipus(String tipus);
+//      List<Producte> getProductesByTipus(String tipus);
+//        
+                       
+        Producte getProducteById(Long id);
+    
+        List<Producte> getAllProductes();  
 
+       List<Producte> getProductesByCategoria(String producteCategoria);
+    
+       // void addProducte(Producte producte);
+    
+        //void updateProducte(Producte producte);
+        
 }
     
 

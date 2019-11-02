@@ -5,8 +5,6 @@
  */
 package projectebotigabio.domain;
 
-import java.io.Serializable;
-import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Range;
 
 /**
  *
@@ -25,7 +24,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "producte")
-public class Producte { //implements Serializable {        //HACE FALTA QUE SEA SERIALIZABLE?
+public class Producte { 
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,20 +40,44 @@ public class Producte { //implements Serializable {        //HACE FALTA QUE SEA 
     @Column(name = "productePreu")
     @NotNull
     private float productePreu;
+    
+    @Column(name = "producteStock")
+    @NotNull
+    @Range(min=1, max=10)    
+    private int producteStock;
 
     @Column(name = "producteDesc")
     @NotNull
     @Size(max = 200)
     private String producteDesc;
     
+    @Column(name = "producteArea")
+    @NotNull
+    @Size(max = 100)
+    private String producteArea;
+    
+        
+    @Column(name = "producteCategoria")
+    @NotNull
+    @Size(max = 100)
+    private String producteCategoria;
+    
+    @Column(name = "producteImg")
+    @NotNull
+    @Size(max = 200)
+    private String producteImg;
    
-    public Producte(int id, String producteNom, float productePreu, String producteDesc) {
+    public Producte(long id, String producteNom, float productePreu, int producteStock, String producteDesc, String producteArea, 
+                     String producteCategoria, String producteImg) {
                         
                         this.id = id;
                         this.producteNom = producteNom;
                         this.productePreu = productePreu;
+                        this.producteStock = producteStock;
                         this.producteDesc = producteDesc;
-                       
+                        this.producteArea = producteArea;
+                        this.producteCategoria = producteCategoria;
+                        this.producteImg = producteImg;
 
                     }
 
@@ -87,6 +110,14 @@ public class Producte { //implements Serializable {        //HACE FALTA QUE SEA 
         this.productePreu = productePreu;
     }
     
+    public int getProducteStock() {
+        return producteStock;
+    }
+
+    public void setProducteStock(int producteStock) {
+        this.producteStock = producteStock;
+    }
+    
     public String getProducteDesc() {
         return producteDesc;
     }
@@ -95,15 +126,44 @@ public class Producte { //implements Serializable {        //HACE FALTA QUE SEA 
         this.producteDesc = producteDesc;
     }
     
+    public String getProducteArea() {
+        return producteArea;
+    }
+
+    public void setProducteArea(String producteArea) {
+        this.producteArea = producteArea;
+    }
+     
+    public String getProducteCategoria() {
+        return producteCategoria;
+    }
+    
+    public void setProducteCategoria(String producteCategoria) {
+        this.producteCategoria = producteCategoria;
+    }
+    
+    public String getProducteImg() {
+        return producteImg;
+    }
+
+    public void setProducteImg(String producteImg) {
+        this.producteImg = producteImg;
+    }
+    
     
 
     @Override
     public int hashCode() {
+        
         int hash = 7;
         hash = 59 * hash + Objects.hashCode(this.id);
         hash = 59 * hash + Objects.hashCode(this.producteNom);
         hash = 59 * hash + Objects.hashCode(this.productePreu);
+        hash = 59 * hash + Objects.hashCode(this.producteStock);
         hash = 59 * hash + Objects.hashCode(this.producteDesc);
+        hash = 59 * hash + Objects.hashCode(this.producteArea);
+        hash = 59 * hash + Objects.hashCode(this.producteCategoria);
+        hash = 59 * hash + Objects.hashCode(this.producteImg);
         
         return hash;
     }
