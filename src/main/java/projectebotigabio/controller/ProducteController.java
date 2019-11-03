@@ -119,7 +119,7 @@ public class ProducteController {
     @RequestMapping(value = "/{producteCategoria}", method = RequestMethod.GET)
     public ModelAndView getProductesByCategoria(@PathVariable("producteCategoria") String producteCategoria) {
         
-        ModelAndView modelview = new ModelAndView("/producteCategoria");     		
+        ModelAndView modelview = new ModelAndView("/productes");     		
         List productesPerCategoria = producteService.getProductesByCategoria(producteCategoria);
         modelview.addObject("productesPerCategoria", productesPerCategoria);
         modelview.addObject("categoriaEscollida", producteCategoria);            

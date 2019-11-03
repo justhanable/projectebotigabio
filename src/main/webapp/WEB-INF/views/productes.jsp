@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -94,7 +95,9 @@
             color:white
 
         }
-
+        .container{
+            font-family: Roboto;
+        }
     </style>
 </head>
 
@@ -106,7 +109,7 @@
         <div class="container-fluid">
             <!--LOGOTIPO-->
             <a class="navbar-brand" href="<c:url value="/"/>">   
-                <img class="logo" src="<c:url value="img/botigabio.png"/>" alt="">
+                <img class="logo" src="<c:url value="/resources/img/botigabio.png"/>" alt="">
             </a>
             <!--BUSCADOR-->
             <div class="input-group md-form form-sm form-2 ml-2 mr-2">
@@ -185,89 +188,22 @@
     <div class="container my-5">
 
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="#">Nom Producte</a>
-                        </h5>
-                        <h5>Preu</h5>
-                        <p class="card-text">Pes</p>
-                        <button class="btn btn-success">Afegir</button>
-                    </div>
-                </div>
-            </div>
+            <c:forEach var="producte" items="${productesPerCategoria}">
 
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="#">Nom Producte</a>
-                        </h5>
-                        <h5>Preu</h5>
-                        <p class="card-text">Pes</p>
-                        <button class="btn btn-success">Afegir</button>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <a href="#"><img class="card-img-top" src="<c:url value="${producte.producteImg}"/>" alt=""></a>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="#">${producte.producteNom}</a>
+                            </h5>
+                            <p>${producte.producteDesc}</p>
+                            <h5 class="card-text">${producte.productePreu} €</h5>
+                            <button class="btn btn-success float-right">Afegir</button>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body">
-                       <h5 class="card-title">
-                            <a href="#">Nom Producte</a>
-                        </h5>
-                        <h5>Preu</h5>
-                        <p class="card-text">Pes</p>
-                        <button class="btn btn-success">Afegir</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="#">Nom Producte</a>
-                        </h5>
-                        <h5>Preu</h5>
-                        <p class="card-text">Pes</p>
-                        <button class="btn btn-success">Afegir</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="#">Nom Producte</a>
-                        </h5>
-                        <h5>Preu</h5>
-                        <p class="card-text">Pes</p>
-                        <button class="btn btn-success">Afegir</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <a href="#">Nom Producte</a>
-                        </h5>
-                        <h5>Preu</h5>
-                        <p class="card-text">Pes</p>
-                        <button class="btn btn-success">Afegir</button>
-                    </div>
-                </div>
-            </div>
+                </div>  
+            </c:forEach>
 
         </div>
     </div>
