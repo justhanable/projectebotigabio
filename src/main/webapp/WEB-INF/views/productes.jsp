@@ -95,7 +95,9 @@
             color:white
 
         }
-
+        .container{
+            font-family: Roboto;
+        }
     </style>
 </head>
 
@@ -197,7 +199,7 @@
                             </h5>
                             <p>${producte.producteDesc}</p>
                             <h5 class="card-text">${producte.productePreu} €</h5>
-                            <button class="btn btn-success">Afegir</button>
+                            <button class="btn btn-success float-right">Afegir</button>
                         </div>
                     </div>
                 </div>  
