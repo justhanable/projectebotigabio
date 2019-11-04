@@ -207,7 +207,7 @@
 	${message}
          <br>	
 	<a href="${pageContext.request.contextPath}/addProducte">
-        <button type="button" class="btn btn-success">Afegir nou producte</button>
+        <button type="button" class="btn btn-success"><i class="far fa-plus-square"></i> Afegir nou producte</button>
         </a>
 	<br>
 	<br>

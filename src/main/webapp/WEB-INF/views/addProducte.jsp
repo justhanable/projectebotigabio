@@ -1,9 +1,3 @@
-<%-- 
-    Document   : addProducte
-    Created on : 22-oct-2019, 11:18:48
-    Author     : jonat
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
