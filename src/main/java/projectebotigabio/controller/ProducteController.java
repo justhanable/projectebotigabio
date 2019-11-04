@@ -5,13 +5,7 @@
  */
 package projectebotigabio.controller;
 
-import java.io.IOException;
 import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -21,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import projectebotigabio.domain.Producte;
 import projectebotigabio.service.ProducteService;
+
 /**
  *
  * @author jonat
@@ -44,15 +38,14 @@ public class ProducteController {
 	}
 
 
-	// Get All Users
+	// Obtenir tots els productes
 	@RequestMapping(value = "/allProductes", method = RequestMethod.GET)
 	public ModelAndView displayAllProductes() {
-		System.out.println("Productes Page Requested : All Productes");
+		System.out.println("Peticio de pagina sol.licitada : All Productes");
 		ModelAndView mv = new ModelAndView();
 		List producteList = producteService.getAllProductes();
 		mv.addObject("ProducteList", producteList);
 		mv.setViewName("allProductes");
-                		//System.out.println(producteList + " !! aqui esta la productlist");
 
 		return mv;
 	}
@@ -60,7 +53,7 @@ public class ProducteController {
 	@RequestMapping(value = "/addProducte", method = RequestMethod.GET)
 	public ModelAndView displayNewProducteForm() {
 		ModelAndView mv = new ModelAndView("addProducte");
-		mv.addObject("headerMessage", "Add producte Details");
+		mv.addObject("headerMessage", "Afegir detalls al producte");
 		mv.addObject("producte", new Producte());
 		return mv;
 	}
@@ -74,7 +67,7 @@ public class ProducteController {
 		}
 		boolean isAdded = producteService.saveProducte(producte);
 		if (isAdded) {
-			mv.addObject("message", "New producte successfully added");
+			mv.addObject("message", "Nou producte correctament afegit");
 		} else {
 			return new ModelAndView("error");
 		}
@@ -86,7 +79,7 @@ public class ProducteController {
 	public ModelAndView displayEditUserForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("/editProducte");
 		Producte producte = producteService.getProducteById(id);
-		mv.addObject("headerMessage", "Edit Producte Details");
+		mv.addObject("headerMessage", "Editar detalls del producte");
 		mv.addObject("producte", producte);
 		return mv;
 	}
@@ -111,7 +104,7 @@ public class ProducteController {
 	@RequestMapping(value = "/deleteProducte/{id}", method = RequestMethod.GET)
 	public ModelAndView deleteProducteById(@PathVariable Long id) {
 		boolean isDeleted = producteService.deleteProducteById(id);
-		System.out.println("Producte deletion respone: " + isDeleted);
+		System.out.println("Eliminacio del producte: " + isDeleted);
 		ModelAndView mv = new ModelAndView("redirect:/home");
 		return mv;
 	}
