@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projectebotigabio.domain;
 
 import java.util.Objects;
@@ -20,7 +15,6 @@ import org.hibernate.validator.constraints.Range;
  *
  * @author jonat
  */
-
 
 @Entity
 @Table(name = "producte")
@@ -43,7 +37,7 @@ public class Producte {
     
     @Column(name = "producteStock")
     @NotNull
-    @Range(min=1, max=10)    
+    @Range(min=1, max=1000)    
     private int producteStock;
 
     @Column(name = "producteDesc")
@@ -55,8 +49,7 @@ public class Producte {
     @NotNull
     @Size(max = 100)
     private String producteArea;
-    
-        
+          
     @Column(name = "producteCategoria")
     @NotNull
     @Size(max = 100)
@@ -83,8 +76,6 @@ public class Producte {
 
     public Producte() {
     }
-
-   
 
     public long  getId() {
         return id;
@@ -149,9 +140,7 @@ public class Producte {
     public void setProducteImg(String producteImg) {
         this.producteImg = producteImg;
     }
-    
-    
-
+       
     @Override
     public int hashCode() {
         
@@ -186,6 +175,4 @@ public class Producte {
         return true;
     }
     
-    
-
 }
