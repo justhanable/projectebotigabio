@@ -25,7 +25,7 @@ import projectebotigabio.repository.ProducteRepository;
 @Transactional
 public class ProducteServiceImpl implements ProducteService {
 
-		// Implementing Constructor based DI
+		// injeccio dependencies repositori
 		private ProducteRepository repository;
 		
 		public ProducteServiceImpl() {
