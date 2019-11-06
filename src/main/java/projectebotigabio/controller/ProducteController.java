@@ -86,7 +86,7 @@ public class ProducteController {
 
 	@RequestMapping(value = "/editProducte/{id}", method = RequestMethod.POST)
 	public ModelAndView saveEditedProducte(@ModelAttribute Producte producte, BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/home");
+		ModelAndView mv = new ModelAndView("redirect:/allProductes");
 
 		if (result.hasErrors()) {
 			System.out.println(result.toString());
