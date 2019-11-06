@@ -22,6 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/02893b0cef.js" crossorigin="anonymous"></script>
+    
     <!--CSS-->
     <style>
         nav, footer{
@@ -98,6 +99,12 @@
         strong{
             font-size:50px
         }
+        
+        .bannerAllProductes{
+            height:110%;
+        }
+        
+       
     </style>
 </head>
 <body>
@@ -173,7 +180,7 @@
 
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/verdura"/>"><img class="card-img-top" src="<c:url value="/resources/img/vegetables-4375192_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/verdura"/>"><img class="card-img-top" src="<c:url value="/resources/img/vegetables-4375192_1280.jpg"/>" alt="Verdura"></a>
                     <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/verdura"/>">Verdures</a>
@@ -185,7 +192,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/fruitsec"/>"><img class="card-img-top" src="<c:url value="/resources/img/dried-fruits-3750383_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/fruitsec"/>"><img class="card-img-top" src="<c:url value="/resources/img/dried-fruits-3750383_1280.jpg"/>" alt="Fruits Secs"></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/fruitsec"/>">Fruits secs</a>
@@ -196,7 +203,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/fruita"/>"><img class="card-img-top" src="<c:url value="/resources/img/46768731734_31330f7805_c.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/fruita"/>"><img class="card-img-top" src="<c:url value="/resources/img/46768731734_31330f7805_c.jpg"/>" alt="Fruita"></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/fruita"/>">Fruita</a>
@@ -207,7 +214,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4 ml-1">
                 <div class="card h-100">
-                    <a href="<c:url value="/peix"/>"><img class="card-img-top" src="<c:url value="/resources/img/salmon-4143734_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/peix"/>"><img class="card-img-top" src="<c:url value="/resources/img/salmon-4143734_1280.jpg"/>" alt="Peix"></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/peix"/>">Peix</a>
@@ -218,7 +225,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/carn"/>"><img class="card-img-top" src="<c:url value="/resources/img/meat-3139641_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/carn"/>"><img class="card-img-top" src="<c:url value="/resources/img/meat-3139641_1280.jpg"/>" alt="Carn"></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/carn"/>">Carn</a>
@@ -226,6 +233,18 @@
                     </div>
                 </div>
               </div>
+                    
+                    <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card h-100">
+                    <a href="<c:url value="/allProductes"/>"><img class="card-img-top bannerAllProductes" src="<c:url value="/resources/img/allProductes.jpg"/>" alt="Tots els productes"></a>
+                  <div class="card-body">
+                      <h4 class="card-title text-center"> <br>
+                      <a href="<c:url value="/allProductes"/>">Tots els productes</a>
+                    </h4>
+                    </div> 
+                </div>
+              </div>
+                    
             </div>
         </div>
     </div>
