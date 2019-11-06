@@ -22,9 +22,9 @@ public class Producte {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "producteid")
     @NotNull
-    private long  id;
+    private long  producteid;
 
     @Column(name = "producteNom")
     @NotNull
@@ -35,10 +35,10 @@ public class Producte {
     @NotNull
     private float productePreu;
     
-    @Column(name = "producteStock")
+    @Column(name = "producteStoc")
     @NotNull
     @Range(min=1, max=1000)    
-    private int producteStock;
+    private int producteStoc;
 
     @Column(name = "producteDesc")
     @NotNull
@@ -63,10 +63,10 @@ public class Producte {
     public Producte(long id, String producteNom, float productePreu, int producteStock, String producteDesc, String producteArea, 
                      String producteCategoria, String producteImg) {
                         
-                        this.id = id;
+                        this.producteid = producteid;
                         this.producteNom = producteNom;
                         this.productePreu = productePreu;
-                        this.producteStock = producteStock;
+                        this.producteStoc = producteStoc;
                         this.producteDesc = producteDesc;
                         this.producteArea = producteArea;
                         this.producteCategoria = producteCategoria;
@@ -78,11 +78,11 @@ public class Producte {
     }
 
     public long  getId() {
-        return id;
+        return producteid;
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.producteid = id;
     }
 
     public String getproducteNom() {
@@ -102,11 +102,11 @@ public class Producte {
     }
     
     public int getProducteStock() {
-        return producteStock;
+        return producteStoc;
     }
 
     public void setProducteStock(int producteStock) {
-        this.producteStock = producteStock;
+        this.producteStoc = producteStock;
     }
     
     public String getProducteDesc() {
@@ -145,10 +145,10 @@ public class Producte {
     public int hashCode() {
         
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.id);
+        hash = 59 * hash + Objects.hashCode(this.producteid);
         hash = 59 * hash + Objects.hashCode(this.producteNom);
         hash = 59 * hash + Objects.hashCode(this.productePreu);
-        hash = 59 * hash + Objects.hashCode(this.producteStock);
+        hash = 59 * hash + Objects.hashCode(this.producteStoc);
         hash = 59 * hash + Objects.hashCode(this.producteDesc);
         hash = 59 * hash + Objects.hashCode(this.producteArea);
         hash = 59 * hash + Objects.hashCode(this.producteCategoria);
@@ -169,7 +169,7 @@ public class Producte {
             return false;
         }
         final Producte other = (Producte) obj;
-        if (!Objects.equals(this.id, other.id)) {
+        if (!Objects.equals(this.producteid, other.producteid)) {
             return false;
         }
         return true;
