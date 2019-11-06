@@ -64,7 +64,7 @@
                     <td><form:input class="cssForm" path="producteCategoria"/></td>
                 </tr>
                 <tr>
-                    <td><form:label path="producteImg">Img src del producte</form:label></td>
+                    <td><form:label path="producteImg">Src imatge del producte</form:label></td>
                     <td><form:input class="cssForm" path="producteImg"/></td>
                 </tr>
                 <tr>

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package projectebotigabio.controller;
 
 import java.util.List;
@@ -20,7 +15,7 @@ import projectebotigabio.service.ProducteService;
 
 /**
  *
- * @author jonat
+ * @author Jonatan Barrio
  */
 
 @Controller
@@ -29,14 +24,12 @@ public class ProducteController {
         private ProducteService producteService;
 
 	public ProducteController() {
-
 	}
 
 	@Autowired
 	public ProducteController(ProducteService producteService) {
 		this.producteService = producteService;
 	}
-
 
 	// Obtenir tots els productes
 	@RequestMapping(value = "/allProductes", method = RequestMethod.GET)
@@ -60,7 +53,7 @@ public class ProducteController {
 
 	@RequestMapping(value = "/addProducte", method = RequestMethod.POST)
 	public ModelAndView saveNewProducte(@ModelAttribute Producte producte, BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/home");
+		ModelAndView mv = new ModelAndView("redirect:/allProductes");
 
 		if (result.hasErrors()) {
 			return new ModelAndView("error");
@@ -97,7 +90,6 @@ public class ProducteController {
 
 			return new ModelAndView("error");
 		}
-
 		return mv;
 	}
 
@@ -105,23 +97,19 @@ public class ProducteController {
 	public ModelAndView deleteProducteById(@PathVariable Long id) {
 		boolean isDeleted = producteService.deleteProducteById(id);
 		System.out.println("Eliminacio del producte: " + isDeleted);
-		ModelAndView mv = new ModelAndView("redirect:/home");
+		ModelAndView mv = new ModelAndView("redirect:/allProductes");
 		return mv;
 	}
      
-    @RequestMapping(value = "/{producteCategoria}", method = RequestMethod.GET)
-    public ModelAndView getProductesByCategoria(@PathVariable("producteCategoria") String producteCategoria) {
-        
-        ModelAndView modelview = new ModelAndView("/productes");     		
-        List productesPerCategoria = producteService.getProductesByCategoria(producteCategoria);
-        modelview.addObject("productesPerCategoria", productesPerCategoria);
-        modelview.addObject("categoriaEscollida", producteCategoria);            
-        return modelview;
-    }
+        @RequestMapping(value = "/{producteCategoria}", method = RequestMethod.GET)
+        public ModelAndView getProductesByCategoria(@PathVariable("producteCategoria") String producteCategoria) {
 
-    
-
-    
+            ModelAndView modelview = new ModelAndView("/productes");     		
+            List productesPerCategoria = producteService.getProductesByCategoria(producteCategoria);
+            modelview.addObject("productesPerCategoria", productesPerCategoria);
+            modelview.addObject("categoriaEscollida", producteCategoria);            
+            return modelview;
+        }       
 }
         
 

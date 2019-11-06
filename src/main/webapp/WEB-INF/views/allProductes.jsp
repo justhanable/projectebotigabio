@@ -194,8 +194,9 @@
             <div class="col-sm-6">
                  <div style="margin-left: 20px;" class="card container-fluid">
                     <div class="card-body">
-                        <h5 class="card-title">Avís sobre aquesta pàgina:</h5>
-                        <p class="card-text">A partir del següent sprint només es podrà accedir a aquesta pàgina una vegada s'ha fet login i es té el rol com administrador</p>
+                        <h5 class="card-title"><i class="fas fa-exclamation-triangle"></i> Avís sobre aquesta pàgina:</h5>
+                        <p class="card-text">A partir del següent sprint només es podrà afegir, editar i eliminar productes una vegada s'ha fet login i es té el rol com administrador.</p>
+                        Hi haurà una altra vista corresponent a allProductes on l'usuari podrà veure'ls tots i afegir-los al carretó de compra.
                     </div>
                 </div>
             </div>
@@ -223,7 +224,7 @@
 				<th>Descripcio</th>
                                 <th>Area</th>
                                 <th>Categoria</th>
-                                <th>Imatge</th>
+                                <th>Enllaç a la imatge del producte</th>
 			</tr>
 		</thead>                          
 		<tbody>
