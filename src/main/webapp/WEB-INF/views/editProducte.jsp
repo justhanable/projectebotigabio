@@ -38,7 +38,10 @@
         
         	<form:hidden path="id" /> 
              <table>
-                
+                    <td><form:label path="id">Nom del producte</form:label></td>
+                    <td><form:input class="cssForm" path="producteNom"/></td>
+                                    </tr>               
+                <tr>
                     <td><form:label path="producteNom">Nom del producte</form:label></td>
                     <td><form:input class="cssForm" path="producteNom"/></td>
                 </tr>               
