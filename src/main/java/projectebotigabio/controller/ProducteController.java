@@ -75,7 +75,7 @@ public class ProducteController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/editProducte/{producteid}", method = RequestMethod.GET)
+	@RequestMapping(value = "/editProducte/{id}", method = RequestMethod.GET)
 	public ModelAndView displayEditUserForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("/editProducte");
 		Producte producte = producteService.getProducteById(id);
@@ -84,7 +84,7 @@ public class ProducteController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/editProducte/{producteid}", method = RequestMethod.POST)
+	@RequestMapping(value = "/editProducte/{id}", method = RequestMethod.POST)
 	public ModelAndView saveEditedProducte(@ModelAttribute Producte producte, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/home");
 
@@ -101,7 +101,7 @@ public class ProducteController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/deleteProducte/{producteidid}", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteProducte/{id}", method = RequestMethod.GET)
 	public ModelAndView deleteProducteById(@PathVariable Long id) {
 		boolean isDeleted = producteService.deleteProducteById(id);
 		System.out.println("Eliminacio del producte: " + isDeleted);
