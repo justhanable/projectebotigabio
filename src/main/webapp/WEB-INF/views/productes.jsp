@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -148,7 +149,27 @@
                         <a class="nav-link" href="#">Proveïdors</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Usuari<i class="fa fa-user"></i></a>
+                        <div class="btn-group">
+                            <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <i class="fa fa-user"></i></button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                <security:authorize access="isAuthenticated()">
+                                    <c:set var="username">
+                                    <security:authentication property="principal.username" /> 
+                                    </c:set>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
+                                </security:authorize>
+                                <security:authorize access="hasRole('ADMIN')">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/administracio"/>">Administració</a>
+                                </security:authorize>
+                            </div>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Carretó<i class="fa fa-shopping-cart"></i></a>
@@ -252,7 +273,7 @@
                     </div>
                     <ul>
                         <li><a href="#">Contacte</a></li>
-                        <li><a href="#">Polítiquest de privacitat</a></li>
+                        <li><a href="#">Polítiques de privacitat</a></li>
                     </ul>
                 </div>
             </div>  

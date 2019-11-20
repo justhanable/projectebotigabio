@@ -153,7 +153,23 @@
                         <a class="nav-link" href="#">Proveïdors</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Usuari<i class="fa fa-user"></i></a>
+                        <div class="btn-group">
+                            <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <i class="fa fa-user"></i></button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                <security:authorize access="isAuthenticated()">
+                                    <c:set var="username">
+                                    <security:authentication property="principal.username" /> 
+                                    </c:set>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
+                                </security:authorize>
+                            </div>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Carretó<i class="fa fa-shopping-cart"></i></a>
@@ -247,6 +263,50 @@
 			</c:forEach>
 		</tbody>
 	</table>
+        
+        
+        <!-- SE MUESTRAN TODOS LOS USUARIOS -->
+        
+        <br>
+	<br>
+	<br>
+	<a href="${pageContext.request.contextPath}/addUser">Add User</a>
+	<br>
+	<h3>List of all users</h3>
+	${message}
+	<br>
+	<br>
+	<table border="1px" cellpadding="0" cellspacing="0">
+		<thead>
+			<tr>
+                            
+                                <th>Id</th>
+				<th>Nom d'usuari</th>
+				<th>E-mail</th>
+				<th>Nom i Cognoms</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<c:forEach var="user" items="${userList}">
+				<tr>
+                                        <td>${user.id}</td>
+					<td>${user.username}</td>
+					<td>${user.email}</td>
+					<td>${user.name}</td>
+					<td><a
+						href="${pageContext.request.contextPath}/usuari/${user.username}">Edit</a></td>
+					<td><a
+						href="${pageContext.request.contextPath}/deleteUser/${user.username}">Delete</a></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+
+
+	</table>
+        
         
             <!--FOOTER NEWSLETTER-->
     <footer>

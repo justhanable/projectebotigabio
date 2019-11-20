@@ -43,7 +43,7 @@ public class ProducteController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/addProducte", method = RequestMethod.GET)
+	@RequestMapping(value = "/administracio/addProducte", method = RequestMethod.GET)
 	public ModelAndView displayNewProducteForm() {
 		ModelAndView mv = new ModelAndView("addProducte");
 		mv.addObject("headerMessage", "Afegir detalls al producte");
@@ -51,7 +51,7 @@ public class ProducteController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/addProducte", method = RequestMethod.POST)
+	@RequestMapping(value = "/administracio/addProducte", method = RequestMethod.POST)
 	public ModelAndView saveNewProducte(@ModelAttribute Producte producte, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/allProductes");
 
@@ -68,7 +68,7 @@ public class ProducteController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/editProducte/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/administracio/editProducte/{id}", method = RequestMethod.GET)
 	public ModelAndView displayEditUserForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("/editProducte");
 		Producte producte = producteService.getProducteById(id);
@@ -77,7 +77,7 @@ public class ProducteController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/editProducte/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/administracio/editProducte/{id}", method = RequestMethod.POST)
 	public ModelAndView saveEditedProducte(@ModelAttribute Producte producte, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/allProductes");
 
@@ -93,7 +93,7 @@ public class ProducteController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/deleteProducte/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/administracio/deleteProducte/{id}", method = RequestMethod.GET)
 	public ModelAndView deleteProducteById(@PathVariable Long id) {
 		boolean isDeleted = producteService.deleteProducteById(id);
 		System.out.println("Eliminacio del producte: " + isDeleted);
