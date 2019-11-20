@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -99,6 +101,8 @@
         strong{
             font-size:50px
         }
+        
+  
     </style>
 </head>
 <body>
@@ -178,76 +182,52 @@
         </div>
     </nav>
     <!--BODY-->
-    <div class="container">
+    <div class="container m-5">
         <div class="row">
-            <!--IMAGEN PRINCIPAL-->
-            <div class="jumbotron card card-image col-12">
-                <div class="text-center py-5 px-4">
-                    <div>
-                    <h1 class="card-title h1-responsive pt-3 mb-5"><strong>PRODUCTES DE PROXIMITAT</strong></h1>
-                    <h1 class="card-title h1-responsive pt-3 mb-5"><strong> GARANTIA DE QUALITAT</strong></h1>
-                    </div>
+        <div class="card w-50 p-0">
+            <h4 class="card-header">
+                <i class="fa fa-user"></i> Registre d'usuari
+            </h4>
+        
+            <div class="card-block">
+        <form:form method="POST" action="addUser" modelAttribute="user">
+            <fieldset class="p-4">
+                <div class="form-group">
+                    <form:label path ="username" for="username">Nom d'usuari</form:label>
+                    <form:input path="username" type="text" class="form-control" id="username"/>  
                 </div>
+                <div class="form-group">
+                    <form:label path ="password" for="password">Contrasenya</form:label>
+                    <form:input path="password" type="password" class="form-control" id="password"/>  
+                </div>
+                <div class="form-group">
+                    <form:label path ="email" for="email">E-mail</form:label>
+                    <form:input path="email" type="text" class="form-control" id="email"/>  
+                </div>
+                <div class="form-group">
+                    <form:label path ="name" for="name">Nom i cognoms</form:label>
+                    <form:input path="name" type="text" class="form-control" id="name"/>  
+                </div>
+                <div class="form-group">
+                    <form:label path ="adress" for="adress">Adreça</form:label>
+                    <form:input path="adress" type="text" class="form-control" id="adress"/>  
+                </div>
+                <div class="form-group">
+                    <form:label path ="age" for="age">Edat</form:label>
+                    <form:input path="age" type="number" class="form-control" id="age"/>  
+                </div>
+                <div class="form-group">
+                    <form:label path ="targeta" for="targeta">Targeta</form:label>
+                    <form:input path="targeta" type="text" class="form-control" id="targeta"/>  
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success">Registrar-se</button>
+                </div>
+            </fieldset>
+        </form:form>
             </div>
-            <!--SELECCION DE TIPO DE PRODUCTO-->
-            <div class="row justify-content-center my-1">
-
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="<c:url value="/verdura"/>"><img class="card-img-top" src="<c:url value="/resources/img/vegetables-4375192_1280.jpg"/>" alt=""></a>
-                    <div class="card-body">
-                    <h4 class="card-title text-center">
-                      <a href="<c:url value="/verdura"/>">Verdures</a>
-                  
-                    </h4>
-                    </div>
-                </div>
-            </div>
-
-              <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="<c:url value="/fruitsec"/>"><img class="card-img-top" src="<c:url value="/resources/img/dried-fruits-3750383_1280.jpg"/>" alt=""></a>
-                  <div class="card-body">
-                    <h4 class="card-title text-center">
-                      <a href="<c:url value="/fruitsec"/>">Fruits secs</a>
-                    </h4>
-                    </div> 
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="<c:url value="/fruita"/>"><img class="card-img-top" src="<c:url value="/resources/img/46768731734_31330f7805_c.jpg"/>" alt=""></a>
-                  <div class="card-body">
-                    <h4 class="card-title text-center">
-                      <a href="<c:url value="/fruita"/>">Fruita</a>
-                    </h4>
-                    </div> 
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-6 mb-4 ml-1">
-                <div class="card h-100">
-                    <a href="<c:url value="/peix"/>"><img class="card-img-top" src="<c:url value="/resources/img/salmon-4143734_1280.jpg"/>" alt=""></a>
-                  <div class="card-body">
-                    <h4 class="card-title text-center">
-                      <a href="<c:url value="/peix"/>">Peix</a>
-                    </h4>
-                    </div> 
-                </div>
-              </div>
-
-              <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="<c:url value="/carn"/>"><img class="card-img-top" src="<c:url value="/resources/img/meat-3139641_1280.jpg"/>" alt=""></a>
-                  <div class="card-body">
-                    <h4 class="card-title text-center">
-                      <a href="<c:url value="/carn"/>">Carn</a>
-                    </h4>
-                    </div>
-                </div>
-              </div>
-            </div>
+            
+        </div>   
         </div>
     </div>
     
