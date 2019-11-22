@@ -53,7 +53,7 @@ public class ProducteController {
 
 	@RequestMapping(value = "/administracio/addProducte", method = RequestMethod.POST)
 	public ModelAndView saveNewProducte(@ModelAttribute Producte producte, BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/allProductes");
+		ModelAndView mv = new ModelAndView("redirect:/administracio");
 
 		if (result.hasErrors()) {
 			return new ModelAndView("error");
@@ -79,7 +79,7 @@ public class ProducteController {
 
 	@RequestMapping(value = "/administracio/editProducte/{id}", method = RequestMethod.POST)
 	public ModelAndView saveEditedProducte(@ModelAttribute Producte producte, BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/allProductes");
+		ModelAndView mv = new ModelAndView("redirect:/administracio");
 
 		if (result.hasErrors()) {
 			System.out.println(result.toString());
@@ -97,7 +97,7 @@ public class ProducteController {
 	public ModelAndView deleteProducteById(@PathVariable Long id) {
 		boolean isDeleted = producteService.deleteProducteById(id);
 		System.out.println("Eliminacio del producte: " + isDeleted);
-		ModelAndView mv = new ModelAndView("redirect:/allProductes");
+		ModelAndView mv = new ModelAndView("redirect:/administracio");
 		return mv;
 	}
      

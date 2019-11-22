@@ -236,7 +236,7 @@
         <h3>Llistat de tots els productes</h3>
 	${message}
          <br>	
-	<a href="${pageContext.request.contextPath}/addProducte">
+	<a href="${pageContext.request.contextPath}/administracio/addProducte">
         <button type="button" class="btn btn-success"><i class="far fa-plus-square"></i> Afegir nou producte</button>
         </a>
 	<br>
@@ -268,9 +268,9 @@
 					<td>${product.producteImg}</td>
 
 					<td><a 
-						href="${pageContext.request.contextPath}/editProducte/${product.id}">Editar <i class="far fa-edit"></i></a></td>
+						href="${pageContext.request.contextPath}/administracio/editProducte/${product.id}">Editar <i class="far fa-edit"></i></a></td>
 					<td><a  style="color:red"
-						href="${pageContext.request.contextPath}/deleteProducte/${product.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
+						href="${pageContext.request.contextPath}/administracio/deleteProducte/${product.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -315,7 +315,7 @@
 					<td><a
 						href="${pageContext.request.contextPath}/usuari/${user.username}">Edit</a></td>
 					<td><a
-						href="${pageContext.request.contextPath}/deleteUser/${user.username}">Delete</a></td>
+						href="${pageContext.request.contextPath}/administracio/deleteUser/${user.username}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

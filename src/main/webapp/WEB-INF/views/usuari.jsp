@@ -206,7 +206,7 @@
                     <security:authorize access="isAuthenticated()">
                         authenticated as <security:authentication property="principal.username" /> 
                     </security:authorize>
-                        <form:form method="POST" action="editUser" modelAttribute="user">
+                        <form:form method="POST" action="user1" modelAttribute="user">
                             <fieldset class="p-4">
 
                                 <div class="form-group">
