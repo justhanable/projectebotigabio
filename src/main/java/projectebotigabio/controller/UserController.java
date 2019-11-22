@@ -67,7 +67,7 @@ public class UserController {
         }
 
 	// Get All Users
-	@RequestMapping(value = "/allUsers", method = RequestMethod.GET)
+	@RequestMapping(value = "/administracio/allUsers", method = RequestMethod.GET)
 	public ModelAndView displayAllUser() {
 		System.out.println("User Page Requested : All Users");
 		ModelAndView mv = new ModelAndView();
@@ -164,7 +164,7 @@ public class UserController {
 
         //Mètode per eliminar usuaris
 	@RequestMapping(value = "/administracio/deleteUser/{username}", method = RequestMethod.GET)
-	public ModelAndView deleteUserById(@PathVariable String username) {
+	public ModelAndView deleteUserByUsername(@PathVariable String username) {
 		boolean isDeleted = userService.deleteUserByUsername(username);
 		System.out.println("User deletion respone: " + isDeleted);
 		ModelAndView mv = new ModelAndView("redirect:/home");
