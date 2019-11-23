@@ -29,7 +29,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(name = "username")
+    @Column(name = "username", unique=true)
     @NotNull
     private String username;
     
@@ -37,7 +37,7 @@ public class User {
     @NotNull
     private String password;
     
-    @Column(name = "email")
+    @Column(name = "email", unique=true)
     @NotNull
     private String email;
     

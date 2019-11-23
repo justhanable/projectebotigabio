@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import projectebotigabio.domain.User;
@@ -132,10 +133,11 @@ public class UserController {
         */
         
         //Es mostren les dades d'usuari i dona l'opcio de modificar-les
-        @RequestMapping(value = "/usuari/{username}", method = RequestMethod.GET)
+        
         //Només l'admin o l'usuari especific pot modificar les seves dades -- NO FUNCIONA
         //@PreAuthorize("hasRole('ADMIN') || @userServiceImpl.isUser(id)")
         //@PreAuthorize("hasRole('ADMIN') or #id == principal.username")
+        @RequestMapping(value = "/usuari/{username}", method = RequestMethod.GET)
 	public ModelAndView displayEditUserFormByUsername(@PathVariable String username) {
 		ModelAndView mv = new ModelAndView("/usuari");
 		User user = userService.getUserByUsername(username);
@@ -145,22 +147,30 @@ public class UserController {
 	}
 
         //Modifica les dades d'usuari
+        
 	@RequestMapping(value = "/usuari/{username}", method = RequestMethod.POST)
 	public ModelAndView saveEditedUser(@ModelAttribute User user, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/home");
 
 		if (result.hasErrors()) {
+                        ModelAndView mav = new ModelAndView("error");
+                        mav.addObject("errors",result.getAllErrors());
 			System.out.println(result.toString());
-			return new ModelAndView("error");
+			return mav;
 		}
 		boolean isSaved = userService.saveUser(user);
 		if (!isSaved) {
-
-			return new ModelAndView("error");
+                        ModelAndView mav = new ModelAndView("error");
+                        mav.addObject("errors",result.getAllErrors());
+			System.out.println(result.toString());
+			return mav;
+			
 		}
 
 		return mv;
 	}
+        
+        
 
         //Mètode per eliminar usuaris
 	@RequestMapping(value = "/administracio/deleteUser/{username}", method = RequestMethod.GET)

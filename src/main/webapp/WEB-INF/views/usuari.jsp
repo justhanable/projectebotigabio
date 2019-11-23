@@ -17,7 +17,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Botiga online de productes de proximitat Bio">
-    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--LINK A CSS-->
     <link rel="stylesheet" type="text/css" href="">
@@ -92,14 +91,7 @@
             color:white
 
         }
-        .jumbotron {
-            padding-top:0;
-            background-image: url(<c:url value='/resources/img/vegetables-752153_1280.jpg'/>);
-            background-size: cover;
-            height:500px;
-            font-family:Baloo Bhai;
-            color:white
-        }
+        
         .container{
            font-family:Roboto; 
         }
@@ -193,8 +185,8 @@
     <c:set var="username">
         <security:authentication property="principal.username" /> 
     </c:set>
-    <!--mostream les dades d'usuari només si l'usuari que accedeix a l'url és l'usuari actual-->
-    <c:if test="${username == user.username}">
+    <!--mostream les dades d'usuari només si l'usuari que accedeix a l'url és l'usuari actual o és l'administrador-->
+    <c:if test="${username == user.username or username == 'admin'}">
         <div class="container m-5">
             <div class="row">
                 <div class="card w-50 p-0">
@@ -206,9 +198,19 @@
                     <security:authorize access="isAuthenticated()">
                         authenticated as <security:authentication property="principal.username" /> 
                     </security:authorize>
-                        <form:form method="POST" action="user1" modelAttribute="user">
+                        <form:form method="POST" action="${username}" modelAttribute="user">
+                            <form:hidden path="id" />
+                            
+                            <form:hidden path="enabled" />
+                            <form:hidden path="roles" />
                             <fieldset class="p-4">
-
+                                <div class="form-group">
+                                    <form:label path ="password" for="password">Contrasenya</form:label>
+                                    <form:input path="password" type="password" class="form-control" id="password" aria-describedby="passwordHelpBlock"/>
+                                    <small id="passwordHelpBlock" class="form-text text-muted">
+                                      És obligatori cambiar la contrasenya si vols modificar les dades
+                                    </small> 
+                                </div>
                                 <div class="form-group">
                                     <form:label path ="email" for="email">E-mail</form:label>
                                     <form:input path="email" type="text" class="form-control" id="email"/>  
