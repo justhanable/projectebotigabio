@@ -19,6 +19,9 @@ import projectebotigabio.domain.Producte;
         Producte getProducteById(Long id);   
         List<Producte> getAllProductes();  
         List<Producte> getProductesByCategoria(String producteCategoria);
+        //List<Producte> getProducteByNom(String producteNom);
+        List<Producte> getProducteByNom(String producteNom);
+        
 
     }
     
