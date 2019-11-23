@@ -1,6 +1,14 @@
+<%-- 
+    Document   : administracio
+    Created on : 18-nov-2019, 20:27:21
+    Author     : Xavi
+--%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -168,6 +176,10 @@
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
                                 </security:authorize>
+                                <security:authorize access="hasRole('ADMIN')">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/administracio"/>">Administració</a>
+                                </security:authorize>
                             </div>
                         </div>
                     </li>
@@ -224,7 +236,7 @@
         <h3>Llistat de tots els productes</h3>
 	${message}
          <br>	
-	<a href="${pageContext.request.contextPath}/addProducte">
+	<a href="${pageContext.request.contextPath}/administracio/addProducte">
         <button type="button" class="btn btn-success"><i class="far fa-plus-square"></i> Afegir nou producte</button>
         </a>
 	<br>
@@ -256,9 +268,9 @@
 					<td>${product.producteImg}</td>
 
 					<td><a 
-						href="${pageContext.request.contextPath}/editProducte/${product.id}">Editar <i class="far fa-edit"></i></a></td>
+						href="${pageContext.request.contextPath}/administracio/editProducte/${product.id}">Editar <i class="far fa-edit"></i></a></td>
 					<td><a  style="color:red"
-						href="${pageContext.request.contextPath}/deleteProducte/${product.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
+						href="${pageContext.request.contextPath}/administracio/deleteProducte/${product.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -270,13 +282,15 @@
         <br>
 	<br>
 	<br>
-	<a href="${pageContext.request.contextPath}/addUser">Add User</a>
+	<a href="${pageContext.request.contextPath}/addUser">
+            <button type="button" class="btn btn-success"><i class="far fa-plus-square"></i> Afegir nou usuari</button>
+        </a>
 	<br>
-	<h3>List of all users</h3>
+	<h3>Llistat de tots els usuaris</h3>
 	${message}
 	<br>
 	<br>
-	<table border="1px" cellpadding="0" cellspacing="0">
+	<table class="table table-bordered table-striped text-center">
 		<thead>
 			<tr>
                             
@@ -284,7 +298,8 @@
 				<th>Nom d'usuari</th>
 				<th>E-mail</th>
 				<th>Nom i Cognoms</th>
-				<th>Edit</th>
+                                <th>Rol</th>
+				<!--<th>Edit</th>-->
 				<th>Delete</th>
 			</tr>
 		</thead>
@@ -296,10 +311,11 @@
 					<td>${user.username}</td>
 					<td>${user.email}</td>
 					<td>${user.name}</td>
+                                        <td>${user.roles}</td>
+					<!--<td><a
+						href="${pageContext.request.contextPath}/usuari/${user.username}">Edit</a></td>-->
 					<td><a
-						href="${pageContext.request.contextPath}/usuari/${user.username}">Edit</a></td>
-					<td><a
-						href="${pageContext.request.contextPath}/deleteUser/${user.username}">Delete</a></td>
+						href="${pageContext.request.contextPath}/administracio/deleteUser/${user.username}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -353,7 +369,7 @@
                     </div>
                     <ul>
                         <li><a href="#">Contacte</a></li>
-                        <li><a href="#">Polítiquest de privacitat</a></li>
+                        <li><a href="#">Polítiques de privacitat</a></li>
                     </ul>
                 </div>
             </div>  

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -22,7 +23,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/02893b0cef.js" crossorigin="anonymous"></script>
-    
     <!--CSS-->
     <style>
         nav, footer{
@@ -99,12 +99,6 @@
         strong{
             font-size:50px
         }
-        
-        .bannerAllProductes{
-            height:110%;
-        }
-        
-       
     </style>
 </head>
 <body>
@@ -174,7 +168,27 @@
                         <a class="nav-link" href="#">Proveïdors</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Usuari<i class="fa fa-user"></i></a>
+                        <div class="btn-group">
+                            <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <i class="fa fa-user"></i></button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                <security:authorize access="isAuthenticated()">
+                                    <c:set var="username">
+                                    <security:authentication property="principal.username" /> 
+                                    </c:set>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
+                                </security:authorize>
+                                <security:authorize access="hasRole('ADMIN')">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/administracio"/>">Administració</a>
+                                </security:authorize>
+                            </div>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Carretó<i class="fa fa-shopping-cart"></i></a>
@@ -200,7 +214,7 @@
 
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/verdura"/>"><img class="card-img-top" src="<c:url value="/resources/img/vegetables-4375192_1280.jpg"/>" alt="Verdura"></a>
+                    <a href="<c:url value="/verdura"/>"><img class="card-img-top" src="<c:url value="/resources/img/vegetables-4375192_1280.jpg"/>" alt=""></a>
                     <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/verdura"/>">Verdures</a>
@@ -212,7 +226,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/fruitsec"/>"><img class="card-img-top" src="<c:url value="/resources/img/dried-fruits-3750383_1280.jpg"/>" alt="Fruits Secs"></a>
+                    <a href="<c:url value="/fruitsec"/>"><img class="card-img-top" src="<c:url value="/resources/img/dried-fruits-3750383_1280.jpg"/>" alt=""></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/fruitsec"/>">Fruits secs</a>
@@ -223,7 +237,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/fruita"/>"><img class="card-img-top" src="<c:url value="/resources/img/46768731734_31330f7805_c.jpg"/>" alt="Fruita"></a>
+                    <a href="<c:url value="/fruita"/>"><img class="card-img-top" src="<c:url value="/resources/img/46768731734_31330f7805_c.jpg"/>" alt=""></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/fruita"/>">Fruita</a>
@@ -234,7 +248,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4 ml-1">
                 <div class="card h-100">
-                    <a href="<c:url value="/peix"/>"><img class="card-img-top" src="<c:url value="/resources/img/salmon-4143734_1280.jpg"/>" alt="Peix"></a>
+                    <a href="<c:url value="/peix"/>"><img class="card-img-top" src="<c:url value="/resources/img/salmon-4143734_1280.jpg"/>" alt=""></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/peix"/>">Peix</a>
@@ -245,7 +259,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/carn"/>"><img class="card-img-top" src="<c:url value="/resources/img/meat-3139641_1280.jpg"/>" alt="Carn"></a>
+                    <a href="<c:url value="/carn"/>"><img class="card-img-top" src="<c:url value="/resources/img/meat-3139641_1280.jpg"/>" alt=""></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/carn"/>">Carn</a>
@@ -253,18 +267,6 @@
                     </div>
                 </div>
               </div>
-                    
-                    <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card h-100">
-                    <a href="<c:url value="/allProductes"/>"><img class="card-img-top bannerAllProductes" src="<c:url value="/resources/img/allProductes.jpg"/>" alt="Tots els productes"></a>
-                  <div class="card-body">
-                      <h4 class="card-title text-center"> <br>
-                      <a href="<c:url value="/allProductes"/>">Tots els productes</a>
-                    </h4>
-                    </div> 
-                </div>
-              </div>
-                    
             </div>
         </div>
     </div>
