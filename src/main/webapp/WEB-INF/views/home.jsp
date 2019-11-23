@@ -133,6 +133,7 @@
               <i class="fas fa-search" aria-hidden="true"></i>
               <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" name="cercar"
                 aria-label="Search">
+              <br>
             </form>
                             
                             <form action="http://localhost:8080/projectebotigabio-master/" method="post">
