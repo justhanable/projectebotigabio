@@ -299,7 +299,7 @@
 				<th>E-mail</th>
 				<th>Nom i Cognoms</th>
                                 <th>Rol</th>
-				<th>Edit</th>
+				<!--<th>Edit</th>-->
 				<th>Delete</th>
 			</tr>
 		</thead>
@@ -312,8 +312,8 @@
 					<td>${user.email}</td>
 					<td>${user.name}</td>
                                         <td>${user.roles}</td>
-					<td><a
-						href="${pageContext.request.contextPath}/usuari/${user.username}">Edit</a></td>
+					<!--<td><a
+						href="${pageContext.request.contextPath}/usuari/${user.username}">Edit</a></td>-->
 					<td><a
 						href="${pageContext.request.contextPath}/administracio/deleteUser/${user.username}">Delete</a></td>
 				</tr>

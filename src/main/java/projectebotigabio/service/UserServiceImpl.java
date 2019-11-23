@@ -63,12 +63,13 @@ public class UserServiceImpl implements UserService {
         
 	@Override
 	public boolean saveUser(User user) {
-		try {
-                    //Abans de guardar l'usuari a la base de dades, hem de codificar la contrasenya
-                        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-                        user.setPassword(passwordEncoder.encode(user.getPassword()));
-			repository.save(user);
-			return true;
+		try {   
+
+                    //Abans de guardar un usuari a la base de dades, hem de codificar la contrasenya
+                    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+                    user.setPassword(passwordEncoder.encode(user.getPassword()));
+                    repository.save(user);
+                    return true;     
 		}catch(Exception ex) {
 			return false;
 		}
