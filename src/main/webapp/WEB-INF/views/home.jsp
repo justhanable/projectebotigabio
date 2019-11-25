@@ -114,30 +114,14 @@
             
             
             <!--BUSCADOR-->
-            <div class="input-group md-form form-sm form-2 ml-2 mr-2">
-                <input class="form-control my-0 py-1 lime-border" name="barraCercador" type="text" placeholder="Busca productes" aria-label="Search">
+
                 
-                <span class="input-group-btn">
-                    <button class="btn btn-default" action="<c:url value="/cercar/Toma"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
-                </span>
-            </div>
-                
-                            <!-- Search form -->
-            <form class="form-inline md-form form-sm mt-0" method="get" >
-              <i class="fas fa-search" aria-hidden="true"></i>
-              <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" name="cercar"
-                aria-label="Search">
-              <br>
-            </form>
-                            
-                            <form action="http://localhost:8080/projectebotigabio-master/" method="post">
-    <div class="input-wrap">
-        <!-- Give the input the name of the field you want to send -->
-        <input type="text" class="block"  name="cercar" >
-        <!-- Don't give the submit button a name -->
-        <input type="submit" class="block">
-    </div>
- </form>
+    <form class="input-group md-form form-sm form-2 ml-2 mr-2" method="get" action="search">
+        <input class="form-control my-0 py-1 lime-border" type="text" name="producteNom" placeholder="Busca productes" /> &nbsp;
+        <button class="btn btn-default" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
+        
+    </form>
+
                 
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">

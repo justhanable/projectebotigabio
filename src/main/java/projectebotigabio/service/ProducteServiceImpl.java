@@ -68,9 +68,9 @@ public class ProducteServiceImpl implements ProducteService {
                 }
                 
                 @Override
-                public List<Producte> getProducteByNom(String producteNom){    
+                public List<Producte> search(String producteNom){    
                     System.out.println("SE METE EN FINDBYPRODUCTENONLIKE");
-                    return repository.findByproducteNom(producteNom);
+                    return repository.search(producteNom);
                 }
 
 }

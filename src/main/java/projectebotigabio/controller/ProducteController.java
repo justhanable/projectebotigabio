@@ -3,6 +3,7 @@ package projectebotigabio.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 //import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -119,27 +120,37 @@ public class ProducteController {
         //@RequestMapping(value = "/{\\w)cercar={producteNom}", method = RequestMethod.GET)
         //@RequestMapping(value = "/{producteNomsimb: [?]}cercar={producteNom:}", method = RequestMethod.GET)
         
-        @RequestMapping(value = "/cercar={producteNom}", method = RequestMethod.GET)
-        public ModelAndView getProducteByNom(@PathVariable("producteNom") String producteNom) {
-    
-                ModelAndView modelview = new ModelAndView("/producteCercador");  
-
-                List productesPerNom = producteService.getProducteByNom(producteNom);
-                System.out.println(producteNom + "<-- aqui NOM");
-                                
-                System.out.println(productesPerNom + "<-- aqui productes PER NOM");
-                modelview.addObject("productesPerNom", productesPerNom);
-                
-                return modelview;
-
+//        @RequestMapping(value = "/cercar/{producteNom}", method = RequestMethod.POST)
+//        public ModelAndView getProducteByNom(@PathVariable("producteNom") String producteNom) {
+//    
+//                ModelAndView modelview = new ModelAndView("/producteCercador");  
+//
+//                List productesPerNom = producteService.getProducteByNom(producteNom);
+//                System.out.println(producteNom + "<-- aqui NOM");
+//                                
+//                System.out.println(productesPerNom + "<-- aqui productes PER NOM");
+//                modelview.addObject("productesPerNom", productesPerNom);
+//                
+//                return modelview;
+//                
+//        }
+            
+//        @RequestMapping(value = "productes", method = RequestMethod.GET)        
+//        public String getProducteByNom(@RequestParam (value = "producteNom", required = false) String producteNom, Model model) {
+//                
+//            model.addAttribute("producteNom", producteService.getProducteByNom(producteNom));                
+//            return "productes";
+//}
         
-//      @RequestMapping(value = "/producteCercador", method = RequestMethod.GET)
-//	public ModelAndView getViewProducteCercador() {
-//		System.out.println("cercador del producte");
-//		ModelAndView mv = new ModelAndView("/producteCercador");
-//		return mv;
-//	}
+        @RequestMapping("/search")
+        public ModelAndView search(@RequestParam String producteNom) {
+        List<Producte> result = producteService.search(producteNom);
+        ModelAndView mav = new ModelAndView("producteCercador");
+        mav.addObject("result", result);
+
+        return mav;    
 }
+
 }
 
         

@@ -18,7 +18,7 @@ public interface ProducteRepository  extends  JpaRepository<Producte, Long> {
     
     List<Producte> findByproducteCategoria(String producteCategoria);
       
-    @Query(value="Select * from producte where producteNom like %:nom%", nativeQuery = true)
-    List<Producte> findByproducteNom (@Param("nom")String nom);
+    @Query(value="Select * from producte where producteNom like %:producteNom%", nativeQuery = true)
+    List<Producte> search (@Param("producteNom")String producteNom);
     
 }
