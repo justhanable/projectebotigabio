@@ -118,14 +118,14 @@
         <div class="container-fluid">
             <!--LOGOTIPO-->
             <a class="navbar-brand" href="<c:url value="/"/>">   
-                <img class="logo" src="<spring:url value="/resources/img/botigabio.png"/>" alt="">
+                <img class="logo" alt="logotip botigabio" src="<spring:url value="/resources/img/botigabio.png"/>">
             </a>
             <!--BUSCADOR-->
             <div class="input-group md-form form-sm form-2 ml-2 mr-2">
                 <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Busca productes" aria-label="Search">
                 
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    <button class="btn btn-default" type="button"><span class="fas fa-search" aria-hidden="true"></span></button>
                 </span>
             </div>
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
@@ -158,13 +158,15 @@
                     </li>
                     <li class="nav-item">
                         <div class="btn-group">
-                            <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <i class="fa fa-user"></i></button>
+                            <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <span class="fa fa-user"></span></button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                <security:authorize access="isAuthenticated()">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                </security:authorize>
                                 <security:authorize access="isAuthenticated()">
                                     <c:set var="username">
                                     <security:authentication property="principal.username" /> 
@@ -180,7 +182,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carretó<i class="fa fa-shopping-cart"></i></a>
+                        <a class="nav-link" href="#">Carretó<span class="fa fa-shopping-cart"></span></a>
                     </li>
                 </ul>
             </div>
@@ -190,7 +192,7 @@
     <div class="container m-5">
         <div class="card w-50 p-0">
             <h4 class="card-header">
-                <i class="fa fa-user"></i> Login d'usuari
+                <span class="fa fa-user"></span> Login d'usuari
             </h4>
         
             <div class="card-block">
@@ -254,19 +256,19 @@
                     <div class="text-center mb-5">
                         <!-- Facebook -->
                         <a class="fb-ic" href="#">
-                            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                            <span class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></span>
                         </a>
                         <!-- Twitter -->
                         <a class="tw-ic" href="#">
-                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                         <!-- Google +-->
                         <a class="gplus-ic" href="#">
-                            <i class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                         <!--Instagram-->
                         <a class="ins-ic" href="#">
-                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                     </div>
                     <ul>

@@ -96,7 +96,7 @@
            font-family:Roboto; 
         }
         
-        strong{
+        h1{
             font-size:50px
         }
     </style>
@@ -109,14 +109,14 @@
         <div class="container-fluid">
             <!--LOGOTIPO-->
             <a class="navbar-brand" href="<c:url value="/"/>">   
-                <img class="logo" src="<spring:url value="/resources/img/botigabio.png"/>" alt="">
+                <img class="logo" alt="logotip botigabio" src="<spring:url value="/resources/img/botigabio.png"/>">
             </a>
             <!--BUSCADOR-->
             <div class="input-group md-form form-sm form-2 ml-2 mr-2">
                 <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Busca productes" aria-label="Search">
                 
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><i class="fas fa-search" aria-hidden="true"></i></button>
+                    <button class="btn btn-default" type="button"><span class="fas fa-search" aria-hidden="true"></span></button>
                 </span>
             </div>
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
@@ -149,13 +149,15 @@
                     </li>
                     <li class="nav-item">
                         <div class="btn-group">
-                            <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <i class="fa fa-user"></i></button>
+                            <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <span class="fa fa-user"></span></button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                <security:authorize access="isAuthenticated()">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                </security:authorize>
                                 <security:authorize access="isAuthenticated()">
                                     <c:set var="username">
                                     <security:authentication property="principal.username" /> 
@@ -171,7 +173,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carretó<i class="fa fa-shopping-cart"></i></a>
+                        <a class="nav-link" href="#">Carretó<span class="fa fa-shopping-cart"></span></a>
                     </li>
                 </ul>
             </div>
@@ -184,8 +186,8 @@
             <div class="jumbotron card card-image col-12">
                 <div class="text-center py-5 px-4">
                     <div>
-                    <h1 class="card-title h1-responsive pt-3 mb-5"><strong>PRODUCTES DE PROXIMITAT</strong></h1>
-                    <h1 class="card-title h1-responsive pt-3 mb-5"><strong> GARANTIA DE QUALITAT</strong></h1>
+                    <h1 class="card-title h1-responsive pt-3 mb-5">PRODUCTES DE PROXIMITAT</h1>
+                    <h1 class="card-title h1-responsive pt-3 mb-5">GARANTIA DE QUALITAT</h1>
                     </div>
                 </div>
             </div>
@@ -194,7 +196,7 @@
 
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/verdura"/>"><img class="card-img-top" src="<c:url value="/resources/img/vegetables-4375192_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/verdura"/>"><img class="card-img-top" src="<c:url value="/resources/img/vegetables-4375192_1280.jpg"/>" alt="imatge amb verdures"></a>
                     <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/verdura"/>">Verdures</a>
@@ -206,7 +208,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/fruitsec"/>"><img class="card-img-top" src="<c:url value="/resources/img/dried-fruits-3750383_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/fruitsec"/>"><img class="card-img-top" src="<c:url value="/resources/img/dried-fruits-3750383_1280.jpg"/>" alt="imatge amb fruits secs"></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/fruitsec"/>">Fruits secs</a>
@@ -217,7 +219,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/fruita"/>"><img class="card-img-top" src="<c:url value="/resources/img/46768731734_31330f7805_c.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/fruita"/>"><img class="card-img-top" src="<c:url value="/resources/img/46768731734_31330f7805_c.jpg"/>" alt="imatge amb fruita"></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/fruita"/>">Fruita</a>
@@ -228,7 +230,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4 ml-1">
                 <div class="card h-100">
-                    <a href="<c:url value="/peix"/>"><img class="card-img-top" src="<c:url value="/resources/img/salmon-4143734_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/peix"/>"><img class="card-img-top" src="<c:url value="/resources/img/salmon-4143734_1280.jpg"/>" alt="imatge amb peix"></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/peix"/>">Peix</a>
@@ -239,7 +241,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/carn"/>"><img class="card-img-top" src="<c:url value="/resources/img/meat-3139641_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/carn"/>"><img class="card-img-top" src="<c:url value="/resources/img/meat-3139641_1280.jpg"/>" alt="imatge amb carn"></a>
                   <div class="card-body">
                     <h4 class="card-title text-center">
                       <a href="<c:url value="/carn"/>">Carn</a>
@@ -279,19 +281,19 @@
                     <div class="text-center mb-5">
                         <!-- Facebook -->
                         <a class="fb-ic" href="#">
-                            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                            <span class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></span>
                         </a>
                         <!-- Twitter -->
                         <a class="tw-ic" href="#">
-                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                         <!-- Google +-->
                         <a class="gplus-ic" href="#">
-                            <i class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                         <!--Instagram-->
                         <a class="ins-ic" href="#">
-                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                     </div>
                     <ul>
