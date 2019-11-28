@@ -16,7 +16,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -30,14 +32,17 @@ public class User {
     private Long id;
     
     @Column(name = "username", unique=true)
+    @Size(max=20)
     @NotNull
     private String username;
     
     @Column(name = "password")
+    @Size(max=30)
     @NotNull
     private String password;
     
     @Column(name = "email", unique=true)
+    @Size(max=35)
     @NotNull
     private String email;
     
@@ -50,6 +55,7 @@ public class User {
     private String roles;
     
     @Column(name = "name")
+    @NotNull
     private String name;
     
     @Column(name = "targeta")
@@ -59,6 +65,7 @@ public class User {
     private String adress;
     
     @Column(name = "age")
+    @Min(18)
     private int age;
     
     @Column(name = "authorities")

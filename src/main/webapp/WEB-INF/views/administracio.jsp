@@ -122,7 +122,7 @@
         <div class="container-fluid">
             <!--LOGOTIPO-->
             <a class="navbar-brand" href="<c:url value="/"/>">   
-                <img class="logo" src="<c:url value="/resources/img/botigabio.png"/>" alt="">
+                <img class="logo" alt="logotip botigabio" src="<spring:url value="/resources/img/botigabio.png"/>">
             </a>
             <!--BUSCADOR-->
             <div class="input-group md-form form-sm form-2 ml-2 mr-2">
@@ -237,7 +237,7 @@
 	${message}
          <br>	
 	<a href="${pageContext.request.contextPath}/administracio/addProducte">
-        <button type="button" class="btn btn-success"><i class="far fa-plus-square"></i> Afegir nou producte</button>
+        <button type="button" class="btn btn-success"><span class="far fa-plus-square"></span> Afegir nou producte</button>
         </a>
 	<br>
 	<br>
@@ -268,9 +268,9 @@
 					<td>${product.producteImg}</td>
 
 					<td><a 
-						href="${pageContext.request.contextPath}/administracio/editProducte/${product.id}">Editar <i class="far fa-edit"></i></a></td>
+						href="${pageContext.request.contextPath}/administracio/editProducte/${product.id}">Editar <span class="far fa-edit"></span></a></td>
 					<td><a  style="color:red"
-						href="${pageContext.request.contextPath}/administracio/deleteProducte/${product.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
+						href="${pageContext.request.contextPath}/administracio/deleteProducte/${product.id}">Eliminar<span class="far fa-trash-alt"></span></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -283,7 +283,7 @@
 	<br>
 	<br>
 	<a href="${pageContext.request.contextPath}/addUser">
-            <button type="button" class="btn btn-success"><i class="far fa-plus-square"></i> Afegir nou usuari</button>
+            <button type="button" class="btn btn-success"><span class="far fa-plus-square"></span> Afegir nou usuari</button>
         </a>
 	<br>
 	<h3>Llistat de tots els usuaris</h3>
@@ -352,19 +352,19 @@
                     <div class="text-center mb-5">
                         <!-- Facebook -->
                         <a class="fb-ic" href="#">
-                            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                            <span class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></span>
                         </a>
                         <!-- Twitter -->
                         <a class="tw-ic" href="#">
-                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                         <!-- Google +-->
                         <a class="gplus-ic" href="#">
-                            <i class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                         <!--Instagram-->
                         <a class="ins-ic" href="#">
-                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                     </div>
                     <ul>
