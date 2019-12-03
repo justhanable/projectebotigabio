@@ -19,6 +19,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import projectebotigabio.service.UniqueUsername;
 
 
 @Entity
@@ -27,23 +28,24 @@ public class User {
     
     @Id
     @Column(name = "id")
-    @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
+    
     @Column(name = "username", unique=true)
-    @Size(max=20)
-    @NotNull
+    @UniqueUsername(message="Aquest nom de usuari ja existeix!")
+    @Size(min=1, max=20, message="És obligatori introduïr un nom d'usuari! No pot superar els 20 caràcters!")
+    @NotNull(message="És obligatori introduïr un nom d'usuari.")
     private String username;
     
     @Column(name = "password")
-    @Size(max=30)
-    @NotNull
+    @Size(min=4, max=60, message="És obligatori introduïr una contrasenya!")
+    @NotNull(message="És obligatori introduïr una contrasenya!")
     private String password;
     
     @Column(name = "email", unique=true)
-    @Size(max=35)
-    @NotNull
+    @Size(min=4, max=35, message="És obligatori introduïr un email!")
+    @NotNull(message="És obligatori introduïr un email")
     private String email;
     
     @Column(name = "enabled")
@@ -51,11 +53,11 @@ public class User {
     private boolean enabled;
     
     @Column(name = "roles")
-    @NotNull
     private String roles;
     
     @Column(name = "name")
-    @NotNull
+    @NotNull(message="És obligatori introduïr noms i cognoms!")
+    @Size(min=1, message="És obligatori introduïr noms i cognoms!")
     private String name;
     
     @Column(name = "targeta")
@@ -65,7 +67,6 @@ public class User {
     private String adress;
     
     @Column(name = "age")
-    @Min(18)
     private int age;
     
     @Column(name = "authorities")

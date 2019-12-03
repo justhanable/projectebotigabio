@@ -199,18 +199,22 @@
                 <div class="form-group">
                     <form:label path ="username" for="username">Nom d'usuari</form:label>
                     <form:input path="username" type="text" class="form-control" id="username"/>  
+                    <form:errors path="username" cssClass="error"/>
                 </div>
                 <div class="form-group">
                     <form:label path ="password" for="password">Contrasenya</form:label>
-                    <form:input path="password" type="password" class="form-control" id="password"/>  
+                    <form:input path="password" type="password" class="form-control" id="password"/>
+                    <form:errors path="password" cssClass="error"/>
                 </div>
                 <div class="form-group">
                     <form:label path ="email" for="email">E-mail</form:label>
-                    <form:input path="email" type="email" class="form-control" id="email"/>  
+                    <form:input path="email" type="email" class="form-control" id="email"/> 
+                    <form:errors path="email" cssClass="error"/>
                 </div>
                 <div class="form-group">
                     <form:label path ="name" for="name">Nom i cognoms</form:label>
-                    <form:input path="name" type="text" class="form-control" id="name"/>  
+                    <form:input path="name" type="text" class="form-control" id="name"/> 
+                    <form:errors path="name" cssClass="error"/>
                 </div>
                 <div class="form-group">
                     <form:label path ="adress" for="adress">Adreça</form:label>

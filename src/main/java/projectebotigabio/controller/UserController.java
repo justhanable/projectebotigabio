@@ -14,6 +14,7 @@ import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -85,11 +86,12 @@ public class UserController {
 		mv.addObject("user", new User());
 		return mv;
 	}
+        /*
         //Es registra l'usuari i es torna a la pàgina home
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public ModelAndView saveNewUser(@ModelAttribute User user, BindingResult result) {
+	public ModelAndView saveNewUser(@Valid @ModelAttribute User user, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/home");
-
+                
 		if (result.hasErrors()) {
 			return new ModelAndView("error");
 		}
@@ -102,8 +104,25 @@ public class UserController {
 		} else {
 			return new ModelAndView("error");
 		}
-
+                mv.addObject("result", result);
 		return mv;
+	}
+        */
+        
+        //Es registra l'usuari i es torna a la pàgina home
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
+	public String saveNewUser(@Valid @ModelAttribute User user, BindingResult result) {
+		
+                
+		if (result.hasErrors()) {
+			return "addUser";
+		}
+                //A l'hora del registre habilitem i fiquem rol d'usuari automàticament
+                user.setEnabled(true);
+                user.setRoles("ROLE_USER");
+		userService.saveUser(user);
+		
+		return "redirect:/addUser.html?success=true";
 	}
         /*
         @RequestMapping(value = "/login", method = RequestMethod.GET)
