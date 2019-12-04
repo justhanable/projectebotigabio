@@ -68,8 +68,11 @@ public class ProducteServiceImpl implements ProducteService {
                 }
                 
                 @Override
-                public List<Producte> search(String producteNom){    
-                    System.out.println("SE METE EN FINDBYPRODUCTENONLIKE");
+                public List<Producte> search(String producteNom, String producteCategoria){                      
+                    return repository.search(producteNom, producteCategoria);
+                }
+                @Override
+                public List<Producte> search(String producteNom){                      
                     return repository.search(producteNom);
                 }
 

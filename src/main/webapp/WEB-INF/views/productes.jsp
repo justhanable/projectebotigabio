@@ -186,19 +186,19 @@
             <ul class="nav">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="<c:url value="/verdura"/>">Verdures <i class="fa fa-leaf"></i></a>
+                    <a class="nav-link active" href="<c:url value="/producte/verdura"/>">Verdures <i class="fa fa-leaf"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/fruitsec"/>">Fruits secs <i class="fas fa-seedling"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruitsec"/>">Fruits secs <i class="fas fa-seedling"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/fruita"/>">Fruita <i class="fab fa-apple"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruita"/>">Fruita <i class="fab fa-apple"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/peix"/>">Peix <i class="fas fa-fish"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/peix"/>">Peix <i class="fas fa-fish"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/carn"/>">Carn <i class="fas fa-drumstick-bite"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/carn"/>">Carn <i class="fas fa-drumstick-bite"></i></a>
                 </li>
             </ul>
         </div>

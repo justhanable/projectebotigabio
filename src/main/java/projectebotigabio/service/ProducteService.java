@@ -20,8 +20,9 @@ import projectebotigabio.domain.Producte;
         List<Producte> getAllProductes();  
         List<Producte> getProductesByCategoria(String producteCategoria);
         //List<Producte> getProducteByNom(String producteNom);
+        public List <Producte> search(String producteNom, String producteCategoria);
         public List <Producte> search(String producteNom);
-        
+
 
     }
     

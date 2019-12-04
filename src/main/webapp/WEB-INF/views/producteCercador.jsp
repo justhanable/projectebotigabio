@@ -101,6 +101,13 @@
         .btn-success, h3{
             margin-left: 15px;
         }
+        
+ img {
+    width: 305px; /* You can set the dimensions to whatever you want */
+    height: 350px;
+    object-fit: cover;
+}
+
     </style>
     </head>
     <body>
@@ -132,15 +139,15 @@
                         <div class="btn-group">
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productes</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<c:url value="/verdura"/>">Verdures</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/verdura"/>">Verdures</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruitsec"/>">Fruits secs</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruitsec"/>">Fruits secs</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruita"/>">Fruita</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruita"/>">Fruita</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/peix"/>">Peix</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/peix"/>">Peix</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/carn"/>">Carn</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/carn"/>">Carn</a>
                             </div>
                         </div>
                     </li>
@@ -182,56 +189,50 @@
             <ul class="nav">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="<c:url value="/verdura"/>">Verdures <i class="fa fa-leaf"></i></a>
+                    <a class="nav-link active" href="<c:url value="/producte/verdura"/>">Verdures <i class="fa fa-leaf"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/fruitsec"/>">Fruits secs <i class="fas fa-seedling"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruitsec"/>">Fruits secs <i class="fas fa-seedling"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/fruita"/>">Fruita <i class="fab fa-apple"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruita"/>">Fruita <i class="fab fa-apple"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/peix"/>">Peix <i class="fas fa-fish"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/peix"/>">Peix <i class="fas fa-fish"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/carn"/>">Carn <i class="fas fa-drumstick-bite"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/carn"/>">Carn <i class="fas fa-drumstick-bite"></i></a>
                 </li>
             </ul>
         </div>
     </nav>
 
-                <br>
-       
+       <br>     
+                
+        <!-- PRODUCTOS-->
         
-	<table class="table table-bordered table-striped text-center">
-		<thead>
-			<tr>				
-                                <th>Nom</th>
-                                <th>Preu</th>                            
-				<th>Descripcio</th>
-                                <th>Area</th>
-                                <th>Categoria</th>
-                                <th>Imatge del producte</th>
-			</tr>
-		</thead>
-                           
-		<tbody>
-			<c:forEach var="producte" items="${result}">
-				
-                            <tr>					
-                                        <td>${producte.producteNom}</td>
-					<td>${producte.productePreu} &euro;</td>                                       
-					<td>${producte.producteDesc}</td>
-					<td>${producte.producteArea}</td>
-					<td>${producte.producteCategoria}</td>
-					<td>${producte.producteImg}</td>
-					<td><a
-						href="${pageContext.request.contextPath}/editProducte/${producte.id}">Comprar <i class="fas fa-shopping-cart"></i></a></td>					
-                            </tr>
-			</c:forEach>
-		</tbody>
 
-	</table>
+        <div class="container my-5">
+            <div class="row">
+                <c:forEach var="producte" items="${result}">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#"><img class="card-img-top rounded" src="<c:url value="${producte.producteImg}"/>" alt=""></a>
+                            <div class="card-body">
+                                <h5  class="card-title" style="min-height:50px;">
+                                    <a href="#">${producte.producteNom}</a>
+                                </h5>
+                                <p style="min-height:100px;">${producte.producteDesc}</p>
+                                <h5 class="card-text">${producte.productePreu} €</h5>
+                                <button class="btn btn-success float-right"><i class="fas fa-shopping-cart"></i> Afegir </button>
+                            </div>
+                        </div>
+                    </div>  
+                </c:forEach>
+            </div>
+        </div>
+       
+
    <!--FOOTER NEWSLETTER-->
     <footer>
         <!--FORMULARIO NEWSLETTER-->

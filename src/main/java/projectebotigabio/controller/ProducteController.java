@@ -143,13 +143,27 @@ public class ProducteController {
 //}
         
         @RequestMapping("/search")
-        public ModelAndView search(@RequestParam String producteNom) {
-        List<Producte> result = producteService.search(producteNom);
+        public ModelAndView search(@RequestParam String producteNom, @RequestParam String producteCategoria) {
+        List<Producte> result = producteService.search(producteNom, producteCategoria);
+        
         ModelAndView mav = new ModelAndView("producteCercador");
         mav.addObject("result", result);
 
         return mav;    
-}
+
+        }
+        
+        @RequestMapping("/search")
+        public ModelAndView search(@RequestParam String producteNom) {
+        List<Producte> result = producteService.search(producteNom);
+        
+       
+        ModelAndView mav = new ModelAndView("producteCercador");
+        mav.addObject("result", result);
+
+        return mav;    
+
+        }
 
 }
 
