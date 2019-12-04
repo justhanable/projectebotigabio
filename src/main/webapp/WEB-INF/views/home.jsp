@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Botiga online de productes de proximitat Bio">
-    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="<spring:url value="/resources/img/favicon-botigabio.png"/>" type="image/png" sizes="32x32">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--LINK A CSS-->
     <link rel="stylesheet" type="text/css" href="">
@@ -30,8 +30,7 @@
         }
         .navbar-brand {
             margin: auto;
-            display: block;
-           
+            display: block;          
         }
 
         .logo {
@@ -43,9 +42,7 @@
         img{
            width: 100%;
            height: auto;
-           background-size: cover;
-  
-   
+           background-size: cover; 
         }
 
         .input-group {
@@ -55,8 +52,7 @@
         li {
             font-size: 18px;
         }
-
-        
+   
         footer {
             background-color: midnightblue;
             color: lightgrey
@@ -73,16 +69,13 @@
         }
         
         @media (max-width:600px){
-          
-            
-            
+                             
         }
         button.btn.btn-default {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             background-color: mediumseagreen;
             color:white
-
         }
         .jumbotron {
             padding-top:0;
@@ -99,26 +92,51 @@
         h1{
             font-size:50px
         }
+        
+        .barraCercar{
+            height: 40px;
+            width: max-content;
+                                        
+        }
+        
+        .barraSelect{           
+            width: 50px;
+            background-color: #DDDDDD;
+            margin-right: 10px;
+        }
+        
+
+        
     </style>
 </head>
 <body>
     
     <!--BARRA NAVEGADOR-->
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
+                                  
             <!--LOGOTIPO-->
             <a class="navbar-brand" href="<c:url value="/"/>">   
                 <img class="logo" alt="logotip botigabio" src="<spring:url value="/resources/img/botigabio.png"/>">
             </a>
-            <!--BUSCADOR-->
-            <div class="input-group md-form form-sm form-2 ml-2 mr-2">
-                <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Busca productes" aria-label="Search">
-                
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="fas fa-search" aria-hidden="true"></span></button>
-                </span>
-            </div>
+                        
+            <!--BUSCADOR-->               
+            <form class="input-group lg-form form-sm form-2 ml-4 mr-4 barraCercar" method="get" action="search" name="producteCategoria">
+                              
+                <select class="form-control my-0 py-0 lime-border rounded barraSelect" name="producteCategoria">
+                    <option value="tots">Totes les categories</option>    
+                    <option value="verdura">Verdures</option>
+                    <option value="fruitsec">Fruits secs</option>
+                    <option value="fruita">Fruita</option>
+                    <option value="peix">Peix</option>
+                    <option value="carn">Carn</option>                                  
+                </select>
+                                                          
+                <input class="form-control my-0 py-0 lime-border rounded" type="text" name="producteNom" placeholder="Cercar productes" /> &nbsp;
+                <button class="btn btn-default imgIcon" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search imgIcon" aria-hidden="true"></i></button>        
+            </form>
+               
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -131,15 +149,15 @@
                         <div class="btn-group">
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productes</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<c:url value="/verdura"/>">Verdures</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/verdura"/>">Verdures</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruitsec"/>">Fruits secs</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruitsec"/>">Fruits secs</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruita"/>">Fruita</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruita"/>">Fruita</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/peix"/>">Peix</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/peix"/>">Peix</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/carn"/>">Carn</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/carn"/>">Carn</a>
                             </div>
                         </div>
                     </li>
@@ -196,10 +214,12 @@
 
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/verdura"/>"><img class="card-img-top" src="<c:url value="/resources/img/vegetables-4375192_1280.jpg"/>" alt="imatge amb verdures"></a>
+
+                    <a href="<c:url value="/producte/verdura"/>"><img class="card-img-top" src="<c:url value="/resources/img/vegetables-4375192_1280.jpg"/>" alt=""></a>
+
                     <div class="card-body">
                     <h4 class="card-title text-center">
-                      <a href="<c:url value="/verdura"/>">Verdures</a>
+                      <a href="<c:url value="/producte/verdura"/>">Verdures</a>
                   
                     </h4>
                     </div>
@@ -208,10 +228,11 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/fruitsec"/>"><img class="card-img-top" src="<c:url value="/resources/img/dried-fruits-3750383_1280.jpg"/>" alt="imatge amb fruits secs"></a>
+                    <a href="<c:url value="/producte/fruitsec"/>"><img class="card-img-top" src="<c:url value="/resources/img/dried-fruits-3750383_1280.jpg"/>" alt=""></a>
+
                   <div class="card-body">
                     <h4 class="card-title text-center">
-                      <a href="<c:url value="/fruitsec"/>">Fruits secs</a>
+                      <a href="<c:url value="/producte/fruitsec"/>">Fruits secs</a>
                     </h4>
                     </div> 
                 </div>
@@ -219,10 +240,11 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/fruita"/>"><img class="card-img-top" src="<c:url value="/resources/img/46768731734_31330f7805_c.jpg"/>" alt="imatge amb fruita"></a>
+                    <a href="<c:url value="/producte/fruita"/>"><img class="card-img-top" src="<c:url value="/resources/img/46768731734_31330f7805_c.jpg"/>" alt=""></a>
+
                   <div class="card-body">
                     <h4 class="card-title text-center">
-                      <a href="<c:url value="/fruita"/>">Fruita</a>
+                      <a href="<c:url value="/producte/fruita"/>">Fruita</a>
                     </h4>
                     </div> 
                 </div>
@@ -230,10 +252,11 @@
 
               <div class="col-lg-3 col-md-6 mb-4 ml-1">
                 <div class="card h-100">
-                    <a href="<c:url value="/peix"/>"><img class="card-img-top" src="<c:url value="/resources/img/salmon-4143734_1280.jpg"/>" alt="imatge amb peix"></a>
+                    <a href="<c:url value="/producte/peix"/>"><img class="card-img-top" src="<c:url value="/resources/img/salmon-4143734_1280.jpg"/>" alt=""></a>
+
                   <div class="card-body">
                     <h4 class="card-title text-center">
-                      <a href="<c:url value="/peix"/>">Peix</a>
+                      <a href="<c:url value="/producte/peix"/>">Peix</a>
                     </h4>
                     </div> 
                 </div>
@@ -241,10 +264,11 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/carn"/>"><img class="card-img-top" src="<c:url value="/resources/img/meat-3139641_1280.jpg"/>" alt="imatge amb carn"></a>
+                    <a href="<c:url value="/producte/carn"/>"><img class="card-img-top" src="<c:url value="/resources/img/meat-3139641_1280.jpg"/>" alt=""></a>
+
                   <div class="card-body">
                     <h4 class="card-title text-center">
-                      <a href="<c:url value="/carn"/>">Carn</a>
+                      <a href="<c:url value="/producte/carn"/>">Carn</a>
                     </h4>
                     </div>
                 </div>
