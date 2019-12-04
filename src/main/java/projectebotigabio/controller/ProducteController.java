@@ -142,7 +142,7 @@ public class ProducteController {
 //            return "productes";
 //}
         
-        @RequestMapping("/search")
+        @RequestMapping(value = "/search", method = RequestMethod.GET)
         public ModelAndView search(@RequestParam String producteNom, @RequestParam String producteCategoria) {
         List<Producte> result = producteService.search(producteNom, producteCategoria);
         
@@ -153,7 +153,7 @@ public class ProducteController {
 
         }
         
-        @RequestMapping("/search")
+        @RequestMapping(value = "/projectebotigabio-master/search", method = RequestMethod.GET)
         public ModelAndView search(@RequestParam String producteNom) {
         List<Producte> result = producteService.search(producteNom);
         
