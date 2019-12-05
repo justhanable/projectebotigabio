@@ -199,12 +199,12 @@
                 <form method="POST" action="login">
                     <c:if test="${param.error != null}">
                             <p style='color:red'>
-                                    Invalid username and password.
+                                    Nom d'usuari i contrasenya incorrectes.
                             </p>
                     </c:if>
                     <c:if test="${param.logout != null}">
                             <p style='color:blue'>
-                                    You have been logged out.
+                                    Has sortit de la sessió d'usuari.
                             </p>
                     </c:if>
                     <fieldset class="p-4">

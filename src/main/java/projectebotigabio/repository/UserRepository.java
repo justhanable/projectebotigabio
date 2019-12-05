@@ -18,5 +18,6 @@ import projectebotigabio.domain.User;
 public interface UserRepository extends CrudRepository<User, Long>{
     public User findByUsername (String username);
     public boolean deleteByUsername (String username);
+    public User findByEmail (String username);
 	
 }

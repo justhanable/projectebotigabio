@@ -19,6 +19,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import projectebotigabio.service.UniqueEmail;
 import projectebotigabio.service.UniqueUsername;
 
 
@@ -39,11 +40,12 @@ public class User {
     private String username;
     
     @Column(name = "password")
-    @Size(min=4, max=60, message="És obligatori introduïr una contrasenya!")
+    @Size(min=4, max=60, message="És obligatori introduïr una contrasenya! Mínim 4 caràcters!")
     @NotNull(message="És obligatori introduïr una contrasenya!")
     private String password;
     
     @Column(name = "email", unique=true)
+    @UniqueEmail(message="Aquest email ja existeix!")
     @Size(min=4, max=35, message="És obligatori introduïr un email!")
     @NotNull(message="És obligatori introduïr un email")
     private String email;

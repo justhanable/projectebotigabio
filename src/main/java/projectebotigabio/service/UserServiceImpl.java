@@ -112,6 +112,11 @@ public class UserServiceImpl implements UserService {
     public boolean deleteUserById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return repository.findByEmail(email);
+    }
         
         
 

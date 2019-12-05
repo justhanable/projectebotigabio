@@ -21,5 +21,6 @@ public interface UserService{
 	public boolean deleteUserById(int id);
         public User getUserByUsername(String username);
         public boolean deleteUserByUsername(String username);
+        public User getUserByEmail(String email);
 
 }

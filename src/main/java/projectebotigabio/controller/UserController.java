@@ -109,20 +109,19 @@ public class UserController {
 	}
         */
         
-        //Es registra l'usuari i es torna a la pàgina home
+        //Registre d'usuari
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public String saveNewUser(@Valid @ModelAttribute User user, BindingResult result) {
-		
-                
-		if (result.hasErrors()) {
-			return "addUser";
-		}
-                //A l'hora del registre habilitem i fiquem rol d'usuari automàticament
-                user.setEnabled(true);
-                user.setRoles("ROLE_USER");
-		userService.saveUser(user);
-		
-		return "redirect:/addUser.html?success=true";
+		    
+            if (result.hasErrors()) {
+                    return "addUser";
+            }
+            //A l'hora del registre habilitem i fiquem rol d'usuari automàticament
+            user.setEnabled(true);
+            user.setRoles("ROLE_USER");
+            userService.saveUser(user);
+
+            return "redirect:/addUser.html?success=true";
 	}
         /*
         @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -151,11 +150,13 @@ public class UserController {
 	}
         */
         
-        //Es mostren les dades d'usuari i dona l'opcio de modificar-les
+        
         
         //Només l'admin o l'usuari especific pot modificar les seves dades -- NO FUNCIONA
         //@PreAuthorize("hasRole('ADMIN') || @userServiceImpl.isUser(id)")
         //@PreAuthorize("hasRole('ADMIN') or #id == principal.username")
+        
+        //Es mostren les dades d'usuari i dona l'opcio de modificar-les
         @RequestMapping(value = "/usuari/{username}", method = RequestMethod.GET)
 	public ModelAndView displayEditUserFormByUsername(@PathVariable String username) {
 		ModelAndView mv = new ModelAndView("/usuari");
@@ -165,6 +166,31 @@ public class UserController {
 		return mv;
 	}
 
+        //Modifica les dades d'usuari
+        //
+	@RequestMapping(value = "/usuari/{username}", method = RequestMethod.POST)
+	public ModelAndView saveEditedUser(@Valid @ModelAttribute User user, BindingResult result) {
+            ModelAndView mv = new ModelAndView();
+            //Només mirem si hi ha algun problema de validació en el camp de noms i cognoms i amb el password
+            if (result.hasErrors()) {
+                if(result.hasFieldErrors("name")||result.hasFieldErrors("password")){
+                    mv.addObject("errors", result);
+                    mv.setViewName("usuari");
+                   return mv;    
+                }else{
+                    userService.saveUser(user);
+                    mv.setViewName("redirect:/usuari/{username}.html?success=true");
+                    return mv;
+                    
+                }
+                 
+            }
+            boolean isSaved = userService.saveUser(user);
+            mv.setViewName("redirect:/usuari/{username}.html?success=true");
+            return mv;
+           
+	}
+        /*
         //Modifica les dades d'usuari
         
 	@RequestMapping(value = "/usuari/{username}", method = RequestMethod.POST)
@@ -189,14 +215,14 @@ public class UserController {
 		return mv;
 	}
         
-        
+        */
 
         //Mètode per eliminar usuaris
 	@RequestMapping(value = "/administracio/deleteUser/{username}", method = RequestMethod.GET)
 	public ModelAndView deleteUserByUsername(@PathVariable String username) {
 		boolean isDeleted = userService.deleteUserByUsername(username);
 		System.out.println("User deletion respone: " + isDeleted);
-		ModelAndView mv = new ModelAndView("redirect:/home");
+		ModelAndView mv = new ModelAndView("redirect:/administracio");
 		return mv;
 
 	}

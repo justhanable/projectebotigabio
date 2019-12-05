@@ -99,7 +99,9 @@
         strong{
             font-size:50px
         }
-        
+        .error {
+            color:red
+        }
   
     </style>
 </head>
@@ -156,7 +158,6 @@
                                 <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
-                                <div class="dropdown-divider"></div>
                                 <security:authorize access="isAuthenticated()">
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
@@ -197,10 +198,14 @@
                     </h4>
 
                     <div class="card-block">
-                    <security:authorize access="isAuthenticated()">
-                        authenticated as <security:authentication property="principal.username" /> 
-                    </security:authorize>
+                        <security:authorize access="isAuthenticated()">
+                            <div class="alert alert-success" role="alert">Has iniciat sessió com a <security:authentication property="principal.username" /></div>
+                        </security:authorize>
+                        <c:if test="${param.success eq true}">
+                            <div class="alert alert-success" role="alert">Has modificat les dades correctament!</div>
+                        </c:if>
                         <form:form method="POST" action="${username}" modelAttribute="user">
+                            
                             <form:hidden path="id" />
                             <form:hidden path="username" />
                             <form:hidden path="enabled" />
@@ -212,12 +217,14 @@
                                     <form:input path="password" type="password" class="form-control" id="password" aria-describedby="passwordHelpBlock"/>
                                     <small id="passwordHelpBlock" class="form-text text-muted">
                                       És obligatori cambiar la contrasenya si vols modificar les dades
-                                    </small> 
+                                    </small>
+                                    <form:errors path="password" cssClass="error"/>
                                 </div>
                                 
                                 <div class="form-group">
                                     <form:label path ="name" for="name">Nom i cognoms</form:label>
-                                    <form:input path="name" type="text" class="form-control" id="name"/>  
+                                    <form:input path="name" type="text" class="form-control" id="name"/>
+                                    <form:errors path="name" cssClass="error"/>
                                 </div>
                                 <div class="form-group">
                                     <form:label path ="adress" for="adress">Adreça</form:label>
