@@ -101,7 +101,9 @@
         strong{
             font-size:50px
         }
-        
+        .error {
+            color:red
+        }
   
     </style>
 </head>
@@ -188,50 +190,57 @@
     <!--BODY-->
     <div class="container m-5">
         <div class="row">
-        <div class="card w-50 p-0">
-            <h4 class="card-header">
-                <span class="fa fa-user"></span> Registre d'usuari
-            </h4>
-        
-            <div class="card-block">
-        <form:form method="POST" action="addUser" modelAttribute="user">
-            <fieldset class="p-4">
-                <div class="form-group">
-                    <form:label path ="username" for="username">Nom d'usuari</form:label>
-                    <form:input path="username" type="text" class="form-control" id="username"/>  
+            <div class="card w-50 p-0">
+                <h4 class="card-header">
+                    <span class="fa fa-user"></span> Registre d'usuari
+                </h4>
+
+                <div class="card-block">
+                    <form:form method="POST" action="addUser" modelAttribute="user">
+                        <c:if test="${param.success eq true}">
+                            <div class="alert alert-success" role="alert">Registre completat amb éxit</div>
+                        </c:if>
+                        <fieldset class="p-4">
+                            <div class="form-group">
+                                <form:label path ="username" for="username">Nom d'usuari</form:label>
+                                <form:input path="username" type="text" class="form-control" id="username"/>  
+                                <form:errors path="username" cssClass="error"/>
+                            </div>
+                            <div class="form-group">
+                                <form:label path ="password" for="password">Contrasenya</form:label>
+                                <form:input path="password" type="password" class="form-control" id="password"/>
+                                <form:errors path="password" cssClass="error"/>
+                            </div>
+                            <div class="form-group">
+                                <form:label path ="email" for="email">E-mail</form:label>
+                                <form:input path="email" type="email" class="form-control" id="email"/> 
+                                <form:errors path="email" cssClass="error"/>
+                            </div>
+                            <div class="form-group">
+                                <form:label path ="name" for="name">Nom i cognoms</form:label>
+                                <form:input path="name" type="text" class="form-control" id="name"/> 
+                                <form:errors path="name" cssClass="error"/>
+                            </div>
+                            <div class="form-group">
+                                <form:label path ="adress" for="adress">Adreça</form:label>
+                                <form:input path="adress" type="text" class="form-control" id="adress"/>  
+                            </div>
+                            <div class="form-group">
+                                <form:label path ="age" for="age">Edat</form:label>
+                                <form:input path="age" type="number" class="form-control" id="age"/>  
+                            </div>
+                            <div class="form-group">
+                                <form:label path ="targeta" for="targeta">Targeta</form:label>
+                                <form:input path="targeta" type="text" class="form-control" id="targeta"/>  
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success">Registrar-se</button>
+                            </div>
+                        </fieldset>
+                    </form:form>
                 </div>
-                <div class="form-group">
-                    <form:label path ="password" for="password">Contrasenya</form:label>
-                    <form:input path="password" type="password" class="form-control" id="password"/>  
-                </div>
-                <div class="form-group">
-                    <form:label path ="email" for="email">E-mail</form:label>
-                    <form:input path="email" type="email" class="form-control" id="email"/>  
-                </div>
-                <div class="form-group">
-                    <form:label path ="name" for="name">Nom i cognoms</form:label>
-                    <form:input path="name" type="text" class="form-control" id="name"/>  
-                </div>
-                <div class="form-group">
-                    <form:label path ="adress" for="adress">Adreça</form:label>
-                    <form:input path="adress" type="text" class="form-control" id="adress"/>  
-                </div>
-                <div class="form-group">
-                    <form:label path ="age" for="age">Edat</form:label>
-                    <form:input path="age" type="number" class="form-control" id="age"/>  
-                </div>
-                <div class="form-group">
-                    <form:label path ="targeta" for="targeta">Targeta</form:label>
-                    <form:input path="targeta" type="text" class="form-control" id="targeta"/>  
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-success">Registrar-se</button>
-                </div>
-            </fieldset>
-        </form:form>
-            </div>
-            
-        </div>   
+
+            </div>   
         </div>
     </div>
     

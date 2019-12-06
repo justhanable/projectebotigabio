@@ -8,6 +8,7 @@
 package projectebotigabio.config;
 
 import java.util.Properties;
+import javax.persistence.ValidationMode;
 
 import javax.sql.DataSource;
 
@@ -45,6 +46,7 @@ public class HibernateConfig {
         lcemfb.setPersistenceUnitName("myJpaPersistenceUnit");
         lcemfb.setPackagesToScan("projectebotigabio");
         lcemfb.setJpaProperties(hibernateProperties());
+        lcemfb.setValidationMode(ValidationMode.NONE);
         return lcemfb;
     }
 

@@ -64,8 +64,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean saveUser(User user) {
 		try {   
-
-                   
+                    //Abans de guardar l'usuari a la base de dades, hem de codificar la contrasenya
+                    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+                    user.setPassword(passwordEncoder.encode(user.getPassword()));
                     repository.save(user);
                     return true;     
 		}catch(Exception ex) {
@@ -110,6 +111,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean deleteUserById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return repository.findByEmail(email);
     }
         
         
