@@ -9,8 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+//import org.hibernate.annotations.Index;
+//import org.hibernate.search.annotations.Analyze;
+//import org.hibernate.search.annotations.Field;
+//import org.hibernate.search.annotations.Indexed;
+//import org.hibernate.search.annotations.Store;
 import org.hibernate.validator.constraints.Range;
 
+//import org.hibernate.search.annotations.Indexed;
+//import org.hibernate.search.annotations.Field;
+//import org.hibernate.search.annotations.Index;
+//import org.hibernate.search.annotations.Analyze;
+//import org.hibernate.search.annotations.Store;
 /**
  *
  * @author jonat

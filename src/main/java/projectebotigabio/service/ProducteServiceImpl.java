@@ -66,4 +66,14 @@ public class ProducteServiceImpl implements ProducteService {
                 public List<Producte> getProductesByCategoria(String producteCategoria) {
                   return repository.findByproducteCategoria(producteCategoria);        
                 }
+                
+                @Override
+                public List<Producte> search(String producteNom, String producteCategoria){                      
+                    return repository.search(producteNom, producteCategoria);
+                }
+                @Override
+                public List<Producte> search(String producteNom){                      
+                    return repository.search(producteNom);
+                }
+
 }
