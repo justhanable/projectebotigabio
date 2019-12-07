@@ -95,15 +95,16 @@
         
         .barraCercar{
             height: 40px;
-            width: max-content;
-                                        
+            width: 40%;                              
         }
         
-        .barraSelect{           
-            width: 50px;
+        .barraSelect{                    
             background-color: #DDDDDD;
             margin-right: 10px;
+            margin-left:25px;
         }
+        
+
         
 
         
@@ -133,8 +134,8 @@
                     <option value="carn">Carn</option>                                  
                 </select>
                                                           
-                <input class="form-control my-0 py-0 lime-border rounded" type="text" name="producteNom" placeholder="Cercar productes" /> &nbsp;
-                <button class="btn btn-default imgIcon" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search imgIcon" aria-hidden="true"></i></button>        
+                <input class="form-control  py-0 my-0 lime-border rounded" type="text" name="producteNom" placeholder="Cercar productes" /> 
+                <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>        
             </form>
                
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->

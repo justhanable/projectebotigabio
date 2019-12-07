@@ -103,6 +103,18 @@
         .btn-success, h3{
             margin-left: 15px;
         }
+        
+        .barraCercar{
+            height: 40px;
+            width: 40%;                              
+        }
+        
+        .barraSelect{                    
+            background-color: #DDDDDD;
+            margin-right: 10px;
+            margin-left:25px;
+        }
+ 
     </style>
 </head>
 
@@ -116,14 +128,21 @@
             <a class="navbar-brand" href="<c:url value="/"/>">   
                 <img class="logo" src="<c:url value="/resources/img/botigabio.png"/>" alt="">
             </a>
-            <!--BUSCADOR-->
-            <div class="input-group md-form form-sm form-2 ml-2 mr-2">
-                <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Busca productes" aria-label="Search">
-                
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><i class="fas fa-search" aria-hidden="true"></i></button>
-                </span>
-            </div>
+            <!--BUSCADOR-->               
+            <form class="input-group lg-form form-sm form-2 ml-4 mr-4 barraCercar" method="get" action="search" name="producteCategoria">
+                              
+                <select class="form-control my-0 py-0 lime-border rounded barraSelect" name="producteCategoria">
+                    <option value="tots">Totes les categories</option>    
+                    <option value="verdura">Verdures</option>
+                    <option value="fruitsec">Fruits secs</option>
+                    <option value="fruita">Fruita</option>
+                    <option value="peix">Peix</option>
+                    <option value="carn">Carn</option>                                  
+                </select>
+                                                          
+                <input class="form-control  py-0 my-0 lime-border rounded" type="text" name="producteNom" placeholder="Cercar productes" /> 
+                <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>        
+            </form>
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

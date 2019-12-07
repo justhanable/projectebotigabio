@@ -101,12 +101,23 @@
         .btn-success, h3{
             margin-left: 15px;
         }
+                
+        .barraCercar{
+            height: 40px;
+            width: 40%;                              
+        }
         
- img {
-    width: 305px; /* You can set the dimensions to whatever you want */
-    height: 350px;
-    object-fit: cover;
-}
+        .barraSelect{                    
+            background-color: #DDDDDD;
+            margin-right: 10px;
+            margin-left:25px;
+        }
+       
+        img {
+           width: 305px; 
+           height: 350px;
+           object-fit: cover;
+       }
 
     </style>
     </head>
@@ -120,13 +131,21 @@
             <a class="navbar-brand" href="<c:url value="/"/>">   
                 <img class="logo" src="<c:url value="/resources/img/botigabio.png"/>" alt="">
             </a>
-            <!--BUSCADOR-->
-                <form class="input-group md-form form-sm form-2 ml-2 mr-2" method="get" action="search">
-        <input class="form-control my-0 py-1 lime-border" type="text" name="producteNom" placeholder="Busca productes" /> &nbsp;
-        <button class="btn btn-default" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
-        
-    </form>
-
+            <!--BUSCADOR-->               
+            <form class="input-group lg-form form-sm form-2 ml-4 mr-4 barraCercar" method="get" action="search" name="producteCategoria">
+                              
+                <select class="form-control my-0 py-0 lime-border rounded barraSelect" name="producteCategoria">
+                    <option value="tots">Totes les categories</option>    
+                    <option value="verdura">Verdures</option>
+                    <option value="fruitsec">Fruits secs</option>
+                    <option value="fruita">Fruita</option>
+                    <option value="peix">Peix</option>
+                    <option value="carn">Carn</option>                                  
+                </select>
+                                                          
+                <input class="form-control  py-0 my-0 lime-border rounded" type="text" name="producteNom" placeholder="Cercar productes" /> 
+                <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>        
+            </form>
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -222,9 +241,9 @@
                                 <h5  class="card-title" style="min-height:50px;">
                                     <a href="#">${producte.producteNom}</a>
                                 </h5>
-                                <p style="min-height:100px;">${producte.producteDesc}</p>
-                                <h5 class="card-text">${producte.productePreu} €</h5>
-                                <button class="btn btn-success float-right"><i class="fas fa-shopping-cart"></i> Afegir </button>
+                                <p my-4 style="min-height:90px;">${producte.producteDesc}</p>
+                                <h5 class="card-text">${producte.productePreu} € <button class="btn btn-success float-right"><i class="fas fa-shopping-cart"></i> Afegir </button></h5>
+                                
                             </div>
                         </div>
                     </div>  
