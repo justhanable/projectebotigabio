@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ca">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<html lang="ca">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,18 +13,17 @@
     <link rel="stylesheet" type="text/css" href="">
     <!-- Bootstrap4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--GOOGLE FONTS-->
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Fascinate|Indie+Flower|Roboto|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <title>BotigaBio</title>
+    <!--GOOGLE FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Roboto|Fascinate|Indie+Flower|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/02893b0cef.js" crossorigin="anonymous"></script>
-    
     <!--CSS-->
     <style>
-        nav, footer{
+         nav, footer{
             font-family:Baloo Bhai; 
         }
         .navbar-brand {
@@ -114,12 +112,17 @@
             margin-right: 10px;
             margin-left:25px;
         }
- 
-    </style>
-</head>
+       
+        img {
+           width: 305px; 
+           height: 350px;
+           object-fit: cover;
+       }
 
-<body>
-    
+    </style>
+    </head>
+    <body>
+	    
     <!--BARRA NAVEGADOR-->
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -155,21 +158,21 @@
                         <div class="btn-group">
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productes</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<c:url value="/verdura"/>">Verdures</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/verdura"/>">Verdures</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruitsec"/>">Fruits secs</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruitsec"/>">Fruits secs</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruita"/>">Fruita</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruita"/>">Fruita</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/peix"/>">Peix</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/peix"/>">Peix</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/carn"/>">Carn</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/carn"/>">Carn</a>
                             </div>
                         </div>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="proveidors">Proveïdors</a>
+                        <a class="nav-link" href="#">Proveïdors</a>
                     </li>
                     <li class="nav-item">
                         <div class="btn-group">
@@ -185,7 +188,7 @@
                                     <security:authentication property="principal.username" /> 
                                     </c:set>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
+                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>"> Compte d'usuari </a>
                                 </security:authorize>
                             </div>
                         </div>
@@ -205,129 +208,48 @@
             <ul class="nav">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="<c:url value="/verdura"/>">Verdures <i class="fa fa-leaf"></i></a>
+                    <a class="nav-link active" href="<c:url value="/producte/verdura"/>">Verdures <i class="fa fa-leaf"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/fruitsec"/>">Fruits secs <i class="fas fa-seedling"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruitsec"/>">Fruits secs <i class="fas fa-seedling"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/fruita"/>">Fruita <i class="fab fa-apple"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruita"/>">Fruita <i class="fab fa-apple"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/peix"/>">Peix <i class="fas fa-fish"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/peix"/>">Peix <i class="fas fa-fish"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/carn"/>">Carn <i class="fas fa-drumstick-bite"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/carn"/>">Carn <i class="fas fa-drumstick-bite"></i></a>
                 </li>
             </ul>
         </div>
     </nav>
 
-	
-        <br>
-        <div class="row">
-            <div class="col-sm-6">
-                 <div style="margin-left: 20px;" class="card container-fluid">
-                   
-                </div>
-            </div>
+       <br>     
+                
+        <!-- PRODUCTOS-->
+        
+
+        <div class="card ml-5 my-5" style="width: 30rem;">
+          <div class="card-header">
+            <i class="fas fa-exclamation-triangle"></i> Error
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Ops! No s'han trobat productes <i class="far fa-sad-tear"></i></h5>
+            <p class="card-text">Prova a fer-ne servir altres paraules o tria una altre categoria</p>
+           
+          </div>
         </div>
-	<br>
-        
-        <!-- SE MUESTRAN TODOS LOS PRODUCTOS -->
+       
 
-        <h3>Llistat de tots els productes</h3>
-	${message}
-         <br>	
-	<a href="${pageContext.request.contextPath}/addProveidors">
-        <button type="button" class="btn btn-success"><i class="far fa-plus-square"></i> Afegir nou proveïdor</button>
-        </a>
-	<br>
-	<br>
-	<br>
-		<table class="table table-bordered table-striped text-center">
-		<thead>
-			<tr>
-				<th>Id</th>
-                                <th>Nom</th>
-				<th>Adreça</th>
-                                <th>Telèfon</th>
-				<th>Zona</th>
-                                <th>Categoria</th>
-                                
-			</tr>
-		</thead>                          
-		<tbody>
-			<c:forEach var="proveidors" items="${ProveidorsList}">
-				<tr>
-					<td>${proveidors.id}</td>
-                                        <td>${proveidors.proveidorNom}</td>
-                                        <td>${proveidors.proveidorAddress}</td>
-                                        <td>${proveidors.proveidorTel}</td>
-                                        <td>${proveidors.proveidorZona}</td>
-                                        <td>${proveidors.proveidorCategoria}</td>
-					<td><a href="${pageContext.request.contextPath}/editProveidors/${proveidors.id}">Editar <i class="far fa-edit"></i></a></td>
-					<td><a  style="color:red"
-						href="${pageContext.request.contextPath}/deleteProveidors/${proveidors.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-        
-        
-        <!-- SE MUESTRAN TODOS LOS USUARIOS -->
-        
-        <br>
-	<br>
-	<br>
-	<a href="${pageContext.request.contextPath}/addUser">Add User</a>
-	<br>
-	<h3>List of all users</h3>
-	${message}
-	<br>
-	<br>
-	<table border="1px" cellpadding="0" cellspacing="0">
-		<thead>
-			<tr>
-                            
-                                <th>Id</th>
-				<th>Nom d'usuari</th>
-				<th>E-mail</th>
-				<th>Nom i Cognoms</th>
-				<th>Edit</th>
-				<th>Delete</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<c:forEach var="user" items="${userList}">
-				<tr>
-                                        <td>${user.id}</td>
-					<td>${user.username}</td>
-					<td>${user.email}</td>
-					<td>${user.name}</td>
-					<td><a
-						href="${pageContext.request.contextPath}/usuari/${user.username}">Edit</a></td>
-					<td><a
-						href="${pageContext.request.contextPath}/deleteUser/${user.username}">Delete</a></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-
-
-	</table>
-        
-        
-            <!--FOOTER NEWSLETTER-->
+   <!--FOOTER NEWSLETTER-->
     <footer>
         <!--FORMULARIO NEWSLETTER-->
         <form class="p-4">
             <div class="form-row">
                 <div class="col-md-3">
-                    <label>
-                        <i class="fas fa-envelope mr-1"></i>
-                            Subscriu-te al nostre newsletter!
-                    </label>
+                    <label >Subscriu-te al nostre newsletter!</label>
                 </div>
                 <div class="col-md-3">
                     <input type="email" class="form-control form-control-sm" placeholder="Indica el teu email" aria-label="Your email">

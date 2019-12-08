@@ -3,15 +3,12 @@ package projectebotigabio.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-//import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import projectebotigabio.domain.Producte;
@@ -114,56 +111,39 @@ public class ProducteController {
             modelview.addObject("categoriaEscollida", producteCategoria);            
             return modelview;
         }      
-        
-        
-        //@RequestMapping("/{symbolicName:[a-z-]+}-{producteNom:\\d\\.\\d\\.\\d}{extension:\\.[a-z]+}")
-        //@RequestMapping(value = "/{\\w)cercar={producteNom}", method = RequestMethod.GET)
-        //@RequestMapping(value = "/{producteNomsimb: [?]}cercar={producteNom:}", method = RequestMethod.GET)
-        
-//        @RequestMapping(value = "/cercar/{producteNom}", method = RequestMethod.POST)
-//        public ModelAndView getProducteByNom(@PathVariable("producteNom") String producteNom) {
-//    
-//                ModelAndView modelview = new ModelAndView("/producteCercador");  
-//
-//                List productesPerNom = producteService.getProducteByNom(producteNom);
-//                System.out.println(producteNom + "<-- aqui NOM");
-//                                
-//                System.out.println(productesPerNom + "<-- aqui productes PER NOM");
-//                modelview.addObject("productesPerNom", productesPerNom);
-//                
-//                return modelview;
-//                
-//        }
-            
-//        @RequestMapping(value = "productes", method = RequestMethod.GET)        
-//        public String getProducteByNom(@RequestParam (value = "producteNom", required = false) String producteNom, Model model) {
-//                
-//            model.addAttribute("producteNom", producteService.getProducteByNom(producteNom));                
-//            return "productes";
-//}
-        
+               
+        /**Mètode que permet cercar productes. Depenent de si té el parametre de la request per defecte 'tots' o no el té, farà la
+         * crida a un metode del servei o un altre mitjançant un if:
+         * 
+         * 
+         * @param producteNom 
+         * @param producteCategoria
+         * @return retorna la vista amb els resultats trobats.
+         */
         @RequestMapping(value = "/search", method = RequestMethod.GET)
-        public ModelAndView search(@RequestParam String producteNom, @RequestParam String producteCategoria) {
-        List<Producte> result = producteService.search(producteNom, producteCategoria);
-        
-        ModelAndView mav = new ModelAndView("producteCercador");
-        mav.addObject("result", result);
-
-        return mav;    
-
+        public ModelAndView search(@RequestParam String producteNom, @RequestParam(defaultValue="tots") String producteCategoria) {
+            
+            if(producteCategoria.equals("tots")){
+               
+                List<Producte> result = producteService.search(producteNom);
+                
+                if(result.isEmpty()){
+                    return new ModelAndView("errorNotFoundProducte");
+                }
+                
+                ModelAndView mav = new ModelAndView("producteCercador");
+                mav.addObject("result", result);
+                return mav;               
+                
+            } else{
+           
+                List<Producte> result = producteService.search(producteNom, producteCategoria);
+                ModelAndView mav = new ModelAndView("producteCercador");
+                mav.addObject("result", result);
+                return mav;
+            }
         }
         
-        @RequestMapping(value = "/projectebotigabio-master/search", method = RequestMethod.GET)
-        public ModelAndView search(@RequestParam String producteNom) {
-        List<Producte> result = producteService.search(producteNom);
-        
-       
-        ModelAndView mav = new ModelAndView("producteCercador");
-        mav.addObject("result", result);
-
-        return mav;    
-
-        }
 
 }
 

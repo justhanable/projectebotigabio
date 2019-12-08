@@ -99,6 +99,18 @@
         .container{
             font-family: Roboto;
         }
+                
+        .barraCercar{
+            height: 40px;
+            width: 40%;                              
+        }
+        
+        .barraSelect{                    
+            background-color: #DDDDDD;
+            margin-right: 10px;
+            margin-left:25px;
+        }
+ 
     </style>
 </head>
 
@@ -106,20 +118,27 @@
     
     <!--BARRA NAVEGADOR-->
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <!--LOGOTIPO-->
             <a class="navbar-brand" href="<c:url value="/"/>">   
                 <img class="logo" alt="logotip botigabio" src="<spring:url value="/resources/img/botigabio.png"/>">
             </a>
-            <!--BUSCADOR-->
-            <div class="input-group md-form form-sm form-2 ml-2 mr-2">
-                <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Busca productes" aria-label="Search">
-                
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="fas fa-search" aria-hidden="true"></span></button>
-                </span>
-            </div>
+            <!--BUSCADOR-->               
+            <form class="input-group lg-form form-sm form-2 ml-4 mr-4 barraCercar" method="get" action="search" name="producteCategoria">
+                              
+                <select class="form-control my-0 py-0 lime-border rounded barraSelect" name="producteCategoria">
+                    <option value="tots">Totes les categories</option>    
+                    <option value="verdura">Verdures</option>
+                    <option value="fruitsec">Fruits secs</option>
+                    <option value="fruita">Fruita</option>
+                    <option value="peix">Peix</option>
+                    <option value="carn">Carn</option>                                  
+                </select>
+                                                          
+                <input class="form-control  py-0 my-0 lime-border rounded" type="text" name="producteNom" placeholder="Cercar productes" /> 
+                <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>        
+            </form>
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -209,35 +228,36 @@
 
     <!-- PRODUCTOS-->
     
-    <div class="container my-5">
-
-        <div class="row">
-            <c:forEach var="producte" items="${productesPerCategoria}">
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="<c:url value="${producte.producteImg}"/>" alt="imatge del producte"></a>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="#">${producte.producteNom}</a>
-                            </h5>
-                            <p>${producte.producteDesc}</p>
-                            <h5 class="card-text">${producte.productePreu} €</h5>
-                            <button class="btn btn-success float-right">Afegir</button>
+        <div class="container my-5">
+            <div class="row">
+                <c:forEach var="producte" items="${productesPerCategoria}">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#"><img class="card-img-top rounded" src="<c:url value="${producte.producteImg}"/>" alt=""></a>
+                            <div class="card-body">
+                                <h5  class="card-title" style="min-height:50px;">
+                                    <a href="#">${producte.producteNom}</a>
+                                </h5>
+                                <p  style="min-height:90px;">${producte.producteDesc}</p>
+                                <h5 class="card-text">${producte.productePreu} € <button class="btn btn-success float-right"><i class="fas fa-shopping-cart"></i> Afegir </button></h5>
+                                
+                            </div>
                         </div>
-                    </div>
-                </div>  
-            </c:forEach>
-
+                    </div>  
+                </c:forEach>
+            </div>
         </div>
-    </div>
+       
     <!--FOOTER NEWSLETTER-->
     <footer>
         <!--FORMULARIO NEWSLETTER-->
         <form class="p-4">
             <div class="form-row">
                 <div class="col-md-3">
-                    <label >Subscriu-te al nostre newsletter!</label>
+                    <label >
+                        <i class="fas fa-envelope mr-1"></i>
+                            Subscriu-te al nostre newsletter!
+                    </label>
                 </div>
                 <div class="col-md-3">
                     <input type="email" class="form-control form-control-sm" placeholder="Indica el teu email" aria-label="Your email">
