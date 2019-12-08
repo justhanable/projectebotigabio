@@ -130,7 +130,7 @@
     
     <!--BARRA NAVEGADOR-->
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <!--LOGOTIPO-->
             <a class="navbar-brand" href="<c:url value="/"/>">   
@@ -349,7 +349,10 @@
         <form class="p-4">
             <div class="form-row">
                 <div class="col-md-3">
-                    <label >Subscriu-te al nostre newsletter!</label>
+                    <label>
+                        <i class="fas fa-envelope mr-1"></i>
+                            Subscriu-te al nostre newsletter!
+                    </label>
                 </div>
                 <div class="col-md-3">
                     <input type="email" class="form-control form-control-sm" placeholder="Indica el teu email" aria-label="Your email">

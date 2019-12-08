@@ -118,7 +118,7 @@
     
     <!--BARRA NAVEGADOR-->
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <!--LOGOTIPO-->
             <a class="navbar-brand" href="<c:url value="/"/>">   
@@ -228,35 +228,36 @@
 
     <!-- PRODUCTOS-->
     
-    <div class="container my-5">
-
-        <div class="row">
-            <c:forEach var="producte" items="${productesPerCategoria}">
-
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="<c:url value="${producte.producteImg}"/>" alt="imatge del producte"></a>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <a href="#">${producte.producteNom}</a>
-                            </h5>
-                            <p>${producte.producteDesc}</p>
-                            <h5 class="card-text">${producte.productePreu} €</h5>
-                            <button class="btn btn-success float-right">Afegir</button>
+        <div class="container my-5">
+            <div class="row">
+                <c:forEach var="producte" items="${productesPerCategoria}">
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="#"><img class="card-img-top rounded" src="<c:url value="${producte.producteImg}"/>" alt=""></a>
+                            <div class="card-body">
+                                <h5  class="card-title" style="min-height:50px;">
+                                    <a href="#">${producte.producteNom}</a>
+                                </h5>
+                                <p  style="min-height:90px;">${producte.producteDesc}</p>
+                                <h5 class="card-text">${producte.productePreu} € <button class="btn btn-success float-right"><i class="fas fa-shopping-cart"></i> Afegir </button></h5>
+                                
+                            </div>
                         </div>
-                    </div>
-                </div>  
-            </c:forEach>
-
+                    </div>  
+                </c:forEach>
+            </div>
         </div>
-    </div>
+       
     <!--FOOTER NEWSLETTER-->
     <footer>
         <!--FORMULARIO NEWSLETTER-->
         <form class="p-4">
             <div class="form-row">
                 <div class="col-md-3">
-                    <label >Subscriu-te al nostre newsletter!</label>
+                    <label >
+                        <i class="fas fa-envelope mr-1"></i>
+                            Subscriu-te al nostre newsletter!
+                    </label>
                 </div>
                 <div class="col-md-3">
                     <input type="email" class="form-control form-control-sm" placeholder="Indica el teu email" aria-label="Your email">

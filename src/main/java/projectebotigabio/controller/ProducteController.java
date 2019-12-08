@@ -126,6 +126,11 @@ public class ProducteController {
             if(producteCategoria.equals("tots")){
                
                 List<Producte> result = producteService.search(producteNom);
+                
+                if(result.isEmpty()){
+                    return new ModelAndView("errorNotFoundProducte");
+                }
+                
                 ModelAndView mav = new ModelAndView("producteCercador");
                 mav.addObject("result", result);
                 return mav;               

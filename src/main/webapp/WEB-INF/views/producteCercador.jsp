@@ -125,7 +125,7 @@
 	    
     <!--BARRA NAVEGADOR-->
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <!--LOGOTIPO-->
             <a class="navbar-brand" href="<c:url value="/"/>">   
@@ -241,7 +241,7 @@
                                 <h5  class="card-title" style="min-height:50px;">
                                     <a href="#">${producte.producteNom}</a>
                                 </h5>
-                                <p my-4 style="min-height:90px;">${producte.producteDesc}</p>
+                                <p  style="min-height:90px;">${producte.producteDesc}</p>
                                 <h5 class="card-text">${producte.productePreu} € <button class="btn btn-success float-right"><i class="fas fa-shopping-cart"></i> Afegir </button></h5>
                                 
                             </div>
@@ -258,7 +258,10 @@
         <form class="p-4">
             <div class="form-row">
                 <div class="col-md-3">
-                    <label >Subscriu-te al nostre newsletter!</label>
+                    <label>
+                        <i class="fas fa-envelope mr-1"></i>
+                            Subscriu-te al nostre newsletter!
+                    </label>
                 </div>
                 <div class="col-md-3">
                     <input type="email" class="form-control form-control-sm" placeholder="Indica el teu email" aria-label="Your email">
