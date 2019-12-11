@@ -297,6 +297,48 @@
 		</tbody>
 	</table>
         
+           <!-- SE MUESTRAN TODOS LOS PROVEEDORES -->
+
+        <h3>Llistat de tots els proveïdors</h3>
+	${message}
+         <br>	
+	<a href="${pageContext.request.contextPath}/administracio/addProveidors">
+        <button type="button" class="btn btn-success"><i class="far fa-plus-square"></i> Afegir nou proveidor</button>
+        </a>
+	<br>
+	<br>
+	<br>
+	<table class="table table-bordered table-striped text-center">
+		<thead>
+			<tr>
+				<th>Id</th>
+                                <th>Nom</th>
+				<th>Adreça</th>
+                                <th>Telèfon</th>
+				<th>Zona</th>
+                                <th>Categoria</th>
+                                <th>Enllaç a la imatge del proveidor</th>
+			</tr>
+		</thead>                          
+		<tbody>
+			<c:forEach var="proveidor" items="${ProveidorsList}">
+				<tr>
+					<td>${proveidor.id}</td>
+                                        <td>${proveidor.proveidorNom}</td>
+					<td>${proveidor.proveidorAddress}</td>
+                                        <td>${proveidor.proveidorTel}</td>
+					<td>${proveidor.proveidorZona}</td>
+                                        <td>${proveidor.proveidorCategoria}</td>
+					<td>${proveidor.proveidorImg}</td>
+
+					<td><a 
+						href="${pageContext.request.contextPath}/administracio/editProveidors/${proveidor.id}">Editar <i class="far fa-edit"></i></a></td>
+					<td><a  style="color:red"
+						href="${pageContext.request.contextPath}/administracio/deleteProducte/${proveidor.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
         
         <!-- SE MUESTRAN TODOS LOS USUARIOS -->
         

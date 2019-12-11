@@ -29,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import projectebotigabio.domain.User;
 import projectebotigabio.service.ProducteService;
+import projectebotigabio.service.ProveidorsService;
 import projectebotigabio.service.UserService;
 
 @Controller
@@ -36,15 +37,17 @@ public class UserController {
 	// Constructor based Dependency Injection
 	private UserService userService;
         private ProducteService producteService;
+        private ProveidorsService proveidorsService;
         
 	public UserController() {
 
 	}
 
 	@Autowired
-	public UserController(UserService userService, ProducteService producteService) {
+	public UserController(UserService userService, ProducteService producteService, ProveidorsService proveidorsService) {
 		this.userService = userService;
                 this.producteService = producteService;
+                this.proveidorsService = proveidorsService;
 	}
 
 
@@ -61,6 +64,8 @@ public class UserController {
 		List userList = userService.getAllUsers();
                 List producteList = producteService.getAllProductes();
 		mv.addObject("ProducteList", producteList);
+                List proveidorsList = proveidorsService.getAllProveidors();
+		mv.addObject("ProveidorsList", proveidorsList);
 		mv.addObject("userList", userList);
 		mv.setViewName("administracio");
 		return mv;
