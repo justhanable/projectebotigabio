@@ -16,7 +16,7 @@ import projectebotigabio.domain.Proveidors;
 import projectebotigabio.repository.ProveidorsRepository;
 
 @Service
-@Transactional
+
 public class ProveidorsServiceImpl implements ProveidorsService {
 
 		// injeccio dependencies repositori

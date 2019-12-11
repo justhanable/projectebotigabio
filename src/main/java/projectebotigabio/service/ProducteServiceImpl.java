@@ -18,7 +18,7 @@ import projectebotigabio.domain.Producte;
 import projectebotigabio.repository.ProducteRepository;
 
 @Service
-@Transactional
+
 public class ProducteServiceImpl implements ProducteService {
 
 		// injeccio dependencies repositori

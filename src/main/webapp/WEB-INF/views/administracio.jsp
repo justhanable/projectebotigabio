@@ -334,7 +334,7 @@
 					<td><a 
 						href="${pageContext.request.contextPath}/administracio/editProveidors/${proveidor.id}">Editar <i class="far fa-edit"></i></a></td>
 					<td><a  style="color:red"
-						href="${pageContext.request.contextPath}/administracio/deleteProducte/${proveidor.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
+						href="${pageContext.request.contextPath}/administracio/deleteProveidors/${proveidor.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

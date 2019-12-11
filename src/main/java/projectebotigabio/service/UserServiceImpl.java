@@ -32,7 +32,7 @@ import projectebotigabio.domain.User;
 import projectebotigabio.repository.UserRepository;
 
 @Service
-@Transactional
+
 public class UserServiceImpl implements UserService {
 
         // Implementing Constructor based DI
