@@ -1,9 +1,8 @@
-
-<!--
-    DAW Grup 3
-    Vista JSP que permet administrar la botiga
-
--->
+<%-- 
+    Document   : administracio
+    Created on : 18-nov-2019, 20:27:21
+    Author     : Xavi
+--%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -25,7 +24,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Fascinate|Indie+Flower|Roboto|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
-    <title>Administració de productes, proveïdors i usuaris</title>
+    <title>BotigaBio</title>
     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -150,7 +149,7 @@
                 </select>
                                                           
                 <input class="form-control  py-0 my-0 lime-border rounded" type="text" name="producteNom" placeholder="Cercar productes" /> 
-                <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><span class="fas fa-search" aria-hidden="true"></span></button>        
+                <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>        
             </form>
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
@@ -164,25 +163,25 @@
                         <div class="btn-group">
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productes</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<c:url value="/verdura"/>">Verdures</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/verdura"/>">Verdures</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruitsec"/>">Fruits secs</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruitsec"/>">Fruits secs</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruita"/>">Fruita</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruita"/>">Fruita</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/peix"/>">Peix</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/peix"/>">Peix</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/carn"/>">Carn</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/carn"/>">Carn</a>
                             </div>
                         </div>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Proveïdors</a>
+                        <a class="nav-link"  href="<c:url value="/proveidors"/>">Proveïdors</a>
                     </li>
                     <li class="nav-item">
                         <div class="btn-group">
-                            <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <span class="fa fa-user"></span></button>
+                            <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <i class="fa fa-user"></i></button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
                                 <div class="dropdown-divider"></div>
@@ -204,7 +203,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carretó<span class="fa fa-shopping-cart"></span></a>
+                        <a class="nav-link" href="#">Carretó<i class="fa fa-shopping-cart"></i></a>
                     </li>
                 </ul>
             </div>
@@ -218,19 +217,19 @@
             <ul class="nav">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="<c:url value="/verdura"/>">Verdures <span class="fa fa-leaf"></span></a>
+                    <a class="nav-link active" href="<c:url value="/producte/verdura"/>">Verdures <i class="fa fa-leaf"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/fruitsec"/>">Fruits secs <span class="fas fa-seedling"></span></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruitsec"/>">Fruits secs <i class="fas fa-seedling"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/fruita"/>">Fruita <span class="fab fa-apple"></span></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruita"/>">Fruita <i class="fab fa-apple"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/peix"/>">Peix <span class="fas fa-fish"></span></a>
+                    <a class="nav-link" href="<c:url value="/producte/peix"/>">Peix <i class="fas fa-fish"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/carn"/>">Carn <span class="fas fa-drumstick-bite"></span></a>
+                    <a class="nav-link" href="<c:url value="/producte/carn"/>">Carn <i class="fas fa-drumstick-bite"></i></a>
                 </li>
             </ul>
         </div>
@@ -238,6 +237,7 @@
 
 	
         <br>
+       <!--
         <div class="row">
             <div class="col-sm-6">
                  <div style="margin-left: 20px;" class="card container-fluid">
@@ -250,9 +250,9 @@
             </div>
         </div>
 	<br>
-        
+       -->
         <!-- SE MUESTRAN TODOS LOS PRODUCTOS -->
-
+        
         <h3>Llistat de tots els productes</h3>
 	${message}
          <br>	
@@ -305,7 +305,7 @@
 	<a href="${pageContext.request.contextPath}/addUser">
             <button type="button" class="btn btn-success"><span class="far fa-plus-square"></span> Afegir nou usuari</button>
         </a>
-	<br>
+	<br><br>
 	<h3>Llistat de tots els usuaris</h3>
 	${message}
 	<br>
@@ -351,7 +351,7 @@
             <div class="form-row">
                 <div class="col-md-3">
                     <label>
-                        <span class="fas fa-envelope mr-1"></span>
+                        <i class="fas fa-envelope mr-1"></i>
                             Subscriu-te al nostre newsletter!
                     </label>
                 </div>

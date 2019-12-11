@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE html>
 <html lang="ca">
@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="">
     <!-- Bootstrap4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Compte d'usuari</title>
+    <title>BotigaBio</title>
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Roboto|Fascinate|Indie+Flower|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
@@ -148,21 +148,21 @@
                         <div class="btn-group">
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productes</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<c:url value="/verdura"/>">Verdures</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/verdura"/>">Verdures</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruitsec"/>">Fruits secs</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruitsec"/>">Fruits secs</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruita"/>">Fruita</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruita"/>">Fruita</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/peix"/>">Peix</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/peix"/>">Peix</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/carn"/>">Carn</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/carn"/>">Carn</a>
                             </div>
                         </div>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Proveïdors</a>
+                        <a class="nav-link"  href="<c:url value="/proveidors"/>">Proveïdors</a>
                     </li>
                     <li class="nav-item">
                         <div class="btn-group">

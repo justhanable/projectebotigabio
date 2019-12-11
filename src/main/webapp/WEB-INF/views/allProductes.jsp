@@ -169,7 +169,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Proveïdors</a>
+                        <a class="nav-link" href="<c:url value="/proveidors"/>">Proveïdors</a>
                     </li>
                     <li class="nav-item">
                         <div class="btn-group">
@@ -225,6 +225,7 @@
 
 	
         <br>
+        <!-- 
         <div class="row">
             <div class="col-sm-6">
                  <div style="margin-left: 20px;" class="card container-fluid">
@@ -237,7 +238,7 @@
             </div>
         </div>
 	<br>
-        
+        -->
         <!-- SE MUESTRAN TODOS LOS PRODUCTOS -->
 
         <h3>Llistat de tots els productes</h3>

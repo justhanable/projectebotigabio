@@ -1,8 +1,7 @@
 
 <!--
     DAW Grup 3
-    Vista JSP que permet afegir proveidor a la botiga
-
+    Vista JSP que permet afegir proveïdors
 -->
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
