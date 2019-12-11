@@ -1,3 +1,11 @@
+
+
+<!--
+    DAW Grup 3
+    Vista JSP que permet modificar productes
+-->
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>

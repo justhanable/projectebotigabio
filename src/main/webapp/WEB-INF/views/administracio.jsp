@@ -1,8 +1,9 @@
-<%-- 
-    Document   : administracio
-    Created on : 18-nov-2019, 20:27:21
-    Author     : Xavi
---%>
+
+<!--
+    DAW Grup 3
+    Vista JSP que permet administrar la web
+-->
+
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

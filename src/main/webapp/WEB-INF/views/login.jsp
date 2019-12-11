@@ -1,8 +1,10 @@
-<%-- 
-    Document   : login
-    Created on : 12-nov-2019, 16:11:24
-    Author     : Xavi
---%>
+
+
+<!--
+    DAW Grup 3
+    Vista JSP que permet fer login a la botiga
+-->
+
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

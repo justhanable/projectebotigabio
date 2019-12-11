@@ -1,8 +1,12 @@
-<%-- 
-    Document   : producteCategoria
-    Created on : 01-nov-2019, 11:13:52
-    Author     : jonat
---%>
+
+
+<!--
+    DAW Grup 3
+    Vista JSP que permet llistar productes per categoria
+-->
+
+
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

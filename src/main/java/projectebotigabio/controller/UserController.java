@@ -1,14 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+*       Controlador d'usuaris, permet realitzar les diferents operacions 
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*/
+
+
 package projectebotigabio.controller;
 
-/**
- *
- * @author jonat
- */
+
 import java.io.IOException;
 import java.security.Principal;
 import java.util.List;

@@ -1,3 +1,10 @@
+/**
+*       Controlador de productes, permet realitzar les diferents operacions 
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*/
+
+
 package projectebotigabio.controller;
 
 import java.util.List;
@@ -14,10 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 import projectebotigabio.domain.Producte;
 import projectebotigabio.service.ProducteService;
 
-/**
- *
- * @author Jonatan Barrio
- */
 
 @Controller
 public class ProducteController {
@@ -112,7 +115,8 @@ public class ProducteController {
             return modelview;
         }      
                
-        /**Mètode que permet cercar productes. Depenent de si té el parametre de la request per defecte 'tots' o no el té, farà la
+        /**
+         * Mètode que permet cercar productes. Depenent de si té el parametre de la request per defecte 'tots' o no el té, farà la
          * crida a un metode del servei o un altre mitjançant un if:
          * 
          * 

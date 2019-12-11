@@ -1,8 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
+/**
+*       Comproba que l'email de l'usuari sigui únic
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*/
+
 package projectebotigabio.service;
 
 import java.lang.annotation.ElementType;
@@ -12,10 +15,7 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-/**
- *
- * @author Xavi
- */
+
 @Target(value = {ElementType.FIELD})
 @Retention(value = RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = {UniqueEmailValidator.class})

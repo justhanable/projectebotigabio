@@ -1,3 +1,11 @@
+
+/**
+*       Definició de producte
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*/
+
+
 package projectebotigabio.domain;
 
 import java.util.Objects;
@@ -21,10 +29,6 @@ import org.hibernate.validator.constraints.Range;
 //import org.hibernate.search.annotations.Index;
 //import org.hibernate.search.annotations.Analyze;
 //import org.hibernate.search.annotations.Store;
-/**
- *
- * @author jonat
- */
 
 @Entity
 @Table(name = "producte")

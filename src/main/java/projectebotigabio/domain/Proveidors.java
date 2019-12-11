@@ -1,8 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+/**
+*       Definició de proveidor
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*/
+
+
+
 package projectebotigabio.domain;
 
 import java.util.Objects;
@@ -16,10 +20,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Range;
 
-/**
- *
- * @author Fran
- */
 
 @Entity
 @Table(name = "proveidors")

@@ -1,3 +1,8 @@
+/**
+*       Configuració model vista controlador 
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*/
 package projectebotigabio.config;
 
 import org.springframework.context.MessageSource;

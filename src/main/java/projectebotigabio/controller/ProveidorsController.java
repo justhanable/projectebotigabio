@@ -1,8 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/**
+*       Controlador de proveïdors, permet realitzar les diferents operacions 
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*/
+
 package projectebotigabio.controller;
 
 import java.util.List;
@@ -18,10 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import projectebotigabio.domain.Proveidors;
 import projectebotigabio.service.ProveidorsService;
 
-/**
- *
- * @author Fran
- */
+
 
 @Controller
 public class ProveidorsController {

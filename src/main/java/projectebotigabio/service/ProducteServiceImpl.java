@@ -1,10 +1,14 @@
-package projectebotigabio.service;
+
+
+
 
 /**
- *
- * @author jonat
- */
+*       Servei que implementa el repositori per tal de guardar, esborrar o llistar productes
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*/
 
+package projectebotigabio.service;
 import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;

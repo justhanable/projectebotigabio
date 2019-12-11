@@ -1,3 +1,11 @@
+
+/**
+*       Inicialitza servlet 
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*/
+
+
 package projectebotigabio.config;
 
 

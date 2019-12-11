@@ -1,7 +1,8 @@
 
-/*
-@Author Grup3 DAW
-
+/**
+*       Configuració Hibernate
+*       @Author Grup3 DAW
+*       @Version: 2.0 
 */
 
 

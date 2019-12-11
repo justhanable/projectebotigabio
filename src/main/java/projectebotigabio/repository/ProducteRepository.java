@@ -1,4 +1,11 @@
 
+
+/**
+*       Repositori de producte, per tal de cercar per categoria i llistar
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*/
+
 package projectebotigabio.repository;
 
 import java.util.List;
@@ -8,10 +15,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import projectebotigabio.domain.Producte;
 
-/**
- *
- * @author Jonatan Barrio
- */  
 
 @Repository
 public interface ProducteRepository  extends  JpaRepository<Producte, Long> {
