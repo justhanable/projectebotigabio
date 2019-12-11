@@ -1,7 +1,8 @@
 
 <!--
     DAW Grup 3
-    Vista JSP que permet afegir producte
+    Vista JSP que permet afegir producte a la botiga
+
 -->
 
 
