@@ -1,11 +1,8 @@
 
-
-
 <!--
     DAW Grup 3
     Vista JSP que permet cercar productes
 -->
-
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -125,10 +122,9 @@
        
         img {
            width: 305px; 
-           height: 350px;
-           object-fit: cover;
+           height: 200px;
+           object-fit: contain;
        }
-
     </style>
     </head>
     <body>

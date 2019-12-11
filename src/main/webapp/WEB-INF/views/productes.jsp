@@ -118,6 +118,12 @@
             margin-right: 10px;
             margin-left:25px;
         }
+                
+        img {
+           width: 305px; 
+           height: 200px;
+           object-fit: contain;
+       }
  
     </style>
 </head>
@@ -236,12 +242,12 @@
 
     <!-- PRODUCTOS-->
     
-        <div class="container my-5">
+ <div class="container my-5">
             <div class="row">
                 <c:forEach var="producte" items="${productesPerCategoria}">
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card h-100">
-                            <a href="#"><img class="card-img-top rounded" src="<c:url value="${producte.producteImg}"/>" alt="Imatge del producte"></a>
+                            <a href="#"><img class="card-img-top rounded" src="<c:url value="${producte.producteImg}"/>" alt=""></a>
                             <div class="card-body">
                                 <h5  class="card-title" style="min-height:50px;">
                                     <a href="#">${producte.producteNom}</a>
@@ -255,6 +261,7 @@
                 </c:forEach>
             </div>
         </div>
+       
        
     <!--FOOTER NEWSLETTER-->
     <footer>

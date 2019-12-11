@@ -114,17 +114,8 @@ public class ProducteController {
             modelview.addObject("categoriaEscollida", producteCategoria);            
             return modelview;
         }      
-               
-        /**
-         * Mètode que permet cercar productes. Depenent de si té el parametre de la request per defecte 'tots' o no el té, farà la
-         * crida a un metode del servei o un altre mitjançant un if:
-         * 
-         * 
-         * @param producteNom 
-         * @param producteCategoria
-         * @return retorna la vista amb els resultats trobats.
-         */
-        @RequestMapping(value = "/search", method = RequestMethod.GET)
+        
+        @RequestMapping(value = {"/search", "/producte/search"}, method = RequestMethod.GET)
         public ModelAndView search(@RequestParam String producteNom, @RequestParam(defaultValue="tots") String producteCategoria) {
             
             if(producteCategoria.equals("tots")){
@@ -139,8 +130,7 @@ public class ProducteController {
                 mav.addObject("result", result);
                 return mav;               
                 
-            } else{
-           
+            } else{          
                 List<Producte> result = producteService.search(producteNom, producteCategoria);
                 ModelAndView mav = new ModelAndView("producteCercador");
                 mav.addObject("result", result);
