@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Fascinate|Indie+Flower|Roboto|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
-    <title>BotigaBio</title>
+    <title>Pàgina d'administració</title>
     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -343,14 +343,15 @@
         <!-- SE MUESTRAN TODOS LOS USUARIOS -->
         
         <br>
+        <h3>Llistat de tots els usuaris</h3>
+	${message}
 	<br>
 	<br>
 	<a href="${pageContext.request.contextPath}/addUser">
             <button type="button" class="btn btn-success"><span class="far fa-plus-square"></span> Afegir nou usuari</button>
         </a>
 	<br><br>
-	<h3>Llistat de tots els usuaris</h3>
-	${message}
+	
 	<br>
 	<br>
 	<table class="table table-bordered table-striped text-center">
@@ -362,8 +363,7 @@
 				<th>E-mail</th>
 				<th>Nom i Cognoms</th>
                                 <th>Rol</th>
-				<!--<th>Edit</th>-->
-				<th>Delete</th>
+				
 			</tr>
 		</thead>
 
@@ -378,7 +378,7 @@
 					<!--<td><a
 						href="${pageContext.request.contextPath}/usuari/${user.username}">Edit</a></td>-->
 					<td><a
-						href="${pageContext.request.contextPath}/administracio/deleteUser/${user.username}">Delete</a></td>
+						href="${pageContext.request.contextPath}/administracio/deleteUser/${user.username}">Eliminar <span class="far fa-trash-alt"></span></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

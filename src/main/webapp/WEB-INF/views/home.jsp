@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="">
     <!-- Bootstrap4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>BotigaBio</title>
+    <title>Pàgina principal de productes de proximitat i bio.</title>
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Roboto|Fascinate|Indie+Flower|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
@@ -225,7 +225,7 @@
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
 
-                    <a href="<c:url value="/producte/verdura"/>"><img class="card-img-top" src="<c:url value="/resources/img/vegetables-4375192_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/producte/verdura"/>"><img class="card-img-top" src="<c:url value="/resources/img/vegetables-4375192_1280.jpg"/>" alt="Productes de verdura"></a>
 
                     <div class="card-body">
                     <h4 class="card-title text-center">
@@ -238,7 +238,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/producte/fruitsec"/>"><img class="card-img-top" src="<c:url value="/resources/img/dried-fruits-3750383_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/producte/fruitsec"/>"><img class="card-img-top" src="<c:url value="/resources/img/dried-fruits-3750383_1280.jpg"/>" alt="Productes de fruits secs"></a>
 
                   <div class="card-body">
                     <h4 class="card-title text-center">
@@ -250,7 +250,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/producte/fruita"/>"><img class="card-img-top" src="<c:url value="/resources/img/46768731734_31330f7805_c.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/producte/fruita"/>"><img class="card-img-top" src="<c:url value="/resources/img/46768731734_31330f7805_c.jpg"/>" alt="Productes de fruita"></a>
 
                   <div class="card-body">
                     <h4 class="card-title text-center">
@@ -262,7 +262,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4 ml-1">
                 <div class="card h-100">
-                    <a href="<c:url value="/producte/peix"/>"><img class="card-img-top" src="<c:url value="/resources/img/salmon-4143734_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/producte/peix"/>"><img class="card-img-top" src="<c:url value="/resources/img/salmon-4143734_1280.jpg"/>" alt="Productes de peix"></a>
 
                   <div class="card-body">
                     <h4 class="card-title text-center">
@@ -274,7 +274,7 @@
 
               <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<c:url value="/producte/carn"/>"><img class="card-img-top" src="<c:url value="/resources/img/meat-3139641_1280.jpg"/>" alt=""></a>
+                    <a href="<c:url value="/producte/carn"/>"><img class="card-img-top" src="<c:url value="/resources/img/meat-3139641_1280.jpg"/>" alt="Productes de carn"></a>
 
                   <div class="card-body">
                     <h4 class="card-title text-center">
@@ -333,7 +333,7 @@
                     </div>
                     <ul>
                         <li><a href="#">Contacte</a></li>
-                        <li><a href="#">Polítiquest de privacitat</a></li>
+                        <li><a href="#">Polítiques de privacitat</a></li>
                     </ul>
                 </div>
             </div>  

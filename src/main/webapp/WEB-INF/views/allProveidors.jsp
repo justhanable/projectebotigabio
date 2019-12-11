@@ -164,21 +164,21 @@
                         <div class="btn-group">
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productes</button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<c:url value="/verdura"/>">Verdures</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/verdura"/>">Verdures</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruitsec"/>">Fruits secs</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruitsec"/>">Fruits secs</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/fruita"/>">Fruita</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/fruita"/>">Fruita</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/peix"/>">Peix</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/peix"/>">Peix</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/carn"/>">Carn</a>
+                                <a class="dropdown-item" href="<c:url value="/producte/carn"/>">Carn</a>
                             </div>
                         </div>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="proveidors">Proveïdors</a>
+                        <a class="nav-link" href="/proveidors">Proveïdors</a>
                     </li>
                     <li class="nav-item">
                         <div class="btn-group">
@@ -375,7 +375,7 @@
                     </div>
                     <ul>
                         <li><a href="#">Contacte</a></li>
-                        <li><a href="#">Polítiquest de privacitat</a></li>
+                        <li><a href="#">Polítiques de privacitat</a></li>
                     </ul>
                 </div>
             </div>  
