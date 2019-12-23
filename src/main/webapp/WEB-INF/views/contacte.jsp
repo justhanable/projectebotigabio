@@ -1,8 +1,6 @@
-
-
 <!--
     DAW Grup 3
-    Vista JSP que permet fer login a la botiga
+    Vista JSP que permet accedir a un formulari de contacte
 -->
 
 
@@ -24,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="">
     <!-- Bootstrap4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Log-in d'usuari</title>
+    <title>Formulari de contacte</title>
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Roboto|Fascinate|Indie+Flower|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
@@ -145,7 +143,7 @@
                 </select>
                                                           
                 <input class="form-control  py-0 my-0 lime-border rounded" type="text" name="producteNom" placeholder="Cercar productes" /> 
-                <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>        
+                <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><span class="fas fa-search" aria-hidden="true"></span></button>        
             </form>
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
@@ -211,42 +209,67 @@
     </nav>
     <!--BODY-->
     <div class="container m-5">
+        <!-- FORMULARI DE CONTACTE -->
         <div class="card w-50 p-0">
             <h4 class="card-header">
-                <span class="fa fa-user"></span> Login d'usuari
+                <span class="fa fa-user"></span> Formulari de contacte
             </h4>
+            
         
             <div class="card-block">
-                <form method="POST" action="login">
-                    <c:if test="${param.error != null}">
-                            <p style='color:red'>
-                                    Nom d'usuari i contrasenya incorrectes.
-                            </p>
-                    </c:if>
-                    <c:if test="${param.logout != null}">
-                            <p style='color:blue'>
-                                    Has sortit de la sessió d'usuari.
-                            </p>
-                    </c:if>
+                <form action="contacteOk" method="POST">
+                    
                     <fieldset class="p-4">
                         
                         <div class="form-group">
-                            <label  for="username">Nom d'usuari</label>
-                            <input  type="text" class="form-control" id="username" name="username"/>  
+                            <label  for="nom">Nom de contacte</label>
+                            <input  type="text" class="form-control" id="nom" name="nom" required/>  
                         </div>
                         <div class="form-group">
-                            <label  for="password">Contrasenya</label>
-                            <input type="password" class="form-control" id="password" name="password"/>  
+                            <label  for="email">E-mail de contacte</label>
+                            <input type="email" class="form-control" id="email" name="email" required/>  
+                        </div>
+                        <div class="form-group">
+                            <label  for="assumpte">Assumpte</label>
+                            <input type="text" class="form-control" id="assumpte" name="assumpte" required/>  
+                        </div>
+                        <div class="form-group">
+                            <label  for="missatge">Missatge</label>
+                            <textarea type="text" class="form-control" id="missatge" name="missatge" required></textarea>  
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="option" required>
+                                <label class="form-check-label" for="inlineCheckbox">Acceptes els Termes i Condicions.</label>
+                            </div>
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-success">Inicia sessió</button>
+                            <button type="submit" class="btn btn-success">Enviar</button>
                         </div>
                     </fieldset>
                 </form>
 
             </div>
+            
         </div>
+        <!-- FORMULARI DE CONTACTE -->
+        
+        <!-- DADES DE CONTACTE -->
+        <div class="card w-50 p-0 my-5">
+            <h4 class="card-header">
+                <span class="fa fa-user"></span> Dades de contacte
+            </h4>
+            
+        
+                <div class="card-block p-4">
+                    <p><span class="fas fa-phone mr-1"></span> Telèfon: 666 66 66 66</p>
+                    <p><span class="fas fa-envelope mr-1"></span> E-mail: botigabio@gmail.com</p>
+                    <p><span class="fas fa-car mr-1"></span> Adreça: C/ BotigaBio nº3, Barcelona</p>
+
+                </div>
+        </div>
+        <!-- DADES DE CONTACTE -->
     </div>
     
     <!--FOOTER NEWSLETTER-->

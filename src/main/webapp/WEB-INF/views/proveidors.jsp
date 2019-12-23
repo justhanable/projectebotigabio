@@ -180,10 +180,14 @@
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <i class="fa fa-user"></i></button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                <security:authorize access="!isAuthenticated()">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
+                                </security:authorize>
+                                <security:authorize access="isAuthenticated()">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                </security:authorize>
                                 <security:authorize access="isAuthenticated()">
                                     <c:set var="username">
                                     <security:authentication property="principal.username" /> 
@@ -304,7 +308,7 @@
                         </a>
                     </div>
                     <ul>
-                        <li><a href="#">Contacte</a></li>
+                        <li><a href="/contacte">Contacte</a></li>
                         <li><a href="#">Polítiques de privacitat</a></li>
                     </ul>
                 </div>

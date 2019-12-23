@@ -121,6 +121,12 @@
 			<artifactId>taglibs-standard-impl</artifactId>
 			<version>1.2.3</version>
 		</dependency>
+                <!-- Dependencies javax.mail -->
+                <dependency>
+                    <groupId>javax.mail</groupId>
+                    <artifactId>mail</artifactId>
+                    <version>1.4</version>
+                </dependency>
     </dependencies>
 
     <build>

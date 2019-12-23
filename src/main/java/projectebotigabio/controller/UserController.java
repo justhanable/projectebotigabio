@@ -57,6 +57,8 @@ public class UserController {
 		mv.setViewName("home");
 		return mv;
 	}
+        
+       
         //Pàgina d'administració, es mostren tots els usuaris i productes, es poden modificar i eliminar
         @RequestMapping(value = "/administracio", method = RequestMethod.GET)
 	public ModelAndView administracio() {
@@ -230,6 +232,21 @@ public class UserController {
 		return mv;
 
 	}
+        //Mostra la pàgina de contacte
+        @RequestMapping(value = { "/contacte" }, method = RequestMethod.GET)
+        public ModelAndView contacte() {
+            ModelAndView mv = new ModelAndView("contacte");
+            return mv;
+
+        }
+        //Mostra la pàgina contacteOk que enviará el formulari mitjançant mail
+        @RequestMapping(value = { "/contacteOk" }, method = RequestMethod.POST)
+        public ModelAndView contactePost() {
+            ModelAndView mv = new ModelAndView("contacteOk");
+            return mv;
+
+        }
+        
 
 }
 
