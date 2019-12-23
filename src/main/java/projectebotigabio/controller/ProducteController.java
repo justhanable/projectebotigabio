@@ -138,6 +138,14 @@ public class ProducteController {
             }
         }
         
+        @RequestMapping(value = "/comprarProducte}", method = RequestMethod.GET)
+        public ModelAndView buyProducte() {
+
+            ModelAndView modelview = new ModelAndView("/compraProducte");     		
+                 
+            return modelview;
+        }      
+        
 
 }
 
