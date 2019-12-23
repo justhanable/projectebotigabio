@@ -315,7 +315,7 @@
                         </a>
                     </div>
                     <ul>
-                        <li><a href="/contacte">Contacte</a></li>
+                        <li><a href="<c:url value="/contacte"/>">Contacte</a></li>
                         <li><a href="#">Polítiques de privacitat</a></li>
                     </ul>
                 </div>
