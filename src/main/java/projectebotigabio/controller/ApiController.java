@@ -37,7 +37,7 @@ public class ApiController {
         return repository.findAll();
         
     }
-    //Mostra els productes que tenen poc stock
+    //Mostra els productes que tenen poc stock (menor a 70 )
     @RequestMapping(value="/stockbaix", method= RequestMethod.GET)
     public List<Producte> getProductesStockBaix(){
         
@@ -76,9 +76,10 @@ public class ApiController {
 
 
     //Mostra els proveidors
-    @RequestMapping(value="/proveidors", method= RequestMethod.GET)
+    /*@RequestMapping(value="/proveidors", method= RequestMethod.GET)
     public List<Proveidors> getAllProveidors(){
         return proveidorepository.findAll();
         
     }
+    */
 }
