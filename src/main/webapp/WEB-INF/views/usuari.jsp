@@ -172,8 +172,10 @@
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <span class="fa fa-user"></span></button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
+                                <security:authorize access="!isAuthenticated()">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
+                                </security:authorize>
                                 <security:authorize access="isAuthenticated()">
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
@@ -183,7 +185,7 @@
                                     <security:authentication property="principal.username" /> 
                                     </c:set>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
+                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte de <c:out value ="${username}"/></a>
                                 </security:authorize>
                                 <security:authorize access="hasRole('ADMIN')">
                                     <div class="dropdown-divider"></div>
@@ -313,7 +315,7 @@
                         </a>
                     </div>
                     <ul>
-                        <li><a href="#">Contacte</a></li>
+                        <li><a href="<c:url value="/contacte"/>">Contacte</a></li>
                         <li><a href="#">Polítiques de privacitat</a></li>
                     </ul>
                 </div>
