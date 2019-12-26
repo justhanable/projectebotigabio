@@ -191,7 +191,7 @@
                                     <security:authentication property="principal.username" /> 
                                     </c:set>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
+                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte de <c:out value ="${username}"/></a>
                                 </security:authorize>
                                 <security:authorize access="hasRole('ADMIN')">
                                     <div class="dropdown-divider"></div>
@@ -240,7 +240,7 @@
                         <div class="form-group">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox" value="option" required>
-                                <label class="form-check-label" for="inlineCheckbox">Acceptes els Termes i Condicions.</label>
+                                <label class="form-check-label" for="inlineCheckbox">Acceptes la <a href="">Política de privacitat.</a></label>
                             </div>
                         </div>
 

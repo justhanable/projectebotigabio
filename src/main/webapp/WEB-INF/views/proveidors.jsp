@@ -193,7 +193,7 @@
                                     <security:authentication property="principal.username" /> 
                                     </c:set>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
+                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte de <c:out value ="${username}"/></a>
                                 </security:authorize>
                                 <security:authorize access="hasRole('ADMIN')">
                                     <div class="dropdown-divider"></div>
@@ -217,19 +217,19 @@
             <ul class="nav">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="<c:url value="/producte/verdura"/>">Verdures <i class="fa fa-leaf"></i></a>
+                    <a class="nav-link active" href="<c:url value="/producte/verdura"/>">Verdures <span class="fa fa-leaf"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/producte/fruitsec"/>">Fruits secs <i class="fas fa-seedling"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruitsec"/>">Fruits secs <span class="fas fa-seedling"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/producte/fruita"/>">Fruita <i class="fab fa-apple"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruita"/>">Fruita <span class="fab fa-apple"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/producte/peix"/>">Peix <i class="fas fa-fish"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/peix"/>">Peix <span class="fas fa-fish"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/producte/carn"/>">Carn <i class="fas fa-drumstick-bite"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/carn"/>">Carn <span class="fas fa-drumstick-bite"></span></a>
                 </li>
             </ul>
         </div>

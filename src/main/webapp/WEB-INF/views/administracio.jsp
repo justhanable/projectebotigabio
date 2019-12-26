@@ -198,7 +198,7 @@
                                     <security:authentication property="principal.username" /> 
                                     </c:set>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
+                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte de <c:out value ="${username}"/></a>
                                 </security:authorize>
                                 <security:authorize access="hasRole('ADMIN')">
                                     <div class="dropdown-divider"></div>
