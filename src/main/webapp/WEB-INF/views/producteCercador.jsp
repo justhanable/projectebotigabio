@@ -307,6 +307,7 @@
                     <ul>
                         <li><a href="#">Contacte</a></li>
                         <li><a href="#">Polítiquest de privacitat</a></li>
+                         <li><a href="<c:url value="/Historia"/>">La nostra història</a></li>
                     </ul>
                 </div>
             </div>  
