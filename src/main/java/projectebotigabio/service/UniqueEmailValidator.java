@@ -4,6 +4,7 @@
 *       Valida l'email de l'usuari
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Valida que l'email d'usuari emprat es unívoc
 */
 
 

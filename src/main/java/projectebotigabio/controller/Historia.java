@@ -1,7 +1,8 @@
 /**
-*       Controlador de proveïdors, permet realitzar les diferents operacions 
+*       Historia de la botiga BIO i consells saludables
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Controlador per mostrar la vista de la història de la botiga BIO, redirigeix a la vista historia.jsp
 */
 
 package projectebotigabio.controller;

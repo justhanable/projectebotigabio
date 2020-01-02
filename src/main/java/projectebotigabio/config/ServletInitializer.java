@@ -3,6 +3,7 @@
 *       Inicialitza servlet 
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Agafa la ruta relativa per tal de poder mapejar amb el servlet.
 */
 
 

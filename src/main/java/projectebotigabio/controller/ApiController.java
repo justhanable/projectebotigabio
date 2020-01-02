@@ -19,7 +19,7 @@ import projectebotigabio.repository.ProveidorsRepository;
  * SERVEI REST PER TAL DE MOSTRAR PRODUCTES
  * @author Grup 3 DAW
  * @version 3.0
- * 
+ * Ens permet consultar productes per preu, així com els que tenen un stock inferior a "X"
  */
 
 @RestController

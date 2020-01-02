@@ -4,6 +4,7 @@
 *       Servei per tal de guardar, esborrar o llistar productes
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Funcions de servei bàsiques per tal de  guardar, esborrar o llistar productes
 */
 
 

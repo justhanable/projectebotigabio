@@ -2,6 +2,7 @@
 *       Configuració model vista controlador 
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Ens indica la ruta de les vistes jsp, així com el path relatiu home
 */
 package projectebotigabio.config;
 

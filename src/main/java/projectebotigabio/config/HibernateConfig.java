@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * CONFIGURACIÓ HIBERNATE
  * @author Grup 3 DAW
  * @version 3.0
- * 
+ * Conté els beans amb data source i configuració d'hibernate
  */
 
 @Configuration

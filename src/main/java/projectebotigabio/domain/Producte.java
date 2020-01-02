@@ -3,6 +3,8 @@
 *       Definició de producte
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Conté les propietats de producte, així com les propietats de la taula producte de la base de dades
+*       
 */
 
 

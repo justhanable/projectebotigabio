@@ -4,6 +4,7 @@
 *       Valida que l'usuari sigui únic
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Permet fer les validacions d'usuari únic
 */
 
 

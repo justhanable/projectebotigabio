@@ -2,6 +2,7 @@
 *       Configuració de seguretat d'usuaris
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Fa servir els usuaris de la taula de base de dades usuaris, així com els rols
 */
 
 

@@ -4,6 +4,7 @@
 *       Definició de proveidor
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Conté les propietats dels proveidors, així com les propietats de la taula proveidors de la base de dades
 */
 
 package projectebotigabio.domain;

@@ -4,6 +4,7 @@
 *       Servei que permet fer les operacions amb usuaris
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Servei que permet fer les operacions d'usuari tals com agafar-los per email, username, així com esborrar-los o guardar-los 
 */
 
 

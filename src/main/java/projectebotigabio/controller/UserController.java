@@ -2,6 +2,7 @@
 *       Controlador d'usuaris, permet realitzar les diferents operacions 
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Controlador de la part d'usuari per tal de  verificar el login, així com els diferents rols.
 */
 
 

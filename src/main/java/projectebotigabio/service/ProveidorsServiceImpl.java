@@ -2,6 +2,7 @@
 *       Servei que implementa el repositori per tal de guardar, esborrar o llistar proveïdors
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Repositori de proveidors que permet fer les operacions de edició dels mateixos
 */
 
 

@@ -5,6 +5,7 @@
 *       Servei que implementa el repositori d'usuaris
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Implementa el servei d'usuari per tal de cercar usuaris, esborrar-los guardar-los o verificar-los per e-mail
 */
 
 

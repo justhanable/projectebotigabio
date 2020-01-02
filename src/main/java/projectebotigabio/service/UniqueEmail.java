@@ -4,6 +4,7 @@
 *       Comproba que l'email de l'usuari sigui únic
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Comproba que l'email es unívoc
 */
 
 package projectebotigabio.service;
