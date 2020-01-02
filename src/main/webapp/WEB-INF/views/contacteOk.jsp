@@ -1,16 +1,68 @@
-
-
-<!--
-    DAW Grup 3
-    Vista JSP que permet fer login a la botiga
--->
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ page import="java.util.*,javax.mail.*"%>
+<%@ page import="javax.mail.internet.*" %>
+<%
+    // Variable que ens mostrarà l'estat del missatge, si s'ha enviat o no correctament.
+    String result;
+    //Guardem els camps que volem enviar del formulari en variables. Email al que enviarem el missatge, l'assumpte, el missatge i el nom.
+    final String to = request.getParameter("email");
+    final String subject = request.getParameter("assumpte");
+    final String messg = request.getParameter("missatge");
+    final String nom = request.getParameter("nom");
+    
+ 
+    // Email i password del compte que utilitzarem per enviar mails.
+    final String from = "botigabio@gmail.com";
+    final String pass = "botigabiodaw";
+ 
+ 
+    // Al utilitzar gmail, utilitzarem el gmail host
+    String host = "smtp.gmail.com";
+ 
+    // Creació del objecte propietats
+    Properties props = new Properties();
+ 
+    // Definim les propietats
+    props.put("mail.smtp.host", host);
+    props.put("mail.transport.protocol", "smtp");
+    props.put("mail.smtp.auth", "true");
+    props.put("mail.smtp.starttls.enable", "true");
+    props.put("mail.user", from);
+    props.put("mail.password", pass);
+    props.put("mail.port", "465");
+ 
+    // Autorització de l'objecte sessió.
+    Session mailSession = Session.getInstance(props, new javax.mail.Authenticator() {
+        @Override
+        protected PasswordAuthentication getPasswordAuthentication() {
+            return new PasswordAuthentication(from, pass);
+        }
+    });
+ 
+    try {
+        // Creació d'un objecte MimeMessage
+        MimeMessage message = new MimeMessage(mailSession);
+        // Indiquem el camp From: del header
+        message.setFrom(new InternetAddress(from));
+        // Indiquem el camp To: del header.
+        message.addRecipient(Message.RecipientType.TO,
+                new InternetAddress(from));
+        // Indiquem l'assumpte
+        message.setSubject(subject);
+        // Indiquem el missatge
+        message.setText("Nom de contacte: "+nom+"<br/>Email de contacte: "+to+"<br/>Missatge: "+messg,"utf-8", "html");
+        // Enviem el mail
+        Transport.send(message);
+        result = "Formulari enviat correctament";
+    } catch (MessagingException mex) {
+        mex.printStackTrace();
+        result = "Error: No s'ha pogut enviar el formulari de contacte.";
+    }
+%>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -24,7 +76,7 @@
     <link rel="stylesheet" type="text/css" href="">
     <!-- Bootstrap4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Log-in d'usuari</title>
+    <title>Formulari de contacte</title>
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Roboto|Fascinate|Indie+Flower|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
@@ -119,6 +171,9 @@
             margin-right: 10px;
             margin-left:25px;
         }
+        .container-missatge{
+            height:100%
+        }
  
     </style>
 </head>
@@ -209,47 +264,14 @@
             </div>
         </div>
     </nav>
-    <!--BODY-->
-    <div class="container m-5">
-        <div class="card w-50 p-0">
-            <h4 class="card-header">
-                <span class="fa fa-user"></span> Login d'usuari
-            </h4>
-        
-            <div class="card-block">
-                <form method="POST" action="login">
-                    <c:if test="${param.error != null}">
-                            <p style='color:red'>
-                                    Nom d'usuari i contrasenya incorrectes.
-                            </p>
-                    </c:if>
-                    <c:if test="${param.logout != null}">
-                            <p style='color:blue'>
-                                    Has sortit de la sessió d'usuari.
-                            </p>
-                    </c:if>
-                    <fieldset class="p-4">
-                        
-                        <div class="form-group">
-                            <label  for="username">Nom d'usuari</label>
-                            <input  type="text" class="form-control" id="username" name="username"/>  
-                        </div>
-                        <div class="form-group">
-                            <label  for="password">Contrasenya</label>
-                            <input type="password" class="form-control" id="password" name="password"/>  
-                        </div>
-
-                        <div class="form-actions">
-                            <button type="submit" class="btn btn-success">Inicia sessió</button>
-                        </div>
-                    </fieldset>
-                </form>
-
+    <div class="container-missatge">
+            <div class="row m-5 text-center">
+                
+                <h4><% out.println(result);%></h4>
+                
             </div>
-        </div>
     </div>
-    
-    <!--FOOTER NEWSLETTER-->
+                <!--FOOTER NEWSLETTER-->
     <footer>
         <!--FORMULARIO NEWSLETTER-->
         <form class="p-4">
@@ -270,7 +292,6 @@
         </form>
       
     </footer>
-
     <!--FOOTER-->
     <footer class="page-footer pt-4">
         
@@ -298,7 +319,6 @@
                     <ul>
                         <li><a href="<c:url value="/contacte"/>">Contacte</a></li>
                         <li><a href="#">Polítiques de privacitat</a></li>
-                          <li><a href="<c:url value="/Historia"/>">La nostra història</a></li>
                     </ul>
                 </div>
             </div>  
@@ -308,3 +328,4 @@
         </div>
     </footer>
 </body>
+

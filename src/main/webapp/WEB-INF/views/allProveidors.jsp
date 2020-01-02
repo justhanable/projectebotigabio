@@ -185,10 +185,14 @@
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <i class="fa fa-user"></i></button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                <security:authorize access="!isAuthenticated()">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
+                                </security:authorize>
+                                <security:authorize access="isAuthenticated()">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                </security:authorize>
                                 <security:authorize access="isAuthenticated()">
                                     <c:set var="username">
                                     <security:authentication property="principal.username" /> 
@@ -334,7 +338,7 @@
             <div class="form-row">
                 <div class="col-md-3">
                     <label>
-                        <i class="fas fa-envelope mr-1"></i>
+                        <span class="fas fa-envelope mr-1"></span>
                             Subscriu-te al nostre newsletter!
                     </label>
                 </div>
@@ -358,23 +362,23 @@
                     <div class="text-center mb-5">
                         <!-- Facebook -->
                         <a class="fb-ic" href="#">
-                            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+                            <span class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"></span>
                         </a>
                         <!-- Twitter -->
                         <a class="tw-ic" href="#">
-                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                         <!-- Google +-->
                         <a class="gplus-ic" href="#">
-                            <i class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                         <!--Instagram-->
                         <a class="ins-ic" href="#">
-                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                            <span class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </span>
                         </a>
                     </div>
                     <ul>
-                        <li><a href="#">Contacte</a></li>
+                        <li><a href="/contacte">Contacte</a></li>
                         <li><a href="#">Polítiques de privacitat</a></li>
                          <li><a href="<c:url value="/Historia"/>">La nostra història</a></li>
                     </ul>

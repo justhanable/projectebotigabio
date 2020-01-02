@@ -150,7 +150,7 @@
                 </select>
                                                           
                 <input class="form-control  py-0 my-0 lime-border rounded" type="text" name="producteNom" placeholder="Cercar productes" /> 
-                <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>        
+                <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><span class="fas fa-search" aria-hidden="true"></span></button>        
             </form>
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
@@ -185,16 +185,20 @@
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <i class="fa fa-user"></i></button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                <security:authorize access="!isAuthenticated()">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
+                                </security:authorize>
+                                <security:authorize access="isAuthenticated()">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+                                </security:authorize>
                                 <security:authorize access="isAuthenticated()">
                                     <c:set var="username">
                                     <security:authentication property="principal.username" /> 
                                     </c:set>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
+                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte de <c:out value ="${username}"/></a>
                                 </security:authorize>
                                 <security:authorize access="hasRole('ADMIN')">
                                     <div class="dropdown-divider"></div>
@@ -218,19 +222,19 @@
             <ul class="nav">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="<c:url value="/producte/verdura"/>">Verdures <i class="fa fa-leaf"></i></a>
+                    <a class="nav-link active" href="<c:url value="/producte/verdura"/>">Verdures <span class="fa fa-leaf"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/producte/fruitsec"/>">Fruits secs <i class="fas fa-seedling"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruitsec"/>">Fruits secs <span class="fas fa-seedling"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/producte/fruita"/>">Fruita <i class="fab fa-apple"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruita"/>">Fruita <span class="fab fa-apple"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/producte/peix"/>">Peix <i class="fas fa-fish"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/peix"/>">Peix <span class="fas fa-fish"></span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/producte/carn"/>">Carn <i class="fas fa-drumstick-bite"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/carn"/>">Carn <span class="fas fa-drumstick-bite"></span></a>
                 </li>
             </ul>
         </div>
@@ -303,7 +307,7 @@
 	${message}
          <br>	
 	<a href="${pageContext.request.contextPath}/administracio/addProveidors">
-        <button type="button" class="btn btn-success"><i class="far fa-plus-square"></i> Afegir nou proveidor</button>
+        <button type="button" class="btn btn-success"><span class="far fa-plus-square"></span> Afegir nou proveidor</button>
         </a>
 	<br>
 	<br>
@@ -332,9 +336,9 @@
 					<td>${proveidor.proveidorImg}</td>
 
 					<td><a 
-						href="${pageContext.request.contextPath}/administracio/editProveidors/${proveidor.id}">Editar <i class="far fa-edit"></i></a></td>
+						href="${pageContext.request.contextPath}/administracio/editProveidors/${proveidor.id}">Editar <span class="far fa-edit"></span></a></td>
 					<td><a  style="color:red"
-						href="${pageContext.request.contextPath}/administracio/deleteProveidors/${proveidor.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
+						href="${pageContext.request.contextPath}/administracio/deleteProveidors/${proveidor.id}">Eliminar<span class="far fa-trash-alt"></span></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -394,7 +398,7 @@
             <div class="form-row">
                 <div class="col-md-3">
                     <label>
-                        <i class="fas fa-envelope mr-1"></i>
+                        <span class="fas fa-envelope mr-1"></span>
                             Subscriu-te al nostre newsletter!
                     </label>
                 </div>
@@ -434,7 +438,7 @@
                         </a>
                     </div>
                     <ul>
-                        <li><a href="#">Contacte</a></li>
+                        <li><a href="<c:url value="/contacte"/>">Contacte</a></li>
                         <li><a href="#">Polítiques de privacitat</a></li>
                           <li><a href="<c:url value="/Historia"/>">La nostra història</a></li>
                     </ul>
