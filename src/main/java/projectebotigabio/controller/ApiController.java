@@ -1,8 +1,3 @@
-/**
-*       Api per gestionar serveis Rest
-*       @Author Grup3 DAW
-*       @Version: 2.0 
-*/
 
 
 package projectebotigabio.controller;
@@ -15,10 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 import projectebotigabio.domain.Producte;
 import projectebotigabio.repository.ProducteRepository;
 
+
 /**
- *
- * @author Xavi
+ * SERVEI REST PER TAL DE MOSTRAR PRODUCTES
+ * @author Grup 3 DAW
+ * @version 3.0
+ * 
  */
+
 @RestController
 @RequestMapping("/administracio/rest")
 public class ApiController {

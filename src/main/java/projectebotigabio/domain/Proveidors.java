@@ -1,11 +1,10 @@
 
+
 /**
 *       Definició de proveidor
 *       @Author Grup3 DAW
 *       @Version: 2.0 
 */
-
-
 
 package projectebotigabio.domain;
 
@@ -19,6 +18,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Range;
+
 
 
 @Entity
