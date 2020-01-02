@@ -335,7 +335,9 @@
                     </div>
                     <ul>
                         <li><a href="<c:url value="/contacte"/>">Contacte</a></li>
-                        <li><a href="#">Polítiques de privacitat</a></li>
+                        <li><a href="<c:url value="/avisLegal"/>">Avís Legal</a></li>
+                        <li><a href="<c:url value="/politica"/>">Polítiques de privacitat</a></li>
+                        <li><a href="<c:url value="/accessibilitat"/>">Accessibilitat</a></li>
                     </ul>
                 </div>
             </div>  

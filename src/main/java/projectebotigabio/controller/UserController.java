@@ -247,6 +247,30 @@ public class UserController {
 
         }
         
+        //Mostra la pàgina d'Avís Legal
+        @RequestMapping(value = { "/avisLegal" }, method = RequestMethod.GET)
+        public ModelAndView avisLegal() {
+            ModelAndView mv = new ModelAndView("avisLegal");
+            return mv;
+
+        }
+        
+        //Mostra la pàgina de Polítiques de privacitat
+        @RequestMapping(value = { "/politica" }, method = RequestMethod.GET)
+        public ModelAndView politiques() {
+            ModelAndView mv = new ModelAndView("politica");
+            return mv;
+
+        }
+        
+        //Mostra la pàgina d'accessibilitat
+        @RequestMapping(value = { "/accessibilitat" }, method = RequestMethod.GET)
+        public ModelAndView accessibilitat() {
+            ModelAndView mv = new ModelAndView("accessibilitat");
+            return mv;
+
+        }
+        
 
 }
 

@@ -249,7 +249,7 @@
                 <c:forEach var="producte" items="${result}">
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card h-100">
-                            <a href="#"><img class="card-img-top rounded" src="<c:url value="${producte.producteImg}"/>" alt=""></a>
+                            <a href="#"><img class="card-img-top rounded" src="<c:url value="${producte.producteImg}"/>" alt="imatge del producte"></a>
                             <div class="card-body">
                                 <h5  class="card-title" style="min-height:50px;">
                                     <a href="#">${producte.producteNom}</a>
@@ -313,7 +313,9 @@
                     </div>
                     <ul>
                         <li><a href="<c:url value="/contacte"/>">Contacte</a></li>
-                        <li><a href="#">Polítiquest de privacitat</a></li>
+                        <li><a href="<c:url value="/avisLegal"/>">Avís Legal</a></li>
+                        <li><a href="<c:url value="/politica"/>">Polítiques de privacitat</a></li>
+                        <li><a href="<c:url value="/accessibilitat"/>">Accessibilitat</a></li>
                     </ul>
                 </div>
             </div>  

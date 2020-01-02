@@ -16,7 +16,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Botiga online de productes de proximitat Bio">
+    <meta name="description" content="Botiga online de productes de proximitat Bio. Consulta informació sobre els nostres proveïdors.">
     <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--LINK A CSS-->
@@ -309,7 +309,9 @@
                     </div>
                     <ul>
                         <li><a href="<c:url value="/contacte"/>">Contacte</a></li>
-                        <li><a href="#">Polítiques de privacitat</a></li>
+                        <li><a href="<c:url value="/avisLegal"/>">Avís Legal</a></li>
+                        <li><a href="<c:url value="/politica"/>">Polítiques de privacitat</a></li>
+                        <li><a href="<c:url value="/accessibilitat"/>">Accessibilitat</a></li>
                     </ul>
                 </div>
             </div>  
