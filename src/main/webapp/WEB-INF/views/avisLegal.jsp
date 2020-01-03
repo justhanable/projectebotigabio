@@ -1,82 +1,27 @@
+<%-- 
+    Document   : avisLegal
+    Created on : 29-dic-2019, 17:46:44
+    Author     : Xavi
+--%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ page import="java.util.*,javax.mail.*"%>
-<%@ page import="javax.mail.internet.*" %>
-<%
-    // Variable que ens mostrarà l'estat del missatge, si s'ha enviat o no correctament.
-    String result;
-    //Guardem els camps que volem enviar del formulari en variables. Email al que enviarem el missatge, l'assumpte, el missatge i el nom.
-    final String to = request.getParameter("email");
-    final String subject = request.getParameter("assumpte");
-    final String messg = request.getParameter("missatge");
-    final String nom = request.getParameter("nom");
-    
- 
-    // Email i password del compte que utilitzarem per enviar mails.
-    final String from = "botigabio@gmail.com";
-    final String pass = "botigabiodaw";
- 
- 
-    // Al utilitzar gmail, utilitzarem el gmail host
-    String host = "smtp.gmail.com";
- 
-    // Creació del objecte propietats
-    Properties props = new Properties();
- 
-    // Definim les propietats
-    props.put("mail.smtp.host", host);
-    props.put("mail.transport.protocol", "smtp");
-    props.put("mail.smtp.auth", "true");
-    props.put("mail.smtp.starttls.enable", "true");
-    props.put("mail.user", from);
-    props.put("mail.password", pass);
-    props.put("mail.port", "465");
- 
-    // Autorització de l'objecte sessió.
-    Session mailSession = Session.getInstance(props, new javax.mail.Authenticator() {
-        @Override
-        protected PasswordAuthentication getPasswordAuthentication() {
-            return new PasswordAuthentication(from, pass);
-        }
-    });
- 
-    try {
-        // Creació d'un objecte MimeMessage
-        MimeMessage message = new MimeMessage(mailSession);
-        // Indiquem el camp From: del header
-        message.setFrom(new InternetAddress(from));
-        // Indiquem el camp To: del header.
-        message.addRecipient(Message.RecipientType.TO,
-                new InternetAddress(from));
-        // Indiquem l'assumpte
-        message.setSubject(subject);
-        // Indiquem el missatge
-        message.setText("Nom de contacte: "+nom+"<br/>Email de contacte: "+to+"<br/>Missatge: "+messg,"utf-8", "html");
-        // Enviem el mail
-        Transport.send(message);
-        result = "Formulari enviat correctament";
-    } catch (MessagingException mex) {
-        mex.printStackTrace();
-        result = "Error: No s'ha pogut enviar el formulari de contacte.";
-    }
-%>
 <!DOCTYPE html>
 <html lang="ca">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Botiga online de productes de proximitat Bio. Formulari de contacte.">
-    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+    <meta name="description" content="Botiga online de productes de proximitat Bio. Pàgina d'Avís Legal.">
+    <link rel="icon" href="<spring:url value="/resources/img/favicon-botigabio.png"/>" type="image/png" sizes="32x32">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--LINK A CSS-->
     <link rel="stylesheet" type="text/css" href="">
     <!-- Bootstrap4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Formulari de contacte</title>
+    <title>Avís Legal</title>
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Roboto|Fascinate|Indie+Flower|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
@@ -91,8 +36,7 @@
         }
         .navbar-brand {
             margin: auto;
-            display: block;
-           
+            display: block;          
         }
 
         .logo {
@@ -104,9 +48,7 @@
         img{
            width: 100%;
            height: auto;
-           background-size: cover;
-  
-   
+           background-size: cover; 
         }
 
         .input-group {
@@ -116,8 +58,7 @@
         li {
             font-size: 18px;
         }
-
-        
+   
         footer {
             background-color: midnightblue;
             color: lightgrey
@@ -134,16 +75,13 @@
         }
         
         @media (max-width:600px){
-          
-            
-            
+                             
         }
         button.btn.btn-default {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             background-color: mediumseagreen;
             color:white
-
         }
         .jumbotron {
             padding-top:0;
@@ -155,12 +93,11 @@
         }
         .container{
            font-family:Roboto; 
+            
         }
         
-        strong{
-            font-size:50px
-        }
-           
+       
+        
         .barraCercar{
             height: 40px;
             width: 40%;                              
@@ -171,10 +108,17 @@
             margin-right: 10px;
             margin-left:25px;
         }
-        .container-missatge{
-            height:100%
+        /*
+        #legal{
+            border-style: solid ;
+                border-radius: 5px;
+                    border-width: 1px;
+                        background-color: whitesmoke
         }
- 
+        */
+        
+
+        
     </style>
 </head>
 <body>
@@ -183,10 +127,12 @@
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
+                                  
             <!--LOGOTIPO-->
             <a class="navbar-brand" href="<c:url value="/"/>">   
                 <img class="logo" alt="logotip botigabio" src="<spring:url value="/resources/img/botigabio.png"/>">
             </a>
+                        
             <!--BUSCADOR-->               
             <form class="input-group lg-form form-sm form-2 ml-4 mr-4 barraCercar" method="get" action="search" name="producteCategoria">
                               
@@ -202,6 +148,7 @@
                 <input class="form-control  py-0 my-0 lime-border rounded" type="text" name="producteNom" placeholder="Cercar productes" /> 
                 <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>        
             </form>
+               
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -228,7 +175,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link"  href="<c:url value="/proveidors"/>">Proveïdors</a>
+                        <a class="nav-link" href="<c:url value="/proveidors/"/>">Proveïdors</a>
                     </li>
                     <li class="nav-item">
                         <div class="btn-group">
@@ -264,23 +211,37 @@
             </div>
         </div>
     </nav>
-    <div class="container-missatge">
-            <div class="row m-5 text-center">
-                
-                <h4><% out.println(result);%></h4>
-                
-            </div>
+    <!--BODY-->
+    <div class="container col-md-8">
+        <br/>
+        <br/>
+        
+        <div class="row" id="legal">
+            <br/>
+            <br/>
+            <br/>
+            <h1>Avís Legal</h1>
+            <p>Grup 3 DAW, amb NIF/CIF 22222222c, direcció C/BotigaBio nº3 Barcelona i e-mail botigabio@gmail.com, no pot assumir cap responsabilitat derivada de l’ús incorrecte, inapropiat o il·lícit de la informació que apareix a la pàgina web www.botigabio.com.
+            </p>
+            <p>Amb els límits establits per llei, Grup 3 DAW no assumeix cap responsabilitat derivada de la falta de veracitat, integritat, actualització i precisió de les dades o informacions que apareixen al nostre web.
+            </p>
+            <p>Així mateix, per accedir a alguns dels serveis que www.botigabio.com ofereix, vostè deurà proporcionar algunes dades de caràcter personal. En compliment de l’establert en el Regalment 2016/679 del Parlament Europeu i del Consell, de 27 abril de 2016, relatiu a la protecció de les persones físiques respecta al tractament de dades personals i a la lliure circulació d’aquestes dades, l’informem que, les seves dades personals quedaran incorporades i seran tractades en els fitxers de BotigaBio amb la fi de poder-li prestar i oferir els nostres serveis. Així mateix, l’informem de la possibilitat d’exercir els drets d’accés, rectificació, cancel·lació i oposició de les seves dades de caràcter personal de manera gratuïta mediant un e-mail a botigabio@gmail.com o a la direcció C/ BotigaBio Barcelona.
+            </p>
+            
+        </div>
+        <br/>
+        <br/>
+        
     </div>
-                <!--FOOTER NEWSLETTER-->
+    
+    <!--FOOTER NEWSLETTER-->
     <footer>
         <!--FORMULARIO NEWSLETTER-->
         <form class="p-4">
             <div class="form-row">
                 <div class="col-md-3">
-                    <label>
-                        <i class="fas fa-envelope mr-1"></i>
-                            Subscriu-te al nostre newsletter!
-                    </label>
+                    <label ><i class="fas fa-envelope mr-1"></i>
+                         Subscriu-te al nostre newsletter!</label>
                 </div>
                 <div class="col-md-3">
                     <input type="email" class="form-control form-control-sm" placeholder="Indica el teu email" aria-label="Your email">
@@ -292,6 +253,7 @@
         </form>
       
     </footer>
+
     <!--FOOTER-->
     <footer class="page-footer pt-4">
         
@@ -332,4 +294,3 @@
         </div>
     </footer>
 </body>
-

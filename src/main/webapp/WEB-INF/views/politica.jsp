@@ -1,82 +1,27 @@
+<%-- 
+    Document   : politica
+    Created on : 29-dic-2019, 17:47:29
+    Author     : Xavi
+--%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
-<%@ page import="java.util.*,javax.mail.*"%>
-<%@ page import="javax.mail.internet.*" %>
-<%
-    // Variable que ens mostrarà l'estat del missatge, si s'ha enviat o no correctament.
-    String result;
-    //Guardem els camps que volem enviar del formulari en variables. Email al que enviarem el missatge, l'assumpte, el missatge i el nom.
-    final String to = request.getParameter("email");
-    final String subject = request.getParameter("assumpte");
-    final String messg = request.getParameter("missatge");
-    final String nom = request.getParameter("nom");
-    
- 
-    // Email i password del compte que utilitzarem per enviar mails.
-    final String from = "botigabio@gmail.com";
-    final String pass = "botigabiodaw";
- 
- 
-    // Al utilitzar gmail, utilitzarem el gmail host
-    String host = "smtp.gmail.com";
- 
-    // Creació del objecte propietats
-    Properties props = new Properties();
- 
-    // Definim les propietats
-    props.put("mail.smtp.host", host);
-    props.put("mail.transport.protocol", "smtp");
-    props.put("mail.smtp.auth", "true");
-    props.put("mail.smtp.starttls.enable", "true");
-    props.put("mail.user", from);
-    props.put("mail.password", pass);
-    props.put("mail.port", "465");
- 
-    // Autorització de l'objecte sessió.
-    Session mailSession = Session.getInstance(props, new javax.mail.Authenticator() {
-        @Override
-        protected PasswordAuthentication getPasswordAuthentication() {
-            return new PasswordAuthentication(from, pass);
-        }
-    });
- 
-    try {
-        // Creació d'un objecte MimeMessage
-        MimeMessage message = new MimeMessage(mailSession);
-        // Indiquem el camp From: del header
-        message.setFrom(new InternetAddress(from));
-        // Indiquem el camp To: del header.
-        message.addRecipient(Message.RecipientType.TO,
-                new InternetAddress(from));
-        // Indiquem l'assumpte
-        message.setSubject(subject);
-        // Indiquem el missatge
-        message.setText("Nom de contacte: "+nom+"<br/>Email de contacte: "+to+"<br/>Missatge: "+messg,"utf-8", "html");
-        // Enviem el mail
-        Transport.send(message);
-        result = "Formulari enviat correctament";
-    } catch (MessagingException mex) {
-        mex.printStackTrace();
-        result = "Error: No s'ha pogut enviar el formulari de contacte.";
-    }
-%>
 <!DOCTYPE html>
 <html lang="ca">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Botiga online de productes de proximitat Bio. Formulari de contacte.">
-    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+    <meta name="description" content="Botiga online de productes de proximitat Bio. Pàgina de Polítiques de privacitat.">
+    <link rel="icon" href="<spring:url value="/resources/img/favicon-botigabio.png"/>" type="image/png" sizes="32x32">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--LINK A CSS-->
     <link rel="stylesheet" type="text/css" href="">
     <!-- Bootstrap4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Formulari de contacte</title>
+    <title>Polítiques de privacitat</title>
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Roboto|Fascinate|Indie+Flower|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
@@ -91,8 +36,7 @@
         }
         .navbar-brand {
             margin: auto;
-            display: block;
-           
+            display: block;          
         }
 
         .logo {
@@ -104,9 +48,7 @@
         img{
            width: 100%;
            height: auto;
-           background-size: cover;
-  
-   
+           background-size: cover; 
         }
 
         .input-group {
@@ -116,8 +58,7 @@
         li {
             font-size: 18px;
         }
-
-        
+   
         footer {
             background-color: midnightblue;
             color: lightgrey
@@ -134,16 +75,13 @@
         }
         
         @media (max-width:600px){
-          
-            
-            
+                             
         }
         button.btn.btn-default {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             background-color: mediumseagreen;
             color:white
-
         }
         .jumbotron {
             padding-top:0;
@@ -155,12 +93,11 @@
         }
         .container{
            font-family:Roboto; 
+            
         }
         
-        strong{
-            font-size:50px
-        }
-           
+        
+        
         .barraCercar{
             height: 40px;
             width: 40%;                              
@@ -171,10 +108,17 @@
             margin-right: 10px;
             margin-left:25px;
         }
-        .container-missatge{
-            height:100%
+        /*
+        #legal{
+            border-style: solid ;
+                border-radius: 5px;
+                    border-width: 1px;
+                        background-color: whitesmoke
         }
- 
+        */
+        
+
+        
     </style>
 </head>
 <body>
@@ -183,10 +127,12 @@
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
+                                  
             <!--LOGOTIPO-->
             <a class="navbar-brand" href="<c:url value="/"/>">   
                 <img class="logo" alt="logotip botigabio" src="<spring:url value="/resources/img/botigabio.png"/>">
             </a>
+                        
             <!--BUSCADOR-->               
             <form class="input-group lg-form form-sm form-2 ml-4 mr-4 barraCercar" method="get" action="search" name="producteCategoria">
                               
@@ -202,6 +148,7 @@
                 <input class="form-control  py-0 my-0 lime-border rounded" type="text" name="producteNom" placeholder="Cercar productes" /> 
                 <button class="btn btn-default ml-0 imgIcon" action="<c:url value="Search"/>" type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>        
             </form>
+               
             <!--BOTÓN TOGGLER PARA PANTALLAS MAS PEQUEÑAS-->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#barraNavegacion" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -228,7 +175,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link"  href="<c:url value="/proveidors"/>">Proveïdors</a>
+                        <a class="nav-link" href="<c:url value="/proveidors/"/>">Proveïdors</a>
                     </li>
                     <li class="nav-item">
                         <div class="btn-group">
@@ -264,23 +211,108 @@
             </div>
         </div>
     </nav>
-    <div class="container-missatge">
-            <div class="row m-5 text-center">
-                
-                <h4><% out.println(result);%></h4>
-                
-            </div>
+    <!--BODY-->
+    <div class="container col-md-8">
+        <br/ >
+        <br/ >
+        
+        <div class="row" id="legal">
+            
+            
+            <h1>1. Política de privacitat <br></h1>
+            
+            <h3>Protecció de dades de caràcter personal segons la LOPD </h3>
+            <p>Grup 3 DAW, en aplicació de la normativa vigent en matèria de protecció de dades de caràcter personal, informa que les seves dades personals que es recullen a través de formularis del lloc web o registre d’usuari de: www.botigabio.com, s’inclouen en els fitxers automatitzats específics d’usuari.
+            </p>
+            <p>La recollida i tractament automatitzat de les dades de caràcter personal té com a finalitat el manteniment de la relació comercial i l’acompliment de tasques d’informació i altres activitats pròpies de Grup 3 DAW.
+            </p>
+            <p>Aquestes dades únicament seran cedides a aquelles entitats que siguin necessàries amb l’únic objectiu de donar compliment a la finalitat anteriorment exposada.
+            </p>
+            <p>Grup 3 DAW adopta les mesures necessàries per a garantir la seguretat, integritat i confidencialitat de les dades conforme el Reglament 2016/679 del Parlament Europeu relatiu a la protecció de les persones físiques pel que respecta al tractament de dades personals i la lliure circulació de les mateixes.
+            </p>
+            <p>L’usuari podrà en qualsevol moment exercitar els drets d’accés, oposició, rectificació i cancel·lació reconeguts pel citat Reglament. L’exercici d’aquests drets pot realitzar-los el propi usuari a través d’email a: botigabio@gmail.com o en la direcció: c/ Botigabio Barcelona.
+            </p>
+            <p>L’usuari manifesta que totes les dades facilitades per ell mateix son certes i correctes i es compromet a mantenir-los actualitzats, comunicant els canvis a Grup 3 DAW.
+            </p>
+            <h3>Finalitat del tractament de les dades personals</h3>
+            
+            <p>A Grup 3 DAW, tractarem les teves dades personals recopilades a través del lloc web www.botigabio.com amb les següents finalitats:
+            </p>
+            <p>- En cas de contractació de bens o serveis ofertats a través de www.botigabio.com, utilitzarem les dades per mantenir la relació contractual així com a la gestió, administració, informació prestació i millora del servei.
+            </p>
+            <p>- Enviament d’informació sol·licitada a través de formularis de contacte.
+            </p>
+            <p>- Newsletters, promocions i/o publicitat dels nostres productes de proximitat.
+            </p>
+            <p>Et recordem que pots oposar-te a l’enviament de comunicacions comercials per qualsevol vía i en qualsevol moment, a través de correu electrònic o a la direcció mencionada anteriorment.
+
+            </p>
+            <h3>Per quant temps es conserven les dades recopilades?</h3>
+            <p>Les dades personals proporcionades es conservaran mentre es mantingui la relació comercial o no sol·licitis la suspensió.</p>
+            <h3>Drets de propietat intel·lectual de Grup 3 DAW.</h3>
+            <p>Grup 3 DAW és el titular de tots els drets d’autor, propietat intel·lectual, industrial i altres drets que guardin relació amb els continguts del lloc web www.botigabio.com i els serveis oferts en el mateix, així com els programes necessaris para la seva implementació i informació relacionada.</p>
+            <p>No es permet la reproducció, publicació i/o ús no estrictament privat dels continguts, totals o parcials, del lloc web www.botigabio.com sense els seu consentiment previ i per escrit.</p>
+            <h3>Comunicacions comercials</h3>
+            <p>En aplicació de la LSSI, Grup 3 DAW no enviarà comunicacions publicitaries o promocionals per correu electrònic o altre medi de comunicació equivalent que prèviament no hagi sigut sol·licitat o expressament autoritzat per els destinataris d’aquestes.<br><br></p>
+            
+            <h1>2. Política de cookies</h1>
+            
+            
+            <p>Les cookies són arxius que els llocs webs o les aplicacions instal·len al navegador o dispositiu de l’usuari durant la navegació per les pàgines web o aplicació i serveixen per emmagatzemar informació sobre la visita.</p>
+            <p>L’ús de cookies permet optimitzar la navegació, adaptant la informació i serveis oferts als interessos de l’usuari pera a proporcionar una millor experiència sempre que visita la web.</p>
+            
+            
+            <h3>Tipus de cookies segons l’entitat que les gestioni</h3>
+            
+            <p>Segons qui sigui l’entitat que gestioni l’equip o domini des d’on s’envien les cookies i tracti les dades que s’obtinguin es poden distingir dos tipus:</p>
+            <p>-Cookies pròpies: Són aquelles que s’envien a l’equip terminal de l’usuari des d’un equip o domini gestionat pel mateix editor i des del qual es presta el servei sol·licitat per l’usuari.</p>
+            <p>-Cookies de tercer: Són aquelles que s’envien a l’equip terminal de l’usuari des d’un equip o domini que no és gestionat per l’editor, sinó per una altra entitat que tracta les dades obtingudes a través de les cookies.</p>
+            <p>En el cas que les cookies siguin instal·lades des d’un equip o domini gestionat pel propi editor però la informació que es reculli mitjançant aquestes sigui gestionada per un tercer, no poden ser considerades com cookies pròpies.</p>
+            
+            <h3>Tipus de cookies segons el termini que romanen activades</h3>
+            <p>-Cookies de sessió: Són un tipus de cookies dissenyades per recaptar i emmagatzemar dades mentre l’usuari accedeix a una pàgina web.</p>
+            <p>-Cookies persistents: Són un tipus de cookies en el qual les dades segueixen emmagatzemats en el terminal i poden ser accedits i tractats durant un període definit pel responsable de la cookie, i que pot anar d’uns minuts a diversos anys.</p>
+            
+            <h3>Tipus de cookies segons la seva finalitat</h3>
+            
+            <p>-Cookies tècniques: Són aquelles que permeten a l’usuari la navegació a través d’una pàgina web, plataforma o aplicació i la utilització de les diferents opcions o serveis que en ella existeixin.</p>
+            
+            <p>-Cookies de personalització: Són aquelles que permeten a l’usuari accedir al servei amb algunes característiques de caràcter general predefinides en funció d’una sèrie de criteris en el terminal de l’usuari.</p>
+            
+            <p>-Cookies d’anàlisi: Són aquelles que permeten al responsable d’aquestes, el seguiment i anàlisi del comportament dels usuaris dels llocs web als quals estan vinculades.</p>
+            
+            <p>-Cookies publicitàries: Són aquelles que permeten la gestió, de la forma més eficaç possible, dels espais publicitaris que, si escau, l’editor hagi inclòs en una pàgina web, aplicació o plataforma des de la qual presta el servei sol·licitat sobre la base de criteris com el contingut editat o la freqüència en la qual es mostren els anuncis.</p>
+            
+            <p>-Cookies de publicitat comportamental: Són aquelles que permeten la gestió, de la forma més eficaç possible, dels espais publicitaris que, si escau, l’editor hagi inclòs en una pàgina web, aplicació o plataforma des de la qual presta el servei sol·licitat. Aquestes cookies emmagatzemen informació del comportament dels usuaris obtinguda a través de l’observació continuada dels seus hàbits de navegació, la qual cosa permet desenvolupar un perfil específic per mostrar publicitat en funció del mateix.</p>
+            
+            <h3>Cookies utilitzades en aquest lloc web</h3>
+            
+            <p>En el nostre lloc web nomès utilitzem cookies no intrusives, aquestes són cookies d’inici de sessió en llocs webs on existeixen usuaris registrats, carrets de la compra, preferències de visualització, etc. Son inherents al sistema i el seu bloqueig provocarà no poder utilitzar els serveis sol·licitats.</p>
+            
+            <h3>Deshabilitar l’ús de cookies.</h3>
+            
+            <p>Tens la opció de permetre, bloquejar o eliminar les cookies instal·lades al teu equip mitjançant la configuració de les opcions del navegador instal·lat al teu equip. Al desactivar cookies, alguns serveis disponibles podrien deixar d’estar operatius.
+            La forma de deshabilitar les cookies és diferent per a cada navegador, però normalment pot fer-se des de el menú d’Eines o Opcions.</p>
+            
+            <p>-Microsoft Internet Explorer o Microsoft Edge: http://windows.microsoft.com/es-es/windows-vista/Block-or-allow-cookies</p> 
+            <p>-Mozilla Firefox: http://support.mozilla.org/es/kb/impedir-que-los-sitios-web-guarden-sus-preferencia</p> 
+            <p>-Chrome: https://support.google.com/accounts/answer/61416?hl=es</p> 
+            <p>-Safari: http://safari.helpmax.net/es/privacidad-y-seguridad/como-gestionar-las-cookies/</p> 
+            <p>-Opera: http://help.opera.com/Linux/10.60/es-ES/cookies.html </p>
+        </div>
+        <br/ >
+        <br/ >
+        
     </div>
-                <!--FOOTER NEWSLETTER-->
+    
+    <!--FOOTER NEWSLETTER-->
     <footer>
         <!--FORMULARIO NEWSLETTER-->
         <form class="p-4">
             <div class="form-row">
                 <div class="col-md-3">
-                    <label>
-                        <i class="fas fa-envelope mr-1"></i>
-                            Subscriu-te al nostre newsletter!
-                    </label>
+                    <label ><i class="fas fa-envelope mr-1"></i>
+                         Subscriu-te al nostre newsletter!</label>
                 </div>
                 <div class="col-md-3">
                     <input type="email" class="form-control form-control-sm" placeholder="Indica el teu email" aria-label="Your email">
@@ -292,6 +324,7 @@
         </form>
       
     </footer>
+
     <!--FOOTER-->
     <footer class="page-footer pt-4">
         
@@ -332,4 +365,3 @@
         </div>
     </footer>
 </body>
-
