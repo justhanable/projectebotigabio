@@ -7,6 +7,8 @@
 
 package projectebotigabio.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import projectebotigabio.domain.Comanda;
+import projectebotigabio.domain.ComandaDetail;
 import projectebotigabio.domain.Producte;
+import projectebotigabio.service.ComandaDetailService;
+import projectebotigabio.service.ComandaService;
 import projectebotigabio.service.ProducteService;
 
 
@@ -26,13 +32,18 @@ import projectebotigabio.service.ProducteService;
 public class ProducteController {
     
         private ProducteService producteService;
+        private ComandaService comandaService;               
+        private ComandaDetailService comandaDetailService;
+
 
 	public ProducteController() {
 	}
 
 	@Autowired
-	public ProducteController(ProducteService producteService) {
+	public ProducteController(ProducteService producteService, ComandaService comandaService, ComandaDetailService comandaDetailService) {
 		this.producteService = producteService;
+                this.comandaService = comandaService;
+                this.comandaDetailService =  comandaDetailService;                
 	}
 
 	// Obtenir tots els productes
@@ -52,6 +63,7 @@ public class ProducteController {
 		ModelAndView mv = new ModelAndView("addProducte");
 		mv.addObject("headerMessage", "Afegir detalls al producte");
 		mv.addObject("producte", new Producte());
+                
 		return mv;
 	}
 
@@ -138,14 +150,69 @@ public class ProducteController {
             }
         }
         
-        @RequestMapping(value = "/comprarProducte}", method = RequestMethod.GET)
+                
+	@RequestMapping(value = "/comprar/compraProducte", method = RequestMethod.GET)
         public ModelAndView buyProducte() {
 
-            ModelAndView modelview = new ModelAndView("/compraProducte");     		
-                 
+            ModelAndView modelview = new ModelAndView("compraProducte");  
+            modelview.addObject("comanda", new Comanda());
+            modelview.addObject("comandaDetail", new ComandaDetail());
+             
             return modelview;
         }      
         
+        	
+        @RequestMapping(value = "/comprar/compraProducte", method = RequestMethod.POST)
+        public ModelAndView buyProducte(@ModelAttribute Comanda comanda, BindingResult result, @ModelAttribute ComandaDetail comandaDetail, BindingResult resultDetail) {
+             
+            
+             ModelAndView mv = new ModelAndView("redirect:/comprar/compraProducteFinal");
+
+		if (result.hasErrors()) {
+                    
+			return new ModelAndView("error");
+		}
+                		
+                boolean isAdded = comandaService.saveComanda(comanda);
+                boolean isAddedDetail = comandaDetailService.saveComandaDetail(comandaDetail);
+
+		if (isAdded ) {                                                             //  <<<<<<-------------         REVISAR ESTO!!!!!!!!
+			mv.addObject("message", "Nova comanda correctament afegida");
+		} else {
+			return new ModelAndView("error");
+		}
+
+		return mv;
+        }
+        	
+        @RequestMapping(value = "/comprar/compraProducteFinal", method = RequestMethod.GET)
+        public ModelAndView buyProducteFinal() {
+
+            ModelAndView modelview = new ModelAndView("compraProducteFinal");       
+             
+            return modelview;
+        }   
+        
+//        @RequestMapping(value = "/comprar/compraProducteFinal", method = RequestMethod.POST)
+//	public ModelAndView saveNewComanda(@ModelAttribute Comanda comanda, BindingResult result) {
+//		
+//            ModelAndView mv = new ModelAndView("redirect:/administracio");
+//
+//		if (result.hasErrors()) {
+//			return new ModelAndView("error");
+//		}
+//                		
+//                boolean isAdded = comandaService.saveComanda(comanda);
+//
+//		if (isAdded) {
+//			mv.addObject("message", "Nova comanda correctament afegida");
+//		} else {
+//			return new ModelAndView("error");
+//		}
+//
+//		return mv;
+//	}
+
 
 }
 

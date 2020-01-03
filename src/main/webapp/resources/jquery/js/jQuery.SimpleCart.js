@@ -50,17 +50,17 @@
         },
         _setupCart: function () {
             this.cart_ele.addClass("cart-grid panel panel-defaults");
-            this.cart_ele.append("<div class='panel-heading cart-heading'><div class='total-cart-count'>El teu carret té 0 items</div><div class='spacer'></div><i class='fa fa-dollar total-cart-cost'>0</i><div></div></div>")
+            this.cart_ele.append("<div class='panel-heading cart-heading'><div class='total-cart-count'>El teu carret té 0 items</div><div class='spacer'></div><i class='fas fa-euro-sign total-cart-cost'>0</i><div></div></div>")
             this.cart_ele.append("<div class='panel-body cart-body'><div class='cart-products-list' id='show-cart'><!-- Dynamic Code from Script comes here--></div></div>")
             this.cart_ele.append("<div class='cart-summary-container'>\n\
                                 <div class='cart-offer'></div>\n\
                                         <div class='cart-total-amount'>\n\
                                             <div>Total</div>\n\
                                             <div class='spacer'></div>\n\
-                                            <div><i class='fa fa-dollar total-cart-cost'>0</i></div>\n\
+                                            <div><i class='fas fa-euro-sign total-cart-cost'>0</i></div>\n\
                                             </div>\n\
                                             <div class='cart-checkout'>\n\
-                                            <form action='#'>\n\
+                                            <form action='/projectebotigabio-master/comprar/compraProducte'>\n\
                                                 <button type='submit' class='btn btn-primary'>Realitzar el pagament</button>\n\
                                             </form>\n\
                                         </div>\n\
@@ -146,7 +146,7 @@
                        <div class='quantityContainer'>\n\
                             <input type='number' class='quantity form-control item-count' data-name='" + cartArray[i].name + "' data-price='" + cartArray[i].price + "' min='0' value=" + cartArray[i].count + " name='number'>\n\
                        </div>\n\
-                       <div class='quantity-am'><i class='fa fa-dollar'>" + cartArray[i].price + "</i></div>\n\
+                       <div class='quantity-am'><i class='fas fa-euro-sign'>" + cartArray[i].price + "</i></div>\n\
                        </div>";
             }
             return output;
@@ -156,6 +156,7 @@
             for (var i in this.cart) {
                 totalCost += this.cart[i].price;
             }
+            localStorage.setItem("totalCoste", JSON.stringify(totalCost));
             return totalCost;
         },
         _listCart: function () {
@@ -167,6 +168,8 @@
                     itemCopy[p] = item[p];
                 }
                 cartCopy.push(itemCopy);
+                localStorage.setItem("llistatProductes", JSON.stringify(cartCopy));
+
             }
             return cartCopy;
         },

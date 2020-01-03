@@ -29,6 +29,8 @@ and open the template in the editor.
     color: #fff !important;
 }
 .cart-body{
+    margin-top: 15px;
+    margin-bottom: 15px;
     text-align: center;
     
 }

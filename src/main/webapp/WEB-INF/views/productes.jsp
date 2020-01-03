@@ -131,6 +131,14 @@
            height: 200px;
            object-fit: contain;
        }
+       
+       .force-scroll {
+
+            overflow-y: scroll;
+
+            height: 400px;
+
+        }
  
     </style>
     
@@ -229,10 +237,16 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carretó<span class="fa fa-shopping-cart"></span></a>
+                        <div class="dropdown dropdown">
+                        
+                           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carretó <span class="fa fa-shopping-cart"></span></button>
+                           <div class="dropdown-menu dropdown-menu-right force-scroll" aria-labelledby="dropdownMenuButton">                   
+                               <a class="dropdown-item" id="cart"></a>
+                           </div>
+                        
+                            </div>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
@@ -269,9 +283,7 @@
     
  <div class="container my-5">
             <div class="row">
-                    <div class="col-sm">
-                <div id="cart"></div>
-                </div>
+                   
                 <c:forEach var="producte" items="${productesPerCategoria}">
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card h-100">
