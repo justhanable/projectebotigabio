@@ -4,6 +4,7 @@
 *       Servei per tal de guardar, esborrar o llistar proveïdors
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Permet llistar els proveidors de la botiga a nivell informatiu
 */
 
 

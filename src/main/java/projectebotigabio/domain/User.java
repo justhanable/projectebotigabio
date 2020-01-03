@@ -3,6 +3,7 @@
 *       Definició d'usuari
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Conté les propietats dels usuaris, així com les propietats de la taula usuaris de la base de dades
 */
 
 

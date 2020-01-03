@@ -2,13 +2,14 @@
 
 <!--
     DAW Grup 3
-    Vista JSP que permet visualitzar tots els productes
+    Vista JSP que permet mostrar els proveïdors disponibles
 -->
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="ca">
 
@@ -24,13 +25,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Fascinate|Indie+Flower|Roboto|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
-    <title>BotigaBio</title>
+    <title>La nostra història</title>
     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/02893b0cef.js" crossorigin="anonymous"></script>
-    
     <!--CSS-->
     <style>
         nav, footer{
@@ -107,11 +107,7 @@
         .container{
             font-family: Roboto;
         }
-        
-        .btn-success, h3{
-            margin-left: 15px;
-        }
-        
+                
         .barraCercar{
             height: 40px;
             width: 40%;                              
@@ -177,19 +173,18 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="<c:url value="/proveidors"/>">Proveïdors</a>
+                        <a class="nav-link" href="/proveidors">Proveïdors</a>
                     </li>
                     <li class="nav-item">
                         <div class="btn-group">
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <i class="fa fa-user"></i></button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
-                                <security:authorize access="!isAuthenticated()">
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
-                                </security:authorize>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
+        
                                 <security:authorize access="isAuthenticated()">
                                     <c:set var="username">
                                     <security:authentication property="principal.username" /> 
@@ -197,6 +192,11 @@
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
                                 </security:authorize>
+                                <security:authorize access="hasRole('ADMIN')">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/administracio"/>">Administració</a>
+                                </security:authorize>
+        
                             </div>
                         </div>
                     </li>
@@ -215,136 +215,54 @@
             <ul class="nav">
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="<c:url value="/verdura"/>">Verdures <i class="fa fa-leaf"></i></a>
+                    <a class="nav-link active" href="<c:url value="/producte/verdura"/>">Verdures <i class="fa fa-leaf"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/fruitsec"/>">Fruits secs <i class="fas fa-seedling"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruitsec"/>">Fruits secs <i class="fas fa-seedling"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/fruita"/>">Fruita <i class="fab fa-apple"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/fruita"/>">Fruita <i class="fab fa-apple"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/peix"/>">Peix <i class="fas fa-fish"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/peix"/>">Peix <i class="fas fa-fish"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/carn"/>">Carn <i class="fas fa-drumstick-bite"></i></a>
+                    <a class="nav-link" href="<c:url value="/producte/carn"/>">Carn <i class="fas fa-drumstick-bite"></i></a>
                 </li>
             </ul>
         </div>
     </nav>
-
-	
-        <br>
-        <!-- 
-        <div class="row">
-            <div class="col-sm-6">
-                 <div style="margin-left: 20px;" class="card container-fluid">
-                    <div class="card-body">
-                        <h5 class="card-title"><i class="fas fa-exclamation-triangle"></i> Avís sobre aquesta pàgina:</h5>
-                        <p class="card-text">A partir del següent sprint només es podrà afegir, editar i eliminar productes una vegada s'ha fet login i es té el rol com administrador.</p>
-                        Hi haurà una altra vista corresponent a allProductes on l'usuari podrà veure'ls tots i afegir-los al carretó de compra.
-                    </div>
-                </div>
-            </div>
-        </div>
-	<br>
-        -->
-        <!-- SE MUESTRAN TODOS LOS PRODUCTOS -->
-
-        <h3>Llistat de tots els productes</h3>
-	${message}
-         <br>	
-	<a href="${pageContext.request.contextPath}/addProducte">
-        <button type="button" class="btn btn-success"><i class="far fa-plus-square"></i> Afegir nou producte</button>
-        </a>
-	<br>
-	<br>
-	<br>
-	<table class="table table-bordered table-striped text-center">
-		<thead>
-			<tr>
-				<th>Id</th>
-                                <th>Nom</th>
-				<th>Preu</th>
-                                <th>Stock</th>
-				<th>Descripcio</th>
-                                <th>Area</th>
-                                <th>Categoria</th>
-                                <th>Enllaç a la imatge del producte</th>
-			</tr>
-		</thead>                          
-		<tbody>
-			<c:forEach var="product" items="${ProducteList}">
-				<tr>
-					<td>${product.id}</td>
-                                        <td>${product.producteNom}</td>
-					<td>${product.productePreu}</td>
-                                        <td>${product.producteStock}</td>
-					<td>${product.producteDesc}</td>
-                                        <td>${product.producteArea}</td>
-					<td>${product.producteCategoria}</td>
-					<td>${product.producteImg}</td>
-
-					<td><a 
-						href="${pageContext.request.contextPath}/editProducte/${product.id}">Editar <i class="far fa-edit"></i></a></td>
-					<td><a  style="color:red"
-						href="${pageContext.request.contextPath}/deleteProducte/${product.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-        
-        
-        <!-- SE MUESTRAN TODOS LOS USUARIOS -->
-        
-        <br>
-	<br>
-	<br>
-	<a href="${pageContext.request.contextPath}/addUser">Add User</a>
-	<br>
-	<h3>List of all users</h3>
-	${message}
-	<br>
-	<br>
-	<table border="1px" cellpadding="0" cellspacing="0">
-		<thead>
-			<tr>
-                            
-                                <th>Id</th>
-				<th>Nom d'usuari</th>
-				<th>E-mail</th>
-				<th>Nom i Cognoms</th>
-				<th>Edit</th>
-				<th>Delete</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<c:forEach var="user" items="${userList}">
-				<tr>
-                                        <td>${user.id}</td>
-					<td>${user.username}</td>
-					<td>${user.email}</td>
-					<td>${user.name}</td>
-					<td><a
-						href="${pageContext.request.contextPath}/usuari/${user.username}">Edit</a></td>
-					<td><a
-						href="${pageContext.request.contextPath}/deleteUser/${user.username}">Delete</a></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-
-
-	</table>
-        
-        
-            <!--FOOTER NEWSLETTER-->
+   <br>
+   <p><b>
+   La història de la nostra botiga BIO neix a partir de les necessitats de la societat, que demana cada vegada més una alimentació més saludable.<br>
+   A partir d'aquí hem desenvolupat entre 3 estudiants de DAW (Jonatan, Fran i Xavi) aquest negoci, fent servir eines per la gestió del projecte com a Taiga o GitHub, amb molt bona coordinació
+   entre els membres de l'equip.<br>
+   A la nostra botiga oferim productes de proximitat, en diferents categories, i que tenen una importància vital a la nostra dieta, per això recomanem:<br>
+   <ul class="list-group list-group-flush">
+       <li class="list-group-item"><u> Verdures:</u> com a recomanació, les verdures al vapor, són molt bones per tal que l'organisme absorveixi la fibra que aquestes tenen, això és molt important per l'aparell digestiu.</li>
+   <li class="list-group-item"><u> Fruits secs:</u> són una font de minerals molt important com pot ser el magnesi, fòsfor, calci, ferro...Tenen propietats antioxidants així com greixos  saludables, proteina vegetal i també fibra.</li>
+       <li class="list-group-item"><u> Fruita: </u>són famoses per la seva cantitat d'aigua, sucres, vitamines, minerals, fibra i aporten propietats antioxidants. </li>
+       <li class="list-group-item"><u> Peix: </u> coneguts pel seu aportament de vitamines B i proteïnes. En el cas del peix blau, aporta vitamines liposoubles com la vitamina A, D i E.</li>
+       <li class="list-group-item"><u> Carn:</u> font d'aportament de ferro, proteïnes, aminoàcids essencials i vitamina B12.</li>
+   </ul>
+   <br>
+  Tots aquests productes pròxims, han sigut el·laborats seguint les pautes BIO de benestar animal i fabricació sostenible.
+  <br>
+  Dessitjem de tot cor que compar a la nostra botiga sigui  agradable pel client i quedi molt satisfet.
+  <br>
+  <br>
+  <center> Grup 3 DAW </center>
+   
+   </b>
+   </p>
+   <br>
+    <!--FOOTER NEWSLETTER-->
     <footer>
         <!--FORMULARIO NEWSLETTER-->
         <form class="p-4">
             <div class="form-row">
                 <div class="col-md-3">
-                    <label>
+                    <label> 
                         <i class="fas fa-envelope mr-1"></i>
                             Subscriu-te al nostre newsletter!
                     </label>
@@ -400,4 +318,3 @@
         </div>
     </footer>
 </body>
-</html>

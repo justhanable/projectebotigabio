@@ -2,6 +2,7 @@
 *       Controlador de proveïdors, permet realitzar les diferents operacions 
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Permet llistar els proveïdors de la Botiga, enllaçant amb la vista proveidors
 */
 
 package projectebotigabio.controller;

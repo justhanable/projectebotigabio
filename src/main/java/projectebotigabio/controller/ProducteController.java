@@ -2,6 +2,7 @@
 *       Controlador de productes, permet realitzar les diferents operacions 
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Controlador de producte, permet afegir, editar i esborrar productes
 */
 
 

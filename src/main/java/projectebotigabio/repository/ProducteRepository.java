@@ -4,6 +4,7 @@
 *       Repositori de producte, per tal de cercar per categoria i llistar
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Cerca per categoria o per nom amb una consulta SQL a base de dades
 */
 
 package projectebotigabio.repository;

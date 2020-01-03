@@ -14,10 +14,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import projectebotigabio.domain.Proveidors;
 
-/**
- *
- * @author Fran
- */  
+
 
 @Repository
 public interface ProveidorsRepository  extends  JpaRepository<Proveidors, Long> {

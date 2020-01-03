@@ -4,6 +4,7 @@
 *       Repositori d'usuaris per tal de buscar, esborrar usuaris
 *       @Author Grup3 DAW
 *       @Version: 2.0 
+*       Permet cercar usuaris per nom, esborrar-los o comprobar el correo electrònic
 */
 
 

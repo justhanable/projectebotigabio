@@ -1,11 +1,4 @@
 
-/**
-*       Configuració Hibernate
-*       @Author Grup3 DAW
-*       @Version: 2.0 
-*/
-
-
 package projectebotigabio.config;
 
 import java.util.Properties;
@@ -26,6 +19,13 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+/**
+ * CONFIGURACIÓ HIBERNATE
+ * @author Grup 3 DAW
+ * @version 3.0
+ * Conté els beans amb data source i configuració d'hibernate
+ */
 
 @Configuration
 @EnableTransactionManagement
