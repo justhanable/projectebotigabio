@@ -27,7 +27,14 @@
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Fascinate|Indie+Flower|Roboto|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <title>Productes BotigaBio</title>
     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+    <link href="<spring:url value="/resources/jquery/css/simple_Cart.css"/>" rel="stylesheet"> 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+        crossorigin="anonymous"></script>
+    <script src="<spring:url value="/resources/jquery/js/jQuery.SimpleCart.js"/>" ></script>
+    
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/02893b0cef.js" crossorigin="anonymous"></script>
@@ -124,8 +131,31 @@
            height: 200px;
            object-fit: contain;
        }
+       
+       .force-scroll {
+
+            overflow-y: scroll;
+
+            height: 400px;
+
+        }
  
     </style>
+    
+    <script>
+     
+        
+        $(document).ready(function () {
+          $('#cart').simpleCart({
+            addtoCartClass: '.sc-add-to-cart',
+            cartProductListClass: '.cart-products-list',
+            totalCartCountClass: '.total-cart-count',
+            totalCartCostClass: '.total-cart-cost',
+            showcartID : '#show-cart',
+            itemCountClass : '.item-count'
+          });
+        });
+    </script>
 </head>
 
 <body>
@@ -209,13 +239,20 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carretó<span class="fa fa-shopping-cart"></span></a>
+                        <div class="dropdown dropdown">
+                        
+                           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carretó <span class="fa fa-shopping-cart"></span></button>
+                           <div class="dropdown-menu dropdown-menu-right force-scroll" aria-labelledby="dropdownMenuButton">                   
+                               <a class="dropdown-item" id="cart"></a>
+                           </div>
+                        
+                            </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    
+
     <!-- BARRA DE SELECCION DE PRODUCTOS-->
     
     <nav>
@@ -243,9 +280,12 @@
     </nav>
 
     <!-- PRODUCTOS-->
+                                    
+
     
  <div class="container my-5">
             <div class="row">
+                   
                 <c:forEach var="producte" items="${productesPerCategoria}">
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card h-100">
@@ -255,12 +295,19 @@
                                     <a href="#">${producte.producteNom}</a>
                                 </h5>
                                 <p  style="min-height:90px;">${producte.producteDesc}</p>
-                                <h5 class="card-text">${producte.productePreu} € <button class="btn btn-success float-right"><i class="fas fa-shopping-cart"></i> Afegir </button></h5>
+                                <h5 class="card-text">${producte.productePreu} € 
                                 
+                                <button class="sc-add-to-cart btn btn-success float-right" 
+                                data-name="${producte.producteNom}" 
+                                data-price="${producte.productePreu}" 
+                                type="submit">
+                                <i class="fas fa-shopping-cart"></i> Afegir
+                        </button></h5>
                             </div>
                         </div>
                     </div>  
                 </c:forEach>
+            
             </div>
         </div>
        

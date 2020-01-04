@@ -289,7 +289,7 @@
 						href="${pageContext.request.contextPath}/editProducte/${product.id}">Editar <i class="far fa-edit"></i></a></td>
 					<td><a  style="color:red"
 						href="${pageContext.request.contextPath}/deleteProducte/${product.id}">Eliminar<i class="far fa-trash-alt"></i></a></td>
-				</tr>
+                                </tr>
 			</c:forEach>
 		</tbody>
 	</table>
