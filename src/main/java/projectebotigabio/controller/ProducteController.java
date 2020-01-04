@@ -33,17 +33,17 @@ public class ProducteController {
     
         private ProducteService producteService;
         private ComandaService comandaService;               
-        private ComandaDetailService comandaDetailService;
+        //private ComandaDetailService comandaDetailService;
 
 
 	public ProducteController() {
 	}
 
 	@Autowired
-	public ProducteController(ProducteService producteService, ComandaService comandaService, ComandaDetailService comandaDetailService) {
+	public ProducteController(ProducteService producteService, ComandaService comandaService) {
 		this.producteService = producteService;
                 this.comandaService = comandaService;
-                this.comandaDetailService =  comandaDetailService;                
+                         
 	}
 
 	// Obtenir tots els productes
@@ -155,15 +155,14 @@ public class ProducteController {
         public ModelAndView buyProducte() {
 
             ModelAndView modelview = new ModelAndView("compraProducte");  
-            modelview.addObject("comanda", new Comanda());
-            modelview.addObject("comandaDetail", new ComandaDetail());
+            modelview.addObject("comanda", new Comanda());            
              
             return modelview;
         }      
         
         	
         @RequestMapping(value = "/comprar/compraProducte", method = RequestMethod.POST)
-        public ModelAndView buyProducte(@ModelAttribute Comanda comanda, BindingResult result, @ModelAttribute ComandaDetail comandaDetail, BindingResult resultDetail) {
+        public ModelAndView buyProducte(@ModelAttribute Comanda comanda, BindingResult result) {
              
             
              ModelAndView mv = new ModelAndView("redirect:/comprar/compraProducteFinal");
@@ -174,9 +173,9 @@ public class ProducteController {
 		}
                 		
                 boolean isAdded = comandaService.saveComanda(comanda);
-                boolean isAddedDetail = comandaDetailService.saveComandaDetail(comandaDetail);
+               // boolean isAddedDetail = comandaDetailService.saveComandaDetail(comandaDetail);
 
-		if (isAdded ) {                                                             //  <<<<<<-------------         REVISAR ESTO!!!!!!!!
+		if (isAdded ) {                                                             
 			mv.addObject("message", "Nova comanda correctament afegida");
 		} else {
 			return new ModelAndView("error");
@@ -193,27 +192,6 @@ public class ProducteController {
             return modelview;
         }   
         
-//        @RequestMapping(value = "/comprar/compraProducteFinal", method = RequestMethod.POST)
-//	public ModelAndView saveNewComanda(@ModelAttribute Comanda comanda, BindingResult result) {
-//		
-//            ModelAndView mv = new ModelAndView("redirect:/administracio");
-//
-//		if (result.hasErrors()) {
-//			return new ModelAndView("error");
-//		}
-//                		
-//                boolean isAdded = comandaService.saveComanda(comanda);
-//
-//		if (isAdded) {
-//			mv.addObject("message", "Nova comanda correctament afegida");
-//		} else {
-//			return new ModelAndView("error");
-//		}
-//
-//		return mv;
-//	}
-
-
 }
 
         

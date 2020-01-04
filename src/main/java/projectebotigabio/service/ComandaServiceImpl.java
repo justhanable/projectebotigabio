@@ -67,5 +67,6 @@ public class ComandaServiceImpl implements ComandaService {
          repository.findAll().forEach(e -> list.add(e));                        
          return list;
     }
-    
+     
+
 }

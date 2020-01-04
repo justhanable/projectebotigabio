@@ -148,8 +148,37 @@
             margin-left: 50%;
             margin-top: 10%;                               
         }
-    </style>
+        
 
+    </style>   
+    <script>           
+        $(document).ready(function () {
+            
+            
+  
+       
+       
+         
+        localStorage.removeItem("llistatProductes");
+        localStorage.removeItem("totalCoste");
+        localStorage.removeItem("shoppingCart");     
+        
+        var date = new Date();
+        var today = date.getTime();
+        var tomorrow= new Date(today+86400000);        
+                
+        var avui = date.getTime();
+
+        var fecha = new Date(avui+86400000);
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById("dataEntrega").innerHTML = fecha.toLocaleDateString("es-ES", options);
+
+        console.log(
+            fecha.toLocaleDateString("es-ES", options)
+);
+
+        });
+    </script>
 </head>
 
 <body>
@@ -269,10 +298,19 @@
     
     <div class="container">
   <div class="row">
-    <div class="col-sm">
-<h1> Compra efectuada ¡Gracias! </1>    </div>
-    <div class="col-sm">
-      One of three columns
+    <div class="col-sm my-5 py-2">
+<h1> Has realitzat una compra. ¡Moltes gràcies! <i class="far fa-smile-beam"></i></1>    </div>
+    <div class="col-sm my-2 py-2">
+        <div class="col-lg-3 my-2 py-2">
+        
+        </div>       
+        T'acabem d'enviar un <b>mail de confirmació</b> de la teva comanda amb tots els detalls i la factura d'aquesta.
+        Els teus productes s'enviaràn un dia posterior a la teva compra.<br>
+        <br>
+       <i id="camioIcon" class="fas fa-truck"></i> La <b> data d'entrega </b> és:
+      <div id="dataEntrega"> </div>
+            <div id="productesEntrega"> </div>
+
     </div>
   </div>
 </div>

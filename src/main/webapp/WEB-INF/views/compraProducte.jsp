@@ -146,20 +146,48 @@
             margin-top: 10%;                               
         }
         
-        #productesMostrar{
-            padding-right: 14px;
-            border-spacing: 15px;
-            text-align: 15px;
-           
+        
+         #productesMostrar {
+          font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
         }
+
+        #productesMostrar td, #productesMostrar th {
+          border: 1px solid #ddd;
+          padding: 8px;
+          
+        }
+        #productesMostrar td{
+                      width: 250px;
+          text-align:center;
+          margin-top: 25px;
+
+            
+        }
+
+        #productesMostrar tr:nth-child(even){background-color: #f2f2f2;}
+
+        #productesMostrar tr:hover {background-color: #ddd;}
+
+        #productesMostrar th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align:center;
+          margin-left: 20px;
+          background-color: #4CAF50;
+          color: white;
+                      width: 250px;
+        }
+        
         #pasarelaCompra, .pasarelaCompra{
             padding-right: 14px;
-            border-spacing: 15px;
             text-align: 15px;
            border-spacing: 20px;
            margin-left: 35px;
+           margin-top: 35px;
         }
-        #etiquetaPreuTotal{
+        #preuTotal{
             font-weight: bold; 
             margin-left: 25px;
         }
@@ -169,7 +197,10 @@
                         margin-left: 25px;
 
         }
-        
+        #pasarelaCompraUsername, .pasarelaCompraUsername{
+                       margin-left: 22px;
+                       
+        }
   
 
     </style>
@@ -188,21 +219,23 @@
           let itemName = localStorage.getItem('totalCoste');
 
           var llistatProductes = JSON.parse(localStorage.getItem("llistatProductes"));
+          
 
-          document.getElementById("preuTotal").value = itemName;   
+          document.getElementById("preuTotalForm").value = itemName;   
           document.getElementById("preuAPagar").innerHTML = itemName + "€";   
 
           $("#productesMostrar").append("<table><tr> <th> Nom del producte</th><th> Preu total</th><th> Quantitat producte</th></tr>");
           llistatProductes.forEach(function(producteObject) {
-             $("#productesMostrar").append("<tr><td>"+producteObject.name+"</td><td>"+producteObject.price+" €</td><td>"+producteObject.count+"</td></tr>")})
+             $("#productesMostrar").append("<tr><td>"+producteObject.name+"</td><td>"+producteObject.price+" €</td><td>"+producteObject.count+"</td></tr>");
+                    document.getElementById("productes").value += " Nom producte: " + producteObject.name + " Quantitat producte: " + producteObject.count;
+         });
           $("#productesMostrar").append("</table>");
-
+          
           $(".cssSubmit").click(function(){
               document.getElementById("dataComanda").value = new Date($.now());
-              var valor = document.getElementById("comanda.id").value;
-              document.getElementById("comandaDetail.id_comanda").value =valor;
+          document.getElementById("preuTotal").value = itemName;   
 
-          });
+           });            
         });
     </script>
 </head>
@@ -320,132 +353,97 @@
         </div>
     </nav>
 
-    <!-- PRODUCTOS-->
+    <!-- PRODUCTES-->
                                     
 
        
         <div class="container my-5">            
         <div class="row">                   
             <div class="col-sm">    
-                <h3> Dades de la teva comanda</h3>
+                <h3 class="mb-4"> Dades de la teva comanda</h3>
                 <div class="table table-striped" id="productesMostrar"></div>              
             </div>         
         </div>   
             <div class="row">
                 <form id="pasarelaCompra">
-                    <p id="etiquetaPreuTotal">Preu total a pagar:</p>
-                    <p id="preuAPagar"></p>
+                    <p id="preuTotalForm"><i class="fas fa-hand-holding-usd mr-1 mb-1"></i> Preu total a pagar:</p>
+                    <p id="preuAPagar" class="ml-12"></p>
                      <div class="form-group">
-                         <label for="exampleFormControlInput1">Adreça on enviar els productes</label>
+                         <label for="adreca"><i class="fas fa-map-marked-alt mr-1 mb-2"></i> Adreça on enviar els productes</label>
                                              <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <input type="checkbox" class="form-check-input" id="OKMateixaDireccio">
                         <label class="form-check-label" for="exampleCheck1">Envia els productes a l'adreça que ja tinc registrada</label>
-                      </div> O bé, escriu una altre adreça aqui:
-                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="C/ Sant Roures, 24. Atico 3 08830, Sant Boi">
+                                             </div> <p class="mb-2">O bé, escriu una altre adreça aqui: </p>
+                      <input type="text" class="form-control" id="adrecaClient" placeholder="Ex: C/ Sant Roures, 24. 3A, 08830, Sant Boi" required>
                     </div>
   
                     <div class="form-group">
-                      <label for="exampleFormControlInput1">Número de tarjeta bancaria</label>
-                      <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="4599 8736 8595 8383">
+                      <label for="numTarjetaBancaria"><i class="fas fa-credit-card mr-1 mb-2"></i> Número de tarjeta bancaria</label>
+                      <input type="text"  class="form-control" id="numTarjetaBancaria" placeholder="4599 8736 8595 8383" required>
                     </div>
                     <div class="form-group">
-                      <label for="exampleFormControlSelect1">Any de caducitat de la tarjeta</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>2020</option>
-                        <option>2021</option>
-                        <option>2022</option>
-                        <option>2023</option>
-                        <option>2024</option>
-                        <option>2025</option>
+                        <label for="anyCaducitat"><i class="far fa-calendar-alt mr-1 mb-2"></i> Mes i any de caducitat de la tarjeta</label> <br>
+                      
+                        <select class="form-control-sm" id="mesCaducitat" required>
+                            <option>Gener</option>
+                            <option>Febrer</option>
+                            <option>Març</option>
+                            <option>Abril</option>
+                            <option>Maig</option>
+                            <option>Juny</option>
+                            <option>Juliol</option>
+                            <option>Agost</option>
+                            <option>Setembre</option>
+                            <option>Octubre</option>
+                            <option>Novembre</option>
+                            <option>Desembre</option>
+                        </select>
+                        <select class="form-control-sm" id="anyCaducitat" required>
+                            <option>2020</option>
+                            <option>2021</option>
+                            <option>2022</option>
+                            <option>2023</option>
+                            <option>2024</option>
+                            <option>2025</option>
+                            <option>2026</option>
+                            <option>2027</option>
                       </select>
+                      
                     </div>
                     <div class="form-group">
-                    <label for="exampleInputPassword1">Codi secret tarjeta</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Codi secret">
+                    <label for="secretCodi"><i class="fas fa-sort-numeric-up-alt mr-1 mb-2"></i> Codi secret de la tarjeta</label>
+                    <input type="password" minlength="4" maxlength="6" class="form-control" id="secretCodi" placeholder="Codi secret" required>
                   </div>
                 </form>
             </div>
+                
             
-            
-            <form action="compraProducte" method="post" cssClass="pasarelaCompra">
-
-                <spring:bind path="comanda.id">
-                   <input type="text" name="${status.expression}" value="${status.value}"><br />
-                        </spring:bind>
-
-                <spring:bind path="comanda.username">
-                   <input type="text" name="${status.expression}" value="${status.value}"><br />
-                </spring:bind>
-
-                <spring:bind path="comanda.preuTotal">
-                   <input type="number" name="${status.expression}" value="${status.value}"><br />
-                        </spring:bind>
-                <spring:bind path="comanda.gestionat">
-                   <input type="text" name="${status.expression}" value="${status.value}"><br />
-                        </spring:bind>
-                 <spring:bind path="comanda.dataComanda">
-                   <input type="text" name="${status.expression}" value="${status.value}"><br />
-                 </spring:bind>
-
-                   
-                <spring:bind path="comandaDetail.id">
-                   <input type="number" name="${status.expression}" value="${status.value}"><br />
-                </spring:bind>
-                <spring:bind path="comandaDetail.producteNom">
-                   <input type="text" name="${status.expression}" value="${status.value}"><br />
-                        </spring:bind>
-                 <spring:bind path="comandaDetail.id_producte">
-                   <input type="number" name="${status.expression}" value="${status.value}"><br />
-                 </spring:bind>
-                <spring:bind path="comandaDetail.quantitat">
-                   <input type="number" name="${status.expression}" value="${status.value}"><br />
-                 </spring:bind>
-                <spring:bind path="comandaDetail.preu">
-                   <input type="number" name="${status.expression}" value="${status.value}"><br />
-                 </spring:bind>
-                <spring:bind path="comandaDetail.id_comanda">
-                   <input type="number" name="${status.expression}" value="${status.value}"><br />
-                 </spring:bind>
-
-
-                <input id="submit" class="cssSubmit btn btn-primary btn-lg active" onclick="actualitzarData()" type="submit" value="Fer pagament"/>
-
-            </form>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-                   <form:form cssClass="pasarelaCompra" method="POST" action="compraProducte" modelAttribute="comanda">
+                   <form:form cssClass="pasarelaCompraUsername" method="POST" action="compraProducte" modelAttribute="comanda">
              <table>
                 <tr>
                    <form:hidden path="id" /> 
                 </tr>
                 <tr>
-                    <td><form:label path="username">username qui fa comanda:  </form:label></td>
+                    <td><form:label path="username"><i class="fas fa-user mr-1"></i> Username qui fa la comanda:  </form:label></td>
                      </tr>  
                      <tr>
-                    <td><form:input id="username" class="cssForm" value=" ${username}" path="username" readonly="true" /></td>
+                    <td><form:input id="username" class="cssForm" value="${username}" path="username" readonly="true" /></td>
                 </tr>               
                 <tr>
-                <tr>                  
                     <form:hidden path="preuTotal" /> 
-                </tr>             
+                </tr>
                 <tr>
                     <form:hidden path="gestionat" /> 
                 </tr>  
                 <tr>
                     <form:hidden path="dataComanda" /> 
                 </tr>
-
-                
+              <tr>
+                    <form:hidden path="productes" /> 
+                </tr>         
+                            
                 <tr>
-                    <td><input id="submit" class="cssSubmit btn btn-primary btn-lg active" onclick="actualitzarData()" type="submit" value="Fer pagament"/></td>
+                    <td><input id="submit" class="cssSubmit btn btn-primary btn-lg active" type="submit" value="Fer pagament"/></td>
                 </tr>
             </table>
         </form:form>

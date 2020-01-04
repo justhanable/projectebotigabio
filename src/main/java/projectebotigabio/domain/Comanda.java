@@ -6,6 +6,7 @@
 package projectebotigabio.domain;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -20,7 +21,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author jonathan
+ * @author Jonatan
  */
 @Entity
 @Table(name = "comanda")
@@ -45,11 +46,11 @@ public class Comanda {
     @Column(name = "dataComanda", nullable = false)
     private String dataComanda;
     
-    public Comanda (long id, String username, double preuTotal, boolean gestionat, String dataComanda){
-            
+    @Column(name = "productes", nullable = false)
+    private String productes;
     
-
-            
+    public Comanda (long id, String username, double preuTotal, boolean gestionat, String dataComanda, String productes){
+                 
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 
         this.id = id;
@@ -58,6 +59,7 @@ public class Comanda {
         this.gestionat = gestionat;
         this.dataComanda = dataComanda;
         dataComanda = date;
+        this.productes=productes;
     }
     
     public Comanda(){
@@ -104,16 +106,24 @@ public class Comanda {
     public void setDataComanda(String dataComanda) {
         this.dataComanda = dataComanda;
     }
-    
-         
+
+    public String getProductes() {
+        return productes;
+    }
+
+    public void setProductes(String productes) {
+        this.productes = productes;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.id);
-        hash = 17 * hash + Objects.hashCode(this.username);
-        hash = 17 * hash + (int) (Double.doubleToLongBits(this.preuTotal) ^ (Double.doubleToLongBits(this.preuTotal) >>> 32));
-        hash = 17 * hash + (this.gestionat ? 1 : 0);
-        hash = 17 * hash + Objects.hashCode(this.dataComanda);
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.id);
+        hash = 97 * hash + Objects.hashCode(this.username);
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.preuTotal) ^ (Double.doubleToLongBits(this.preuTotal) >>> 32));
+        hash = 97 * hash + (this.gestionat ? 1 : 0);
+        hash = 97 * hash + Objects.hashCode(this.dataComanda);
+        hash = 97 * hash + Objects.hashCode(this.productes);
         return hash;
     }
 
@@ -129,9 +139,28 @@ public class Comanda {
             return false;
         }
         final Comanda other = (Comanda) obj;
+        if (Double.doubleToLongBits(this.preuTotal) != Double.doubleToLongBits(other.preuTotal)) {
+            return false;
+        }
+        if (this.gestionat != other.gestionat) {
+            return false;
+        }
+        if (!Objects.equals(this.username, other.username)) {
+            return false;
+        }
+        if (!Objects.equals(this.dataComanda, other.dataComanda)) {
+            return false;
+        }
+        if (!Objects.equals(this.productes, other.productes)) {
+            return false;
+        }
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
-    } 
+    }
+
+   
+
+   
 }
