@@ -1,13 +1,9 @@
 
-
-
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Calendar"%>
 <!--
     Jonatan Barrio
-    Vista JSP que permet llistar els productes de la compra una vegada finalitzat el procés de compra
+    Vista JSP la qual mostra el procés final de compra. Aquí s'indica a l'usuari que s'ha registrat correctament la comanda i
+    s'indica la data d'entrega.
 -->
-
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -15,6 +11,8 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Calendar"%>
 
 <!DOCTYPE html>
 <html lang="ca">
@@ -22,7 +20,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Botiga online de productes de proximitat Bio">
+    <meta name="description" content="Botiga online de productes de proximitat Bio. Es mostra la confirmació de comanda i data d'entrega dels productes.">
     <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--LINK A CSS-->
@@ -31,23 +29,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Fascinate|Indie+Flower|Roboto|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
-    <title>Productes BotigaBio</title>
-    <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
+    <title>Finalitzacio de comanda</title> 
     
-    <link href="<spring:url value="/resources/jquery/css/simple_Cart.css"/>" rel="stylesheet"> 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
-        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
-        crossorigin="anonymous"></script>
-    <script src="<spring:url value="/resources/jquery/js/jQuery.SimpleCart.js"/>" ></script>
-      
+    
     <!-- SCRIPT jquery.simpleCart-->
     <link href="<spring:url value="/resources/jquery/css/simple_Cart.css"/>" rel="stylesheet"> 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
         crossorigin="anonymous"></script>
     <script src="<spring:url value="/resources/jquery/js/jQuery.SimpleCart.js"/>" ></script>
+      
     
-    
+     <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/02893b0cef.js" crossorigin="anonymous"></script>
@@ -256,8 +249,7 @@
                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carretó <span class="fa fa-shopping-cart"></span></button>
                            <div class="dropdown-menu dropdown-menu-right carreto force-scroll" aria-labelledby="dropdownMenuButton">                   
                                <a class="dropdown-item" id="cart"></a>
-                           </div>
-                        
+                           </div>                        
                             </div>
                     </li>
                 </ul>

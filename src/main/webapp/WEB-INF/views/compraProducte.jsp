@@ -2,7 +2,9 @@
 
 <!--
     Jonatan Barrio
-    Vista JSP que permet llistar productes afegits al carretó en el procés de compra
+    Vista JSP que permet llistar productes afegits al carretó en el procés de compra i el preu total.
+    Si ha fet login, es mostrá el boto 'Realitzar compra' en cas contrari, es mostra el botó enllaçat 
+    a la vista login.
 -->
 
 
@@ -19,7 +21,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Botiga online de productes de proximitat Bio">
+    <meta name="description" content="Botiga online de productes de proximitat Bio. Pagina on es pot procedir a finalitzar el procés de compra.">
     <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--LINK A CSS-->
@@ -28,7 +30,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Fascinate|Indie+Flower|Roboto|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
-    <title>Productes BotigaBio</title>
+    <title>Compra de productes BotigaBio</title>
     
     <!-- SCRIPT jquery.simpleCart-->
     <link href="<spring:url value="/resources/jquery/css/simple_Cart.css"/>" rel="stylesheet"> 
@@ -125,8 +127,7 @@
             margin-left: 50%;
             margin-top: 10%;                               
         }     
-         #productesMostrar {
-          font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+         #productesMostrar {        
           border-collapse: collapse;
           width: 100%;
         }

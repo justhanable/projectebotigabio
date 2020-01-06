@@ -31,6 +31,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/02893b0cef.js" crossorigin="anonymous"></script>
+    <!-- SCRIPT jquery.simpleCart-->
+    <link href="<spring:url value="/resources/jquery/css/simple_Cart.css"/>" rel="stylesheet"> 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+        crossorigin="anonymous"></script>
+    <script src="<spring:url value="/resources/jquery/js/jQuery.SimpleCart.js"/>"></script>
     <!--CSS-->
     <style>
         nav, footer{
@@ -40,86 +46,81 @@
             margin: auto;
             display: block;
         }
-
         .logo {
             height: auto;
             width: auto;
             max-height: 72px;
             max-width: 250px;
         }
-
-
         .input-group {
             width: 375px
         }
-
         li {
             font-size: 18px;
         }
-
         .container2 li.nav-item {
             width: 20%;
             border-left: solid grey 1px;
             text-align: center;
 
         }
-
         .container2 a.nav-link {
             color: white
         }
-
         .container2 li.nav-item:hover {
             background-color: forestgreen
         }
-
         body {
             background-color: white;
             font-family: Roboto;
         }
-
         .container2 {
             background-color: mediumseagreen;
                 
         }
-
         footer {
             background-color: midnightblue;
             color: lightgrey
         }
-
         form.p-4 {
             color: white;
             background-color: mediumseagreen
         }
-
         div.col-md-12.py-5 {
             background-color: midnightblue;
             color: white
-        }
-       
+        }     
         button.btn.btn-default {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             background-color: mediumseagreen;
             color:white
-
         }
         .container{
             font-family: Roboto;
-        }
-                
+        }              
         .barraCercar{
             height: 40px;
             width: 40%;                              
-        }
-        
+        }       
         .barraSelect{                    
             background-color: #DDDDDD;
             margin-right: 10px;
             margin-left:25px;
         }
- 
-    </style>
+    </style>      
+    <script>          
+        $(document).ready(function () {
+          $('#cart').simpleCart({
+            addtoCartClass: '.sc-add-to-cart',
+            cartProductListClass: '.cart-products-list',
+            totalCartCountClass: '.total-cart-count',
+            totalCartCostClass: '.total-cart-cost',
+            showcartID : '#show-cart',
+            itemCountClass : '.item-count'
+          });
+        });
+    </script>
 </head>
 
 <body>
@@ -201,7 +202,14 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carretó<i class="fa fa-shopping-cart"></i></a>
+                        <div class="dropdown dropdown">
+                        
+                           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carretó <span class="fa fa-shopping-cart"></span></button>
+                           <div class="dropdown-menu carreto dropdown-menu-right force-scroll" aria-labelledby="dropdownMenuButton">                   
+                               <a class="dropdown-item" id="cart"></a>
+                           </div>
+                        
+                            </div>
                     </li>
                 </ul>
             </div>
@@ -233,7 +241,7 @@
         </div>
     </nav>
    <br>
-   <p><b>
+   <p class='p-3'><b>
    La història de la nostra botiga BIO neix a partir de les necessitats de la societat, que demana cada vegada més una alimentació més saludable.<br>
    A partir d'aquí hem desenvolupat entre 3 estudiants de DAW (Jonatan, Fran i Xavi) aquest negoci, fent servir eines per la gestió del projecte com a Taiga o GitHub, amb molt bona coordinació
    entre els membres de l'equip.<br>
@@ -246,12 +254,12 @@
        <li class="list-group-item"><u> Carn:</u> font d'aportament de ferro, proteïnes, aminoàcids essencials i vitamina B12.</li>
    </ul>
    <br>
-  Tots aquests productes pròxims, han sigut el·laborats seguint les pautes BIO de benestar animal i fabricació sostenible.
-  <br>
-  Dessitjem de tot cor que compar a la nostra botiga sigui  agradable pel client i quedi molt satisfet.
-  <br>
-  <br>
-  <center> Grup 3 DAW </center>
+   
+   <p class='p-3'>Tots aquests productes pròxims, han sigut el·laborats seguint les pautes BIO de benestar animal i fabricació sostenible.
+    <br>
+    Dessitjem de tot cor que compar a la nostra botiga sigui  agradable pel client i quedi molt satisfet.
+    </p>
+    <center> Grup 3 DAW </center>
    
    </b>
    </p>

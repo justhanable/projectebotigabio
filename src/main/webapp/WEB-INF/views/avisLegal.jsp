@@ -38,7 +38,6 @@
             margin: auto;
             display: block;          
         }
-
         .logo {
             height: auto;
             width: auto;
@@ -50,32 +49,25 @@
            height: auto;
            background-size: cover; 
         }
-
         .input-group {
             width: 375px
         }
-
         li {
             font-size: 18px;
-        }
-   
+        }   
         footer {
             background-color: midnightblue;
             color: lightgrey
         }
-
         form.p-4 {
             color: white;
             background-color: mediumseagreen
         }
-
         div.col-md-12.py-5 {
             background-color: midnightblue;
             color: white
-        }
-        
-        @media (max-width:600px){
-                             
+        }     
+        @media (max-width:600px){                          
         }
         button.btn.btn-default {
             border-top-left-radius: 0;
@@ -94,32 +86,36 @@
         .container{
            font-family:Roboto; 
             
-        }
-        
-       
-        
+        }             
         .barraCercar{
             height: 40px;
             width: 40%;                              
-        }
-        
+        }      
         .barraSelect{                    
             background-color: #DDDDDD;
             margin-right: 10px;
             margin-left:25px;
         }
-        /*
-        #legal{
-            border-style: solid ;
-                border-radius: 5px;
-                    border-width: 1px;
-                        background-color: whitesmoke
-        }
-        */
-        
-
-        
+       .force-scroll {
+            overflow-y: scroll;
+            height: 400px;
+        }       
+        .carreto{                        
+            background: #F8F9FA;
+        }       
     </style>
+    <script>                 
+        $(document).ready(function () {
+          $('#cart').simpleCart({
+            addtoCartClass: '.sc-add-to-cart',
+            cartProductListClass: '.cart-products-list',
+            totalCartCountClass: '.total-cart-count',
+            totalCartCostClass: '.total-cart-cost',
+            showcartID : '#show-cart',
+            itemCountClass : '.item-count'
+          });
+        });
+    </script>
 </head>
 <body>
     
@@ -205,7 +201,14 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carretó<span class="fa fa-shopping-cart"></span></a>
+                        <div class="dropdown dropdown">
+                        
+                           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carretó <span class="fa fa-shopping-cart"></span></button>
+                           <div class="dropdown-menu carreto dropdown-menu-right force-scroll" aria-labelledby="dropdownMenuButton">                   
+                               <a class="dropdown-item" id="cart"></a>
+                           </div>
+                        
+                            </div>
                     </li>
                 </ul>
             </div>

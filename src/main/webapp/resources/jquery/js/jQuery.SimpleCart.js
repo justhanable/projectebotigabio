@@ -82,7 +82,8 @@
             $(this.options.addtoCartClass).on("click", function (e) {
                 e.preventDefault();
                 var name = $(this).attr("data-name");
-                var cost = Number($(this).attr("data-price"));
+                var cost = Number($(this).attr("data-price")).toFixed(2);
+                
                 mi._addItemToCart(name, cost, 1);
                 mi._updateCartDetails();
             });
@@ -92,7 +93,7 @@
         e.preventDefault();
         var count = $(this).val();
         var name = $(this).attr("data-name");
-        var cost = Number($(this).attr("data-price"));
+        var cost = Number($(this).attr("data-price")).toFixed(2);
         mi._removeItemfromCart(name, cost, count);
         mi._updateCartDetails();
     });
@@ -156,8 +157,8 @@
             for (var i in this.cart) {
                 totalCost += this.cart[i].price;
             }
-            localStorage.setItem("totalCoste", JSON.stringify(totalCost));
-            return totalCost;
+            localStorage.setItem("totalCoste", JSON.stringify(totalCost.toFixed(2)));
+            return totalCost.toFixed(2);
         },
         _listCart: function () {
             var cartCopy = [];
