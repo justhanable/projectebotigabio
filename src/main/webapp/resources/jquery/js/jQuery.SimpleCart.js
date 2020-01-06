@@ -50,14 +50,14 @@
         },
         _setupCart: function () {
             this.cart_ele.addClass("cart-grid panel panel-defaults");
-            this.cart_ele.append("<div class='panel-heading cart-heading'><div class='total-cart-count'>El teu carret té 0 items</div><div class='spacer'></div><i class='fas fa-euro-sign total-cart-cost'>0</i><div></div></div>")
+            this.cart_ele.append("<div class='panel-heading cart-heading'><div class='total-cart-count ml-2'> El teu carretó té 0 items</div><div class='spacer'></div><i class='total-cart-cost fas fa-seuro-sign'>0</i><i class='fas fa-euro-sign mr-2'></i><div></div></div>")
             this.cart_ele.append("<div class='panel-body cart-body'><div class='cart-products-list' id='show-cart'><!-- Dynamic Code from Script comes here--></div></div>")
             this.cart_ele.append("<div class='cart-summary-container'>\n\
                                 <div class='cart-offer'></div>\n\
                                         <div class='cart-total-amount'>\n\
                                             <div>Total</div>\n\
                                             <div class='spacer'></div>\n\
-                                            <div><i class='fas fa-euro-sign total-cart-cost'>0</i></div>\n\
+                                            <div><i class='total-cart-cost fas fa-seuro-sign'>0</i><i class='fas fa-euro-sign'></i></div>\n\
                                             </div>\n\
                                             <div class='cart-checkout'>\n\
                                             <form action='/projectebotigabio-master/comprar/compraProducte'>\n\
@@ -71,7 +71,7 @@
         _updateCartDetails: function () {
             var mi = this;
             $(this.options.cartProductListClass).html(mi._displayCart());
-            $(this.options.totalCartCountClass).html(" El teu carret té " + mi._totalCartCount() + " productes");
+            $(this.options.totalCartCountClass).html(" El teu carretó té " + mi._totalCartCount() + " productes");
             $(this.options.totalCartCostClass).html(mi._totalCartCost());
         },
         _setCartbuttons: function () {
@@ -138,7 +138,7 @@
             console.log(cartArray);
             var output = "";
             if (cartArray.length <= 0) {
-                output = "<h4>El teu carret està buit</h4>";
+                output = "<h4>El teu carretó està buit</h4>";
             }
             for (var i in cartArray) {
                 output += "<div class='cart-each-product'>\n\
@@ -146,7 +146,7 @@
                        <div class='quantityContainer'>\n\
                             <input type='number' class='quantity form-control item-count' data-name='" + cartArray[i].name + "' data-price='" + cartArray[i].price + "' min='0' value=" + cartArray[i].count + " name='number'>\n\
                        </div>\n\
-                       <div class='quantity-am'><i class='fas fa-euro-sign'>" + cartArray[i].price + "</i></div>\n\
+                       <div class='quantity-am'>"+ cartArray[i].price + "<i class='fas fa-euro-sign'></i></div>\n\
                        </div>";
             }
             return output;

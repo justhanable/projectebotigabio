@@ -29,15 +29,15 @@
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Baloo+Bhai|Dancing+Script|Fascinate|Indie+Flower|Roboto|Modak|Pacifico|Shadows+Into+Light+Two&display=swap" rel="stylesheet">
     <title>Productes BotigaBio</title>
-    <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
     
+    <!-- SCRIPT jquery.simpleCart-->
     <link href="<spring:url value="/resources/jquery/css/simple_Cart.css"/>" rel="stylesheet"> 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
         crossorigin="anonymous"></script>
     <script src="<spring:url value="/resources/jquery/js/jQuery.SimpleCart.js"/>" ></script>
     
-    
+    <!-- SCRIPT FONT-AWESOME, JQUERY, BOOTSTRAP-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/02893b0cef.js" crossorigin="anonymous"></script>
@@ -50,85 +50,66 @@
             margin: auto;
             display: block;
         }
-
         .logo {
             height: auto;
             width: auto;
             max-height: 72px;
             max-width: 250px;
         }
-
-
         .input-group {
             width: 375px
         }
-
         li {
             font-size: 18px;
         }
-
         .container2 li.nav-item {
             width: 20%;
             border-left: solid grey 1px;
             text-align: center;
-
         }
-
         .container2 a.nav-link {
             color: white
         }
-
         .container2 li.nav-item:hover {
             background-color: forestgreen
         }
-
         body {
             background-color: white;
             font-family: Roboto;
         }
-
         .container2 {
-            background-color: mediumseagreen;
-                
+            background-color: mediumseagreen;                
         }
-
         footer {
             background-color: midnightblue;
             color: lightgrey
         }
-
         form.p-4 {
             color: white;
             background-color: mediumseagreen
         }
-
         div.col-md-12.py-5 {
             background-color: midnightblue;
             color: white
-        }
-       
+        }     
         button.btn.btn-default {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             background-color: mediumseagreen;
             color:white
-
         }
         .container{
             font-family: Roboto;
-        }
-                
+        }               
         .barraCercar{
             height: 40px;
             width: 40%;                              
-        }
-        
+        }        
         .barraSelect{                    
             background-color: #DDDDDD;
             margin-right: 10px;
             margin-left:25px;
-        }
-                
+        }              
         img {
            width: 305px; 
            height: 200px;
@@ -139,103 +120,96 @@
             margin: 4px 0;
             padding: 10px 20px;  
             box-sizing: border-box;      
-        }
-        
+        }        
         .cssSubmit{
             margin-left: 50%;
             margin-top: 10%;                               
-        }
-        
-        
+        }     
          #productesMostrar {
           font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
           border-collapse: collapse;
           width: 100%;
         }
-
-        #productesMostrar td, #productesMostrar th {
-          border: 1px solid #ddd;
-          padding: 8px;
-          
+        #productesMostrar td, #productesMostrar th {       
+            border: 1px solid #ddd;
+            padding: 8px;        
         }
-        #productesMostrar td{
-                      width: 250px;
-          text-align:center;
-          margin-top: 25px;
-
-            
+        #productesMostrar td{                       
+            width: 250px;
+            text-align:center;
+            margin-top: 25px;
+        }
+        #productesMostrar tr:nth-child(even){
+            background-color: #f2f2f2;
         }
 
-        #productesMostrar tr:nth-child(even){background-color: #f2f2f2;}
-
-        #productesMostrar tr:hover {background-color: #ddd;}
-
+        #productesMostrar tr:hover {
+            background-color: #ddd;
+        }
         #productesMostrar th {
-          padding-top: 12px;
-          padding-bottom: 12px;
-          text-align:center;
-          margin-left: 20px;
-          background-color: #4CAF50;
-          color: white;
-                      width: 250px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align:center;
+            margin-left: 20px;
+            background-color: #4CAF50;
+            color: white;
+            width: 250px;
         }
         
         #pasarelaCompra, .pasarelaCompra{
             padding-right: 14px;
             text-align: 15px;
-           border-spacing: 20px;
-           margin-left: 35px;
-           margin-top: 35px;
+            border-spacing: 20px;
+            margin-left: 35px;
+            margin-top: 35px;
         }
         #preuTotal{
             font-weight: bold; 
             margin-left: 25px;
-        }
-        
+        }       
         #preuAPagar{
-            font-weight: bold; 
-                        margin-left: 25px;
-
+            font-weight: bold;                       
+            margin-left: 25px;
         }
-        #pasarelaCompraUsername, .pasarelaCompraUsername{
-                       margin-left: 22px;
-                       
+        #pasarelaCompraUsername, .pasarelaCompraUsername{                   
+            margin-left: 22px;                     
         }
-  
-
+         .force-scroll {
+            overflow-y: scroll;
+            height: 400px;
+        }               
+        .carreto{                        
+            background: #F8F9FA;
+        }
     </style>
     
     <script>           
         $(document).ready(function () {
-            $('#cart').simpleCart({
-              addtoCartClass: '.sc-add-to-cart',
-              cartProductListClass: '.cart-products-list',
-              totalCartCountClass: '.total-cart-count',
-              totalCartCostClass: '.total-cart-cost',
-              showcartID : '#show-cart',
-              itemCountClass : '.item-count',
-            });
+                $('#cart').simpleCart({
+                  addtoCartClass: '.sc-add-to-cart',
+                  cartProductListClass: '.cart-products-list',
+                  totalCartCountClass: '.total-cart-count',
+                  totalCartCostClass: '.total-cart-cost',
+                  showcartID : '#show-cart',
+                  itemCountClass : '.item-count',
+                });
 
-          let itemName = localStorage.getItem('totalCoste');
+                let itemName = localStorage.getItem('totalCoste');
+                var llistatProductes = JSON.parse(localStorage.getItem("llistatProductes"));
+                document.getElementById("preuTotalForm").value = itemName;   
+                document.getElementById("preuAPagar").innerHTML = itemName + "€";   
 
-          var llistatProductes = JSON.parse(localStorage.getItem("llistatProductes"));
-          
-
-          document.getElementById("preuTotalForm").value = itemName;   
-          document.getElementById("preuAPagar").innerHTML = itemName + "€";   
-
-          $("#productesMostrar").append("<table><tr> <th> Nom del producte</th><th> Preu total</th><th> Quantitat producte</th></tr>");
-          llistatProductes.forEach(function(producteObject) {
-             $("#productesMostrar").append("<tr><td>"+producteObject.name+"</td><td>"+producteObject.price+" €</td><td>"+producteObject.count+"</td></tr>");
+                $("#productesMostrar").append("<table><tr> <th> Nom del producte</th><th> Preu total</th><th> Quantitat producte</th></tr>");
+                llistatProductes.forEach(function(producteObject) {
+                    $("#productesMostrar").append("<tr><td>"+producteObject.name+"</td><td>"+producteObject.price+" €</td><td>"+producteObject.count+"</td></tr>");                     
                     document.getElementById("productes").value += " Nom producte: " + producteObject.name + " Quantitat producte: " + producteObject.count;
-         });
-          $("#productesMostrar").append("</table>");
-          
-          $(".cssSubmit").click(function(){
-              document.getElementById("dataComanda").value = new Date($.now());
-          document.getElementById("preuTotal").value = itemName;   
+                });
+                $("#productesMostrar").append("</table>");
 
-           });            
+                $(".cssSubmit").click(function(){
+                    document.getElementById("dataComanda").value = new Date($.now());
+                    document.getElementById("preuTotal").value = itemName;   
+                });            
         });
     </script>
 </head>
@@ -319,7 +293,14 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carretó<span class="fa fa-shopping-cart"></span></a>
+                        <div class="dropdown dropdown">
+                        
+                           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carretó <span class="fa fa-shopping-cart"></span></button>
+                           <div class="dropdown-menu dropdown-menu-right force-scroll carreto" aria-labelledby="dropdownMenuButton">                   
+                               <a class="dropdown-item" id="cart"></a>
+                           </div>
+                        
+                            </div>
                     </li>
                 </ul>
 
@@ -353,10 +334,8 @@
         </div>
     </nav>
 
-    <!-- PRODUCTES-->
-                                    
-
-       
+    <!-- DADES DE COMANDA I PASARELA DE COMPRA-->
+                                          
         <div class="container my-5">            
         <div class="row">                   
             <div class="col-sm">    
@@ -416,8 +395,7 @@
                   </div>
                 </form>
             </div>
-                
-            
+                           
                    <form:form cssClass="pasarelaCompraUsername" method="POST" action="compraProducte" modelAttribute="comanda">
              <table>
                 <tr>
@@ -430,7 +408,7 @@
                     <td><form:input id="username" class="cssForm" value="${username}" path="username" readonly="true" /></td>
                 </tr>               
                 <tr>
-                    <form:hidden path="preuTotal" /> 
+                    <form:hidden path="preuTotal" value="" /> 
                 </tr>
                 <tr>
                     <form:hidden path="gestionat" /> 
@@ -438,22 +416,31 @@
                 <tr>
                     <form:hidden path="dataComanda" /> 
                 </tr>
-              <tr>
+                <tr>
                     <form:hidden path="productes" /> 
                 </tr>         
-                            
-                <tr>
-                    <td><input id="submit" class="cssSubmit btn btn-primary btn-lg active" type="submit" value="Fer pagament"/></td>
-                </tr>
+                  
+                <c:choose>
+                    <c:when test="${not empty username}">
+                        <tr>
+                            <td><input id="submit" class="cssSubmit btn btn-primary btn-lg active" type="submit" value="Fer pagament"/></td>
+                        </tr>                        
+                    </c:when>                                                      
+                    <c:otherwise>                                             
+                       <tr>
+                            <td> 
+                                <a href="/projectebotigabio-master/login">
+                                    <input class="cssSubmit btn btn-primary btn-lg active"  type="button" value="Primer has de fer login. Clica aquí" />
+                                </a>
+                            </td>
+                        </tr>
+                    </c:otherwise>                                     
+                </c:choose>                               
             </table>
-        </form:form>
-            
-    
+        </form:form> 
     </div>
        
   
-
-    
     <!--FOOTER NEWSLETTER-->
     <footer>
         <!--FORMULARIO NEWSLETTER-->
@@ -501,8 +488,12 @@
                         </a>
                     </div>
                     <ul>
-                        <li><a href="#">Contacte</a></li>
-                        <li><a href="#">Polítiques de privacitat</a></li>
+                        <li><a href="<c:url value="/contacte"/>">Contacte</a></li>
+                        <li><a href="<c:url value="/avisLegal"/>">Avís Legal</a></li>
+                        <li><a href="<c:url value="/politica"/>">Polítiques de privacitat</a></li>
+                        <li><a href="<c:url value="/accessibilitat"/>">Accessibilitat</a></li>
+                        <li><a href="<c:url value="/Historia"/>">La nostra història</a></li>
+
                     </ul>
                 </div>
             </div>  

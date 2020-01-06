@@ -172,7 +172,12 @@ public class ProducteController {
                     
 			return new ModelAndView("error");
 		}
-                		
+                if(comanda.getPreuTotal()== 0){
+                    			
+                    return new ModelAndView("error");
+
+                    
+                }		
                 boolean isAdded = comandaService.saveComanda(comanda);
                // boolean isAddedDetail = comandaDetailService.saveComandaDetail(comandaDetail);
 

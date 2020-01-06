@@ -39,6 +39,13 @@
         integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
         crossorigin="anonymous"></script>
     <script src="<spring:url value="/resources/jquery/js/jQuery.SimpleCart.js"/>" ></script>
+      
+    <!-- SCRIPT jquery.simpleCart-->
+    <link href="<spring:url value="/resources/jquery/css/simple_Cart.css"/>" rel="stylesheet"> 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+        crossorigin="anonymous"></script>
+    <script src="<spring:url value="/resources/jquery/js/jQuery.SimpleCart.js"/>" ></script>
     
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -53,85 +60,66 @@
             margin: auto;
             display: block;
         }
-
         .logo {
             height: auto;
             width: auto;
             max-height: 72px;
             max-width: 250px;
         }
-
-
         .input-group {
             width: 375px
         }
-
         li {
             font-size: 18px;
         }
-
         .container2 li.nav-item {
             width: 20%;
             border-left: solid grey 1px;
             text-align: center;
-
         }
-
         .container2 a.nav-link {
             color: white
         }
-
         .container2 li.nav-item:hover {
             background-color: forestgreen
         }
-
         body {
             background-color: white;
             font-family: Roboto;
         }
-
         .container2 {
-            background-color: mediumseagreen;
-                
+            background-color: mediumseagreen;               
         }
-
         footer {
             background-color: midnightblue;
             color: lightgrey
         }
-
         form.p-4 {
             color: white;
             background-color: mediumseagreen
         }
-
         div.col-md-12.py-5 {
             background-color: midnightblue;
             color: white
-        }
-       
+        }      
         button.btn.btn-default {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             background-color: mediumseagreen;
             color:white
-
         }
         .container{
             font-family: Roboto;
-        }
-                
+        }               
         .barraCercar{
             height: 40px;
             width: 40%;                              
-        }
-        
+        }       
         .barraSelect{                    
             background-color: #DDDDDD;
             margin-right: 10px;
             margin-left:25px;
-        }
-                
+        }               
         img {
            width: 305px; 
            height: 200px;
@@ -142,41 +130,42 @@
             margin: 4px 0;
             padding: 10px 20px;  
             box-sizing: border-box;      
-        }
-        
+        }       
         .cssSubmit{
             margin-left: 50%;
             margin-top: 10%;                               
-        }
-        
+        }              
+        .force-scroll {
+            overflow-y: scroll;
+            height: 400px;
 
+        }             
+        .carreto{                        
+            background: #F8F9FA;
+        }
     </style>   
     <script>           
         $(document).ready(function () {
-            
-            
-  
-       
-       
-         
-        localStorage.removeItem("llistatProductes");
-        localStorage.removeItem("totalCoste");
-        localStorage.removeItem("shoppingCart");     
+              
+            localStorage.removeItem("llistatProductes");
+            localStorage.removeItem("totalCoste");
+            localStorage.removeItem("shoppingCart");     
+
+            var data = new Date();                         
+            var avui = data.getTime();
+
+            var fecha = new Date(avui+86400000);
+            var options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById("dataEntrega").innerHTML = fecha.toLocaleDateString("es-ES", options);
         
-        var date = new Date();
-        var today = date.getTime();
-        var tomorrow= new Date(today+86400000);        
-                
-        var avui = date.getTime();
-
-        var fecha = new Date(avui+86400000);
-        var options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById("dataEntrega").innerHTML = fecha.toLocaleDateString("es-ES", options);
-
-        console.log(
-            fecha.toLocaleDateString("es-ES", options)
-);
-
+         $('#cart').simpleCart({
+            addtoCartClass: '.sc-add-to-cart',
+            cartProductListClass: '.cart-products-list',
+            totalCartCountClass: '.total-cart-count',
+            totalCartCostClass: '.total-cart-cost',
+            showcartID : '#show-cart',
+            itemCountClass : '.item-count'
+          });
         });
     </script>
 </head>
@@ -239,8 +228,10 @@
                             <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuari <span class="fa fa-user"></span></button>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<c:url value="/addUser"/>">Registrar-se</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
+                                <security:authorize access="!isAuthenticated()">
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="<c:url value="/login"/>">Login</a>
+                                </security:authorize>
                                 <security:authorize access="isAuthenticated()">
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="<c:url value="/logout"/>">Logout</a>
@@ -250,7 +241,7 @@
                                     <security:authentication property="principal.username" /> 
                                     </c:set>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte d'usuari</a>
+                                    <a class="dropdown-item" href="<c:url value="/usuari/${username}"/>">Compte de <c:out value ="${username}"/></a>
                                 </security:authorize>
                                 <security:authorize access="hasRole('ADMIN')">
                                     <div class="dropdown-divider"></div>
@@ -260,10 +251,16 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carretó<span class="fa fa-shopping-cart"></span></a>
+                        <div class="dropdown dropdown">
+                        
+                           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carretó <span class="fa fa-shopping-cart"></span></button>
+                           <div class="dropdown-menu dropdown-menu-right carreto force-scroll" aria-labelledby="dropdownMenuButton">                   
+                               <a class="dropdown-item" id="cart"></a>
+                           </div>
+                        
+                            </div>
                     </li>
                 </ul>
-
             </div>
         </div>
     </nav>
@@ -297,30 +294,24 @@
     <!-- PRODUCTOS-->
     
     <div class="container">
-  <div class="row">
-    <div class="col-sm my-5 py-2">
-<h1> Has realitzat una compra. ¡Moltes gràcies! <i class="far fa-smile-beam"></i></1>    </div>
-    <div class="col-sm my-2 py-2">
-        <div class="col-lg-3 my-2 py-2">
-        
-        </div>       
-        T'acabem d'enviar un <b>mail de confirmació</b> de la teva comanda amb tots els detalls i la factura d'aquesta.
-        Els teus productes s'enviaràn un dia posterior a la teva compra.<br>
-        <br>
-       <i id="camioIcon" class="fas fa-truck"></i> La <b> data d'entrega </b> és:
-      <div id="dataEntrega"> </div>
-            <div id="productesEntrega"> </div>
-
+        <div class="row">
+            <div class="col-sm my-5 py-2">
+                <h1> Has realitzat una compra. ¡Moltes gràcies! 
+                    <i class="far fa-smile-beam"></i>
+                </h1>    
+            </div>  
+            <div class="col-sm my-2 py-2">      
+                <div class="col-lg-3 my-2 py-2">   
+                </div>             
+                <p>T'acabem d'enviar un <b>mail de confirmació</b> de la teva comanda amb tots els detalls i la factura d'aquesta.      
+                   Els teus productes s'enviaràn i s'entregaràn un dia posterior a la teva compra.<br> </p>
+                <br>      
+                <i id="camioIcon" class="fas fa-truck"></i> La <b> data d'entrega </b> és:     
+                <div id="dataEntrega" class="mb-3"> </div>           
+            </div> 
+        </div>
     </div>
-  </div>
-</div>
-                                    
-    
-
-
-
-
-    
+                                        
     <!--FOOTER NEWSLETTER-->
     <footer>
         <!--FORMULARIO NEWSLETTER-->
@@ -368,8 +359,11 @@
                         </a>
                     </div>
                     <ul>
-                        <li><a href="#">Contacte</a></li>
-                        <li><a href="#">Polítiques de privacitat</a></li>
+                        <li><a href="<c:url value="/contacte"/>">Contacte</a></li>
+                        <li><a href="<c:url value="/avisLegal"/>">Avís Legal</a></li>
+                        <li><a href="<c:url value="/politica"/>">Polítiques de privacitat</a></li>
+                        <li><a href="<c:url value="/accessibilitat"/>">Accessibilitat</a></li>
+                        <li><a href="<c:url value="/Historia"/>">La nostra història</a></li>
                     </ul>
                 </div>
             </div>  
