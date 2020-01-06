@@ -1,35 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projectebotigabio.domain;
 
-import java.io.Serializable;
-import java.util.Date;
+/**
+*       Definició de comandaDetail
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*       Conté les propietats de comandaDetail, així com les propietats de la taula comandaDetail a la base de dades.
+*       La idea es separar cada produte de la comanda i ficar-ho per separat a comanda_Detail.
+*       Per dificultats en el moment de traspassar informació de javascript a spring, 
+*       actualment no es fa servir al projecte, pero es deixa aqui per si en un futur es vol continuar millorant l'aplicació.
+*/
+
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
-import projectebotigabio.domain.Producte;
-import projectebotigabio.domain.Comanda;
 
 
-/**
- *
- * @author jonat
- */
 @Entity
 @Table(name = "comanda_detail")
 public class ComandaDetail {

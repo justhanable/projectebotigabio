@@ -13,9 +13,12 @@ import projectebotigabio.domain.Comanda;
 import projectebotigabio.repository.ComandaRepository;
 
 /**
- *
- * @author jonat
- */
+*       Definició de comandaServiceImpl
+*       @Author Jonatan Barrio
+*       @Version: 2.0 
+*       Servei que implementa el repositori per tal de guardar, esborrar, llistar o obtenir comandes per id.
+*/
+
 @Service
 public class ComandaServiceImpl implements ComandaService {
     

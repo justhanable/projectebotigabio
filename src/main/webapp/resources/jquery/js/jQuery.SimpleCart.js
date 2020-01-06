@@ -1,12 +1,13 @@
+
+
 /*
- * jQuery Simple Shopping Cart v0.1
+ * Aquest plugin disponible a la biblioteca jquery, ens permet estalviar feina codificant codi perque ens permet obtenir una base del
+ * carretó de compra, és molt bàsica pero nosaltres ens hem encarregat de refactoritzar i adaptar al nostre projecte.
+ * 
  * Basis shopping cart using javascript/Jquery.
  *
  * Authour : Sirisha
  */
-
-
-/* '(function(){})();' this function is used, to make all variables of the plugin Private */
 
 (function ($, window, document, undefined) {
 
@@ -198,6 +199,4 @@
     }
     ;
 })(jQuery, window, document);
-
-
 

@@ -20,9 +20,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- *
- * @author Jonatan
- */
+*       Definició de comanda
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*       Conté les propietats de comanda, així com les propietats de la taula comanda a la base de dades.
+*/
 @Entity
 @Table(name = "comanda")
 public class Comanda {

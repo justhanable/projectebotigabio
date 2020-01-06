@@ -54,8 +54,6 @@
             max-height: 72px;
             max-width: 250px;
         }
-
-
         .input-group {
             width: 375px
         }
@@ -68,87 +66,66 @@
             width: 20%;
             border-left: solid grey 1px;
             text-align: center;
-
         }
-
         .container2 a.nav-link {
             color: white
         }
-
         .container2 li.nav-item:hover {
             background-color: forestgreen
         }
-
         body {
             background-color: white;
             font-family: Roboto;
         }
-
         .container2 {
-            background-color: mediumseagreen;
-                
+            background-color: mediumseagreen;               
         }
-
         footer {
             background-color: midnightblue;
             color: lightgrey
         }
-
         form.p-4 {
             color: white;
             background-color: mediumseagreen
         }
-
         div.col-md-12.py-5 {
             background-color: midnightblue;
             color: white
-        }
-       
+        }   
         button.btn.btn-default {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
             background-color: mediumseagreen;
             color:white
-
         }
         .container{
             font-family: Roboto;
-        }
-                
+        }                
         .barraCercar{
             height: 40px;
             width: 40%;                              
-        }
-        
+        }      
         .barraSelect{                    
             background-color: #DDDDDD;
             margin-right: 10px;
             margin-left:25px;
-        }
-                
+        }               
         img {
            width: 305px; 
            height: 200px;
            object-fit: contain;
-       }
-       
+       }     
        .force-scroll {
-
             overflow-y: scroll;
-
             height: 400px;
-
-        }
-        
+        }      
         .carreto{                        
             background: #F8F9FA;
         }
- 
     </style>
     
     <script>
-     
-        
+           
         $(document).ready(function () {
           $('#cart').simpleCart({
             addtoCartClass: '.sc-add-to-cart',

@@ -29,6 +29,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/02893b0cef.js" crossorigin="anonymous"></script>
+    <!-- SCRIPT jquery.simpleCart-->
+    <link href="<spring:url value="/resources/jquery/css/simple_Cart.css"/>" rel="stylesheet"> 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" 
+        integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
+        crossorigin="anonymous"></script>
+    <script src="<spring:url value="/resources/jquery/js/jQuery.SimpleCart.js"/>" ></script>
+   
     <!--CSS-->
     <style>
         nav, footer{
@@ -74,8 +81,7 @@
             color: white
         }
         
-        @media (max-width:600px){
-                             
+        @media (max-width:600px){                            
         }
         button.btn.btn-default {
             border-top-left-radius: 0;
@@ -92,34 +98,38 @@
             color:white
         }
         .container{
-           font-family:Roboto; 
-            
-        }
-        
-       
-        
+           font-family:Roboto;          
+        }            
         .barraCercar{
             height: 40px;
             width: 40%;                              
-        }
-        
+        }       
         .barraSelect{                    
             background-color: #DDDDDD;
             margin-right: 10px;
             margin-left:25px;
         }
-        /*
-        #legal{
-            border-style: solid ;
-                border-radius: 5px;
-                    border-width: 1px;
-                        background-color: whitesmoke
-        }
-        */
-        
-
-        
+               
+        .force-scroll {
+            overflow-y: scroll;
+            height: 400px;
+        }       
+        .carreto{                        
+            background: #F8F9FA;
+        }        
     </style>
+    <script>          
+        $(document).ready(function () {
+          $('#cart').simpleCart({
+            addtoCartClass: '.sc-add-to-cart',
+            cartProductListClass: '.cart-products-list',
+            totalCartCountClass: '.total-cart-count',
+            totalCartCostClass: '.total-cart-cost',
+            showcartID : '#show-cart',
+            itemCountClass : '.item-count'
+          });
+        });
+    </script>
 </head>
 <body>
     
@@ -205,7 +215,13 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carretó<span class="fa fa-shopping-cart"></span></a>
+                        <div class="dropdown dropdown">
+                        
+                           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Carretó <span class="fa fa-shopping-cart"></span></button>
+                           <div class="dropdown-menu carreto dropdown-menu-right force-scroll" aria-labelledby="dropdownMenuButton">                   
+                               <a class="dropdown-item" id="cart"></a>
+                           </div                        
+                            </div>
                     </li>
                 </ul>
             </div>
