@@ -1,12 +1,13 @@
+
+
 /*
- * jQuery Simple Shopping Cart v0.1
+ * Aquest plugin disponible a la biblioteca jquery, ens permet estalviar feina codificant codi perque ens permet obtenir una base del
+ * carretó de compra, és molt bàsica pero nosaltres ens hem encarregat de refactoritzar i adaptar al nostre projecte.
+ * 
  * Basis shopping cart using javascript/Jquery.
  *
  * Authour : Sirisha
  */
-
-
-/* '(function(){})();' this function is used, to make all variables of the plugin Private */
 
 (function ($, window, document, undefined) {
 
@@ -82,8 +83,7 @@
             $(this.options.addtoCartClass).on("click", function (e) {
                 e.preventDefault();
                 var name = $(this).attr("data-name");
-                var cost = Number($(this).attr("data-price")).toFixed(2);
-                
+                var cost = Number($(this).attr("data-price"));
                 mi._addItemToCart(name, cost, 1);
                 mi._updateCartDetails();
             });
@@ -93,7 +93,7 @@
         e.preventDefault();
         var count = $(this).val();
         var name = $(this).attr("data-name");
-        var cost = Number($(this).attr("data-price")).toFixed(2);
+        var cost = Number($(this).attr("data-price"));
         mi._removeItemfromCart(name, cost, count);
         mi._updateCartDetails();
     });
@@ -157,8 +157,8 @@
             for (var i in this.cart) {
                 totalCost += this.cart[i].price;
             }
-            localStorage.setItem("totalCoste", JSON.stringify(totalCost.toFixed(2)));
-            return totalCost.toFixed(2);
+            localStorage.setItem("totalCoste", JSON.stringify(totalCost));
+            return totalCost;
         },
         _listCart: function () {
             var cartCopy = [];
@@ -199,6 +199,4 @@
     }
     ;
 })(jQuery, window, document);
-
-
 

@@ -223,8 +223,8 @@
     </nav>
     <!--BODY-->
     <div class="container col-md-8">
-        <br/ >
-        <br/ >
+        <br>
+       
         
         <div class="row" id="legal">
             

@@ -8,11 +8,12 @@ package projectebotigabio.service;
 import projectebotigabio.domain.Comanda;
 import java.util.List;
 
-
 /**
- *
- * @author jonat
- */
+*       Definició de comandaService
+*       @Author Grup3 DAW
+*       @Version: 2.0 
+*       Servei que implementa el repositori per tal de guardar, esborrar, llistar o obtenir comandes per id.
+*/
 public interface ComandaService {
     
     public boolean saveComanda(Comanda comanda);
