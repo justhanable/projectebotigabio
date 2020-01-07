@@ -11,10 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import projectebotigabio.domain.ComandaDetail;
 import projectebotigabio.repository.ComandaDetailRepository;
+
 /**
- *
- * @author jonat
- */
+*       Definició de comandaDetailServiceImpl
+*       @Author Jonatan Barrio
+*       @Version: 2.0 
+*       Servei que implementa el repositori per tal de guardar, esborrar, llistar o obtenir comandesDetail per id.
+*       Actualment no es fa servir al projecte, pero es deixa aqui per si en un futur es vol continuar millorant l'aplicació.
+*/
 @Service
 public class ComandaDetailServiceImpl implements ComandaDetailService{
     

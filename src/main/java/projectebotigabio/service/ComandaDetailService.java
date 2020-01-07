@@ -9,9 +9,12 @@ import java.util.List;
 import projectebotigabio.domain.ComandaDetail;
 
 /**
- *
- * @author jonat
- */
+*       Definició de comandaDetailService
+*       @Author Jonatan Barrio
+*       @Version: 2.0 
+*       Servei emprat guardar, esborrar, llistar o obtenir comandesDetail per id.
+*       Actualment no es fa servir al projecte, pero es deixa aqui per si en un futur es vol continuar millorant l'aplicació.
+*/
 public interface ComandaDetailService {
     
      public boolean saveComandaDetail(ComandaDetail comandaDetail);

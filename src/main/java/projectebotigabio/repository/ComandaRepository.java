@@ -10,9 +10,11 @@ import org.springframework.stereotype.Repository;
 import projectebotigabio.domain.Comanda;
 
 /**
- *
- * @author jonat
- */
+*       Definició de comandaRepository
+*       @Author Jonatan Barrio
+*       @Version: 2.0 
+*       Repositori de comanda. Hereta els metodes del repositori JPA
+*/
 
 @Repository
 public interface ComandaRepository  extends  JpaRepository<Comanda, Long> {
