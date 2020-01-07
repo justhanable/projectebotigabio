@@ -200,7 +200,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="/proveidors">Proveïdors</a>
+                        <a class="nav-link" href="<c:url value="/proveidors"/>">Proveïdors</a>
                     </li>
                     <li class="nav-item">
                         <div class="btn-group">

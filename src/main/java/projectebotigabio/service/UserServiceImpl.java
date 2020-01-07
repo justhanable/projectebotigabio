@@ -14,18 +14,7 @@ package projectebotigabio.service;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.EntityManagerFactory;
-
-import javax.transaction.Transactional;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service; 
 
@@ -86,40 +75,23 @@ public class UserServiceImpl implements UserService {
 		}
 		
 	}
-        // Compara si l'usuari actual es igual a un id
-        /*
-        public boolean isUser(int id){
-            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            String identificador="";
-            if (principal instanceof User) {
-                identificador = Long.toString(((User)principal).getId());
-            } else {
-                identificador = principal.toString();
-            }
-            
-            if(identificador.equals(id)){
-                return true;
-            }else{
-                return false;
-            }
+        
+        //Retorna un usuari segons un nom d'usuari passat per paràmetre
+        @Override
+        public User getUserByUsername(String username) {
+            return repository.findByUsername(username);
         }
-*/
-    //Retorna un usuari segons un nom d'usuari passat per paràmetre
-    @Override
-    public User getUserByUsername(String username) {
-        return repository.findByUsername(username);
-    }
-    
-    //Elimina un usuari segons un id passat per paràmetre
-    @Override
-    public boolean deleteUserById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-    //Retorna un usuari segons un email passat per paràmetre
-    @Override
-    public User getUserByEmail(String email) {
-        return repository.findByEmail(email);
-    }
+
+        //Elimina un usuari segons un id passat per paràmetre
+        @Override
+        public boolean deleteUserById(int id) {
+            throw new UnsupportedOperationException("Not supported yet."); 
+        }
+        //Retorna un usuari segons un email passat per paràmetre
+        @Override
+        public User getUserByEmail(String email) {
+            return repository.findByEmail(email);
+        }
         
         
 

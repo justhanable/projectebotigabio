@@ -13,7 +13,6 @@ package projectebotigabio.service;
 
 
 import java.util.List;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import projectebotigabio.domain.User;
 
 public interface UserService{

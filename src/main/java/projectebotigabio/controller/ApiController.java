@@ -72,8 +72,6 @@ public class ApiController {
     }
         
     
-
-
     //Mostra els proveidors
     /*@RequestMapping(value="/proveidors", method= RequestMethod.GET)
     public List<Proveidors> getAllProveidors(){
