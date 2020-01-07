@@ -35,7 +35,7 @@ import projectebotigabio.service.UserService;
 
 @Controller
 public class UserController {
-	// Constructor based Dependency Injection
+	
 	private UserService userService;
         private ProducteService producteService;
         private ProveidorsService proveidorsService;
@@ -51,7 +51,7 @@ public class UserController {
                 this.proveidorsService = proveidorsService;
 	}
 
-
+        //Pàgina home
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 	public ModelAndView hello(HttpServletResponse response) throws IOException {
 		ModelAndView mv = new ModelAndView();
@@ -75,7 +75,7 @@ public class UserController {
             
         }
 
-	// Get All Users
+	// Mostra tots els usuaris
 	@RequestMapping(value = "/administracio/allUsers", method = RequestMethod.GET)
 	public ModelAndView displayAllUser() {
 		System.out.println("User Page Requested : All Users");
@@ -93,28 +93,7 @@ public class UserController {
 		mv.addObject("user", new User());
 		return mv;
 	}
-        /*
-        //Es registra l'usuari i es torna a la pàgina home
-	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public ModelAndView saveNewUser(@Valid @ModelAttribute User user, BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/home");
-                
-		if (result.hasErrors()) {
-			return new ModelAndView("error");
-		}
-                //A l'hora del registre habilitem i fiquem rol d'usuari automàticament
-                user.setEnabled(true);
-                user.setRoles("ROLE_USER");
-		boolean isAdded = userService.saveUser(user);
-		if (isAdded) {
-			mv.addObject("message", "Registre completat amb èxit.");
-		} else {
-			return new ModelAndView("error");
-		}
-                mv.addObject("result", result);
-		return mv;
-	}
-        */
+        
         
         //Registre d'usuari
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
@@ -130,14 +109,7 @@ public class UserController {
 
             return "redirect:/addUser.html?success=true";
 	}
-        /*
-        @RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView loginFormDisplay() {
-		ModelAndView mv = new ModelAndView("/login");
-                
-		return mv;
-	}
-        */
+        
         
         //Es crea la pàgina de login
         @GetMapping("login")
@@ -158,10 +130,6 @@ public class UserController {
         */
         
         
-        
-        //Només l'admin o l'usuari especific pot modificar les seves dades -- NO FUNCIONA
-        //@PreAuthorize("hasRole('ADMIN') || @userServiceImpl.isUser(id)")
-        //@PreAuthorize("hasRole('ADMIN') or #id == principal.username")
         
         //Es mostren les dades d'usuari i dona l'opcio de modificar-les
         @RequestMapping(value = "/usuari/{username}", method = RequestMethod.GET)
@@ -197,38 +165,12 @@ public class UserController {
             return mv;
            
 	}
-        /*
-        //Modifica les dades d'usuari
-        
-	@RequestMapping(value = "/usuari/{username}", method = RequestMethod.POST)
-	public ModelAndView saveEditedUser(@ModelAttribute User user, BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/home");
-
-		if (result.hasErrors()) {
-                        ModelAndView mav = new ModelAndView("error");
-                        mav.addObject("errors",result.getAllErrors());
-			System.out.println(result.toString());
-			return mav;
-		}
-		boolean isSaved = userService.saveUser(user);
-		if (!isSaved) {
-                        ModelAndView mav = new ModelAndView("error");
-                        mav.addObject("errors",result.getAllErrors());
-			System.out.println(result.toString());
-			return mav;
-			
-		}
-
-		return mv;
-	}
-        
-        */
+       
 
         //Mètode per eliminar usuaris
 	@RequestMapping(value = "/administracio/deleteUser/{username}", method = RequestMethod.GET)
 	public ModelAndView deleteUserByUsername(@PathVariable String username) {
 		boolean isDeleted = userService.deleteUserByUsername(username);
-		System.out.println("User deletion respone: " + isDeleted);
 		ModelAndView mv = new ModelAndView("redirect:/administracio");
 		return mv;
 

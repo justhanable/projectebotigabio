@@ -36,7 +36,7 @@ import projectebotigabio.repository.UserRepository;
 
 public class UserServiceImpl implements UserService {
 
-        // Implementing Constructor based DI
+        
         private UserRepository repository;
 
         public UserServiceImpl() {
@@ -49,20 +49,20 @@ public class UserServiceImpl implements UserService {
                 this.repository = repository;
         }
         
-        
+        // Retorna tots els usuaris
 	@Override
 	public List getAllUsers() {
 		List list = new ArrayList();
 		repository.findAll().forEach(e -> list.add(e));
 		return list;
 	}
-
+        // Retorna un usuari segons l'id passat per paràmetre
 	@Override
 	public User getUserById(int id) {
 		User user = repository.findById(Long.valueOf(id)).get();
 		return user;
 	}
-        
+        //Guardem l'usuari passat per paràmetre a la base de dades
 	@Override
 	public boolean saveUser(User user) {
 		try {   
@@ -75,7 +75,7 @@ public class UserServiceImpl implements UserService {
 			return false;
 		}
 	}
-
+        //Eliminem un usuari segons el nom d'usuari passat per paràmetre
 	@Override
 	public boolean deleteUserByUsername(String username) {
 		try {
@@ -104,17 +104,18 @@ public class UserServiceImpl implements UserService {
             }
         }
 */
-
+    //Retorna un usuari segons un nom d'usuari passat per paràmetre
     @Override
     public User getUserByUsername(String username) {
         return repository.findByUsername(username);
     }
-
+    
+    //Elimina un usuari segons un id passat per paràmetre
     @Override
     public boolean deleteUserById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
-
+    //Retorna un usuari segons un email passat per paràmetre
     @Override
     public User getUserByEmail(String email) {
         return repository.findByEmail(email);

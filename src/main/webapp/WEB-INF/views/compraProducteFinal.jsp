@@ -146,7 +146,7 @@
     </style>   
     <script>           
         $(document).ready(function () {
-              
+            var llistatProductes = JSON.parse(localStorage.getItem("llistatProductes"));  
             localStorage.removeItem("llistatProductes");
             localStorage.removeItem("totalCoste");
             localStorage.removeItem("shoppingCart");     
@@ -157,7 +157,7 @@
             var fecha = new Date(avui+86400000);
             var options = { year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById("dataEntrega").innerHTML = fecha.toLocaleDateString("es-ES", options);
-        
+            
          $('#cart').simpleCart({
             addtoCartClass: '.sc-add-to-cart',
             cartProductListClass: '.cart-products-list',
