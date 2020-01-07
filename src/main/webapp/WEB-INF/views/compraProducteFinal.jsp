@@ -137,7 +137,7 @@
     </style>   
     <script>           
         $(document).ready(function () {
-            var llistatProductes = JSON.parse(localStorage.getItem("llistatProductes"));  
+              
             localStorage.removeItem("llistatProductes");
             localStorage.removeItem("totalCoste");
             localStorage.removeItem("shoppingCart");     

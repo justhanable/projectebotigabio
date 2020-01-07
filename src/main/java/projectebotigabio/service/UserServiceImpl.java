@@ -85,7 +85,12 @@ public class UserServiceImpl implements UserService {
         //Elimina un usuari segons un id passat per paràmetre
         @Override
         public boolean deleteUserById(int id) {
-            throw new UnsupportedOperationException("Not supported yet."); 
+            try {
+                        repository.deleteById(Long.valueOf(id));
+			return true;
+		}catch(Exception ex) {
+			return false;
+		}
         }
         //Retorna un usuari segons un email passat per paràmetre
         @Override

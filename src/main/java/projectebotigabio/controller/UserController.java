@@ -168,9 +168,9 @@ public class UserController {
        
 
         //Mètode per eliminar usuaris
-	@RequestMapping(value = "/administracio/deleteUser/{username}", method = RequestMethod.GET)
-	public ModelAndView deleteUserByUsername(@PathVariable String username) {
-		boolean isDeleted = userService.deleteUserByUsername(username);
+	@RequestMapping(value = "/administracio/deleteUser/{id}", method = RequestMethod.GET)
+	public ModelAndView deleteUserByUsername(@PathVariable int id) {
+		boolean isDeleted = userService.deleteUserById(id);
 		ModelAndView mv = new ModelAndView("redirect:/administracio");
 		return mv;
 

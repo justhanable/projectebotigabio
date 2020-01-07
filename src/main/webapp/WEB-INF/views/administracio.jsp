@@ -382,7 +382,7 @@
 					<!--<td><a
 						href="${pageContext.request.contextPath}/usuari/${user.username}">Edit</a></td>-->
 					<td><a
-						href="${pageContext.request.contextPath}/administracio/deleteUser/${user.username}">Eliminar <span class="far fa-trash-alt"></span></a></td>
+						href="${pageContext.request.contextPath}/administracio/deleteUser/${user.id}">Eliminar <span class="far fa-trash-alt"></span></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
